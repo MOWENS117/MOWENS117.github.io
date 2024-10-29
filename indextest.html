@@ -40,32 +40,48 @@
         }
     </style>
 </head>
+
 <body>
     <h1 class="big" style="margin-bottom: 0px;">
-        <img src=> Myles Owens | LSE MPA | Economic Policy
-    </h1>        
+        Myles Owens | LSE MPA | Economic Policy
+    </h1>
     <p style="margin-top: 0px; color: darkblue">
-        <a href="https://mylesowens.substack.com/">Policy Blog</a> | <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a> | <a href="https://github.com/MOWENS117">GitHub</a> | <a href="cv.html">My CV</a> | <a href="project.html" class="button">Projects</a> | <a href="portfolio.html" class="button">Portfolio</a> 
+        <a href="https://mylesowens.substack.com/">Policy Blog</a> | <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a> | <a href="https://github.com/MOWENS117">GitHub</a> | <a href="my_cv.html">My CV</a>
     </p>
-    <h3 class="small">
-        Hey, I’m Myles Owens – I specialise in taking complex economic data and turning it into clear, engaging visuals, using Python and HTML/CSS. Whether it's economic trends, policy analysis, or financial forecasts, I make sure the numbers don’t just sit there – they tell a story.
-    </h3>
+    <div style="display: flex; justify-content: center; gap: 40px; margin-top: 30px;">
+        <div style="text-align: center;">
+            <img src="dataviz_icon.png" alt="Data Visualization" style="width: 50px; height: 50px; margin-bottom: 10px;">
+            <p style="font-weight: bold;">Data Visualization</p>
+        </div>
+        <div style="text-align: center;">
+            <img src="causal.jpg" alt="Causal Inference" style="width: 50px; height: 50px; margin-bottom: 10px;">
+            <p style="font-weight: bold;">Causal Inference</p>
+        </div>
+        <div style="text-align: center;">
+            <img src="ml_icon.png" alt="Machine Learning" style="width: 50px; height: 50px; margin-bottom: 10px;">
+            <p style="font-weight: bold;">Machine Learning</p>
+        </div>
+        <div style="text-align: center;">
+            <img src="blogging_icon.png" alt="Blogging" style="width: 50px; height: 50px; margin-bottom: 10px;">
+            <p style="font-weight: bold;">Blogging</p>
+        </div>
+    </div>
 
     <!-- Carousel Section -->
     <div id="carousel">
         <div class="carousel-inner">
             <div class="carousel-item">
                 <div class="chart-description">
-                    <h2>Data visualisation highlights</h2>
+                    <h2>Section 1: A basic chart</h2>
                     <p>
-                        
+                        We've organised the page into sections, with each section containing a chart, title, and a description. Here, we can describe the chart and give some context. As a first example, we're using a basic chart from our repo.
                     </p>
                 </div>
                 <figure id="Location1"></figure>
             </div>
             <div class="carousel-item">
                 <div class="chart-description">
-                    <h2>Crypto Chart</h2>
+                    <h2>Section 2: Crypto Chart</h2>
                     <p>
                         We've added a second chart of my choice. This time on crypto.
                     </p>
@@ -74,34 +90,16 @@
             </div>
             <div class="carousel-item">
                 <div class="chart-description">
-                    <h2>CO2 Chart</h2>
+                    <h2>Section 3: CO2 Chart</h2>
                     <p>
                         We've added a third chart of my choice. This time on emissions.
                     </p>
                 </div>
                 <figure id="Location3"></figure>
             </div>
-            <div class="carousel-item">
-                <div class="chart-description">
-                    <h2>API Chart</h2>
-                    <p>
-                        We've taken an inflation chart from the economic observatory which utilises the API.
-                    </p>
-                </div>
-                <figure id="Location4"></figure>
-            </div>
-            <div class="carousel-item">
-                <div class="chart-description">
-                    <h2>GitHub Chart</h2>
-                    <p>
-                        We've added a chart using a CSV file from our GitHub.
-                    </p>
-                </div>
-                <figure id="Location5"></figure>
-            </div>
         </div>
     </div>
-    
+
     <!-- Carousel Buttons -->
     <div class="carousel-buttons" style="position: relative; top: 20px; display: flex; justify-content: center; gap: 20px;">
     <button id="prevBtn">&#8249;</button>
@@ -112,7 +110,7 @@
     <section id="about-me" style="text-align: center; margin-top: 50px;">
         <div style="display: flex; justify-content: center; gap: 20px;">
             <img src="exp.png" alt="Experience Board" style="max-width: 300px; width: 300px; height: 300px; margin-bottom: 20px; object-fit: cover;">
-            <img src="aboutmepic2.jpg" alt="Picture of Myles Owens" style="max-width: 300px; width: 300px; height: 300px; margin-bottom: 20px; object-fit: cover;">
+            <img src="aboutmepic.jpg" alt="Picture of Myles Owens" style="max-width: 300px; width: 300px; height: 300px; margin-bottom: 20px; object-fit: cover;">
             <img src="policypulse.png" alt="Policy Pulse Blog" style="max-width: 300px; width: 300px; height: 300px; margin-bottom: 20px; object-fit: cover;">
         </div>
         <h2>About Me</h2>
@@ -121,18 +119,14 @@
 
     <script>
         // Vega-Lite specifications for embedding charts
-        let figure_1_spec = "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/2/s2_chart2.json"
-        let figure_2_spec = "wk1_ether.json"
-        let figure_3_spec = "wk1_co2.json"
-        let figure_4_spec = "inflation_ex.json"
-        let figure_5_spec = "vice_spending.json"
+        let figure_1_spec = "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/2/s2_chart2.json";
+        let figure_2_spec = "wk1_ether.json";
+        let figure_3_spec = "wk1_co2.json";
 
         // Embed the charts into their respective figures
-        vegaEmbed('#Location1', figure_1_spec)
-        vegaEmbed('#Location2', figure_2_spec)
-        vegaEmbed('#Location3', figure_3_spec)
-        vegaEmbed('#Location4', figure_4_spec)
-        vegaEmbed('#Location5', figure_5_spec)
+        vegaEmbed('#Location1', figure_1_spec);
+        vegaEmbed('#Location2', figure_2_spec);
+        vegaEmbed('#Location3', figure_3_spec);
 
         // Carousel functionality
         const carouselInner = document.querySelector('.carousel-inner');

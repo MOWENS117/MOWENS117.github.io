@@ -1,0 +1,175 @@
+<!-- This HTML file provides a simple example of a portfolio page. It contains a header, a few sections, and a few charts. -->
+<!-- It works with the three css files in this folder: example1.css, example2.css and example3.css. -->
+<!-- The HTML file defines the structure of the page, and the CSS files define how it looks. -->
+<!-- The CSS examples are all designed to work with this page. Try swapping them out on line 29 and see what happens. -->
+
+<!-- Take a look around and make your own copy to adapt for your own use. -->
+
+<!-- This is a comment -->
+<!-- Comments are not displayed in the browser -->
+<!-- They can be used to leave notes in the code -->
+
+<!DOCTYPE html>
+<html> 
+    <!-- HTML is heirarchial: tags like this define elements on the page. 
+    Each tag does something different. For example:
+        - The <html> tag defines the whole document.
+        - The <h1> tag defines a large heading
+        - The <p> tag defines a paragraph
+        - Tags appear as an opening <div> and closing </div> pair
+    -->
+
+<head>    
+    <!-- The head tag links to resources our page needs and defines information about it. Tags in the <head> aren't displayed on the page. -->
+
+    <!-- This is a link to a stylesheet which contains rules about how each element on the page should be defined-->
+    <!-- Try swapping example1.css to another, and take a look at example1.css to see if you understand it-->
+    <link rel="stylesheet" type="text/css" href="styles2.css">
+    <title>My Portfolio</title> <!-- The title displayed in the browser tab, not on the page itself -->
+
+    <!-- This is a link to the vega-lite which we're using to make graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <style>
+        #chartGrid {
+            display: flex;
+        }
+        
+    </style>
+</head>
+
+<body> 
+<!-- The body tag contains the elements that visitors to our page will see. -->
+    <h1 class="big" style="margin-bottom: 0px;"> <!-- We have added a class to the header called "big" which we can use to style it in the CSS -->
+        <!-- This is a header, it is the largest text on the page -->
+        Myles Owens| LSE MPA | Economic Policy
+    </h1>
+    <p style="margin-top: 0px; color: darkblue">
+        <!-- we're setting the margin to 0px so the header and authour name are close together -->
+        <a href="https://mylesowens.substack.com/">Policy Blog</a> | <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a> | <a
+            href="https://github.com/MOWENS117">GitHub</a>
+    </p>
+    <h3 class="small"> <!-- We have added a class to the header called "small" which we can use to style it in the CSS -->
+        Hey, I’m Myles Owens – I make economic data talk. I specialise in taking complex economic data and turning it into clear, engaging visuals, using Python and HTML/CSS. Whether it's economic trends, policy analysis, or financial forecasts, I make sure the numbers don’t just sit there – they tell a story.
+    </h3>
+
+    <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
+    <section>
+        <div class="chart-description">
+            <h2>CC1. Hosting. Display charts in your own site.</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+            </p>
+        </div>
+        <figure id="Location1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
+
+    <!-- Do you want to add more sections? -->
+        <!-- Try copying pasting the section above -->
+        <!-- You'll need to change the id of the figure "<figure id="Location3"... -->
+        <!-- ... and add a new variable for the graph spec in the script at the bottom of the page -->
+
+    <!-- We created a second section containing a chart, title and a description -->
+  <section>
+    <div class="chart-description">
+        <h2>CC1. Hosting. Display charts in your own site.</h2>
+        <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+            We've added a second chart of my choice. This time on crypto.
+        </p>
+    </div>
+    <figure id="Location2"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+</section>
+<!-- We created a third section containing a chart, title and a description -->
+  <section>
+    <div class="chart-description">
+        <h2>CC1. Hosting. Display charts in your own site.</h2>
+        <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+            We've added a third chart of my choice. This time on emissions.
+        </p>
+    </div>
+    <figure id="Location3"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+</section>
+<!-- We created a fourth section containing a chart, title and a description -->
+<section>
+    <div class="chart-description">
+        <h2>CC2. Building. Create your own visualisations</h2>
+        <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+            We've added a third chart of my choice. This time on emissions.
+        </p>
+    </div>
+    <figure id="Location4"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+</section>
+<!-- We created a fourth section containing a chart, title and a description -->
+<section>
+    <div class="chart-description">
+        <h2>CC2. Building. Create your own visualisations</h2>
+        <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+        </p>
+    </div>
+    <figure id="Location5"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+</section>
+<!-- We created a fourth section containing a chart, title and a description -->
+<section>
+    <div class="chart-description">
+        <h2>CC3. Debating. Use a visualisation in economic/policy commentary</h2>
+        <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+            At the Festival of Economics, the author of Beyond Fair Play called out the myth that GDP growth alone makes society fairer, 
+            especially for the bottom deciles.
+        </p>
+    </div>
+    <div class="charts-container">
+        <figure id="Location6"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </div>
+</section>
+<!-- We created a fifth section containing a chart, title and a description -->
+<section>
+    <div class="chart-description">
+        <h2>
+            CC4. Replication. Re-create, then improve, someone else’s chart.        
+        </h2>
+        <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+            I recreated and then edited this chart on test scores form teh public research council of ALabama. The bar form of the chart seems innapropiate and can be better converyed with a simple line chart.
+        </p>
+    </div>
+    <div class="charts-container">
+        <figure>
+            <img src="parca_statewide_score.png" alt="PARCA Statewide Score"> 
+        </figure>        
+        <figure id="Location8"></figure>
+        <figure id="Location9"></figure>
+    </div>
+</section>
+    <!-- This is a script, it's a way to run JavaScript code on the page -->
+    <script>
+        // This is a comment in JavaScript - it's a different language to HTML and CSS
+
+        let figure_1_spec = "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/2/s2_chart2.json"; // We're storing the URL of the graph we want to display in a variable
+        let figure_2_spec = "wk1_ether.json"                                                                                                            // You should have a spec for a graph in this same folder. Just specify its name here, e.g. let figure_1_spec = "chart1.json"
+        let figure_3_spec = "wk1_co2.json"
+        let figure_4_spec = "inflation_ex.json"
+        let figure_5_spec = "vice_spending.json"
+        let figure_6_spec = "inequality.json"
+        let figure_7_spec = "parca_statewide_score.png"
+        let figure_8_spec = "parca_old.json"
+        let figure_9_spec = "parca_new.json"
+        vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
+        vegaEmbed('#Location2', figure_2_spec)
+        vegaEmbed('#Location3', figure_3_spec)
+        vegaEmbed('#Location4', figure_4_spec)
+        vegaEmbed('#Location5', figure_5_spec)
+        vegaEmbed('#Location6', figure_6_spec)
+        vegaEmbed('#Location8', figure_8_spec)
+        vegaEmbed('#Location9', figure_9_spec)
+        // Do you want to add more graphs?
+        // try defining a new variable for figure_3_spec, adding VegaEmbed for Location3, and adding a new section in the HTML
+        // e.g. 
+        // let figure_3_spec = ...
+        // vegaEmbed('#Location3', figure_3_spec)
+
+
+    </script>
+
+</body>
+    
+</html>

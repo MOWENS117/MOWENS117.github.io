@@ -1,0 +1,275 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* DEBUG: Applied general reset for all elements */
+  
+}
+
+/* Body Styling */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f8f9fa; /* Light grey to soften the overall appearance */
+  margin: 0 auto;
+  max-width: 960px; /* Reduced width for standard format */ /* Slightly wider for better data visualisation layouts */
+  padding: 40px 20px; /* Provides breathing room around content */
+  /* DEBUG: Applied body styling */
+/*Heading Font*/  
+}
+.small {
+  font-size: 14px; /* Adjust as needed */
+}
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #222; /* Darker text for better readability */
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  /* DEBUG: Headings styling applied */
+  
+}
+
+h1 {
+  font-size: 2.5em; /* Adjusted font size to fit heading on one line */
+  border-bottom: 2px solid #065f46; /* Adds a distinct separator for main title */
+  padding-bottom: 0.2em;
+  /* DEBUG: h1 styling applied */
+  
+}
+
+h2 {
+  font-size: 2.25em;
+  /* DEBUG: h2 styling applied */
+  
+}
+
+h3 {
+  font-size: 1.75em;
+  /* DEBUG: h3 styling applied */
+  
+}
+
+h4 {
+  font-size: 1em;
+}
+
+/* Paragraph Styling */
+p {
+  margin-bottom: 1.5em;
+  font-weight: 300;
+  max-width: 800px; /* Keeps text lines from becoming too long */
+  /* DEBUG: Paragraph styling applied */
+  
+}
+
+/* Section Spacing */
+section {
+  margin-bottom: 3em;  /* More space between sections for a cleaner feel */
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for better section separation */
+  /* DEBUG: Section styling applied */
+  
+}
+
+/* Link Styling */
+a {
+  color: #00796b; /* Calmer shade of green for links */
+  text-decoration: none;
+  font-weight: 500;
+  /* DEBUG: Link styling applied */
+  
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #004d40; /* Darker shade on hover for emphasis */
+  /* DEBUG: Link hover styling applied */
+  
+}
+
+/* Button Styling */
+button {
+  background-color: #065f46;
+  color: white;
+  border: 2px solid #004d40;
+  padding: 15px 30px; /* Increased padding for chunkier buttons */
+  border-radius: 4px; /* Small border-radius to keep the rectangular shape */
+  cursor: pointer;
+  font-size: 1.2em; /* Slightly larger font for chunkier appearance */
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #004d40;
+}
+
+
+/* Image Styling */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 1.5em;
+  /* DEBUG: Image styling applied */
+  
+}
+
+/* Navigation Bar */
+nav {
+  background-color: #065f46;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  margin-bottom: 40px;
+  /* DEBUG: Navigation bar styling applied */
+  
+}
+
+nav a {
+  color: #fff;
+  margin-right: 20px;
+  text-decoration: none;
+  transition: color 0.3s;
+  /* DEBUG: Navigation link styling applied */
+  
+}
+
+nav a:hover {
+  color: #e0f2f1;
+  /* DEBUG: Navigation link hover styling applied */
+  
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 0.9em;
+  color: #666;
+  /* DEBUG: Footer styling applied */
+  
+}
+
+footer a {
+  color: #065f46;
+  text-decoration: none;
+  /* DEBUG: Footer link styling applied */
+  
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #004d40;
+  /* DEBUG: Footer link hover styling applied */
+  
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+  /* DEBUG: Utility class .text-center applied */
+  
+}
+
+.mt-4 {
+  margin-top: 2em;
+  /* DEBUG: Utility class .mt-4 applied */
+  
+}
+
+.mb-4 {
+  margin-bottom: 2em;
+  /* DEBUG: Utility class .mb-4 applied */
+  
+}
+
+.p-4 {
+  padding: 2em;
+  /* DEBUG: Utility class .p-4 applied */
+  
+}
+
+/* Table Styling for Data Visualisation */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2em;
+  /* DEBUG: Table styling applied */
+  
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  /* DEBUG: Table border and padding styling applied */
+  
+}
+
+th {
+  background-color: #f1f1f1;
+  font-weight: 600;
+  /* DEBUG: Table header styling applied */
+  
+}
+
+td {
+  background-color: #ffffff;
+  /* DEBUG: Table cell styling applied */
+  
+}
+
+/* Chart Container for Data Visualisation */
+.chart-container {
+  margin: 3em 0;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  /* DEBUG: Chart container styling applied */
+  
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    /* DEBUG: Responsive body padding applied */
+    
+  }
+
+  h1 {
+    font-size: 2.5em;
+    /* DEBUG: Responsive h1 font size applied */
+    
+  }
+
+  h2 {
+    font-size: 2em;
+    /* DEBUG: Responsive h2 font size applied */
+    
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    /* DEBUG: Responsive navigation styling applied */
+    
+  }
+
+  nav a {
+    margin: 5px 0;
+    /* DEBUG: Responsive navigation link margin applied */
+    
+  }
+
+}
+
+/* End of CSS File */

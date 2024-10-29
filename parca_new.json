@@ -1,0 +1,114 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    
+    "title": {
+      "text": "Statewide, All Grades, % Proficient",
+      "subtitle": "Alabama Comprehensive Assessment Program",
+      "subtitleFontStyle": "italic",
+      "subtitleFontSize": 12,
+      "anchor": "start",
+      "color": "black"
+    },
+    
+    "data": {
+      "values": [
+        {"Year": "2021", "Subject": "Math", "Percentage": 21.8},
+        {"Year": "2022", "Subject": "Math", "Percentage": 27.8},
+        {"Year": "2023", "Subject": "Math", "Percentage": 30.8},
+        {"Year": "2024", "Subject": "Math", "Percentage": 32.4},
+        {"Year": "2021", "Subject": "ELA", "Percentage": 47.8},
+        {"Year": "2022", "Subject": "ELA", "Percentage": 49.6},
+        {"Year": "2023", "Subject": "ELA", "Percentage": 51.9},
+        {"Year": "2024", "Subject": "ELA", "Percentage": 56.0},
+        {"Year": "2021", "Subject": "Science", "Percentage": 36.5},
+        {"Year": "2022", "Subject": "Science", "Percentage": 39.8},
+        {"Year": "2023", "Subject": "Science", "Percentage": 41.0},
+        {"Year": "2024", "Subject": "Science", "Percentage": 41.1}
+      ]
+    },
+    
+    "height": 300,
+    "width": 400,
+  
+    "layer": [
+      {
+        "mark": {
+          "type": "line",
+          "point": {
+            "size": 80  // Increased point size for clarity
+          },
+          "interpolate": "monotone"  // Smooth curves for better visuals
+        },
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "ordinal",
+            "axis": {
+              "title": "Year",
+              "grid": false,
+              "labelAngle": 45,  // Rotate labels for better readability
+              "labelFontSize": 12,
+              "titleFontSize": 14
+            }
+          },
+          "y": {
+            "field": "Percentage",
+            "type": "quantitative",
+            "title": "% Proficient",
+            "axis": {
+              "grid": true,
+              "gridOpacity": 0.1,  // Light grey gridlines for context
+              "labelFontSize": 12,
+              "titleFontSize": 14
+            }
+          },
+          "strokeDash": {
+            "field": "Subject",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Math", "ELA", "Science"],
+              "range": [[1, 0], [5, 5], [2, 2]]  // Solid, dashed, and dotted lines
+            }
+          },
+          "color": {
+            "field": "Subject",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Math", "ELA", "Science"],
+              "range": ["#1f77b4", "#ff7f0e", "#2ca02c"]  
+            }
+          },
+          "tooltip": [
+            {"field": "Year", "type": "ordinal", "title": "Year"},
+            {"field": "Subject", "type": "nominal", "title": "Subject"},
+            {"field": "Percentage", "type": "quantitative", "title": "% Proficient"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dx": 5,
+          "dy": -5
+        },
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "ordinal"
+          },
+          "y": {
+            "field": "Percentage",
+            "type": "quantitative"
+          },
+          "text": {
+            "condition": {
+              "test": "datum.Year === '2024'",
+              "field": "Subject",
+              "type": "nominal"
+            }
+          }
+        }
+      }
+    ]
+  }

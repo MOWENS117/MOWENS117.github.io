@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/bottom_percent.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "transform": [
+      {
+        "filter": "datum['Income share held by lowest decile (%)'] != null && datum['GDPPC'] != null"
+      }
+    ],
+    "mark": {
+      "type" : "square",
+      "color" :"red"
+    },
+    "title": {
+      "text": "Economic Growth vs. Income Inequality",
+      "subtitle": [
+        "GDP per Capita Growth (2018) and Income Share of the Bottom 10%", 
+        "Source: World Bank"
+      ]
+    },
+    "encoding": {
+      "x": {
+        "field": "GDPPC",
+        "type": "quantitative",
+        "title": "GDP per Capita Growth (%)",
+        "axis" : {
+          "grid" : false
+        }
+      },
+      "y": {
+        "field": "Income share held by lowest decile (%)",
+        "type": "quantitative",
+        "title": "Income Share of the Bottom 10% (%)",
+        "scale": {
+          "domain": [0, 5],
+          "nice": false
+        },
+        "axis" : { 
+          "grid" : false }
+      }
+    }
+  }
+  
+  
+  
