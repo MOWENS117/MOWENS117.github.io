@@ -27,7 +27,7 @@ KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Нарынский,Naryn,Naryn,район,raion,
 KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Нарын,Naryn (city),Naryn (city),города областного значения,shaar,independent city,39300,"39,300",0,39300
 KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Баткенский,Batken,Batken,район,raion,district,86600,0,"86,600",86600
 KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Лейлекский,Leilek,Leilek,район,raion,district,137100,"21,500","115,600",137100
-KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Кадамжайский,Kadamjai,Kadamjai,район,raion,district,189100,"20,300","168,800",189100
+KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Кадамжайский,Kadamjai,Kadamjay,район,raion,district,189100,"20,300","168,800",189100
 KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Баткен,Batken (city),Batken (city),города областного значения,shaar,independent city,25000,"17,600","7,400",25000
 KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Сулюкта,Sulukta (city),Sulukta (city),города областного значения,shaar,independent city,23200,"22,400",800,23200
 KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Кызыл-Кия,Kyzyl-Kia (city),Kyzyl-Kia (city),города областного значения,shaar,independent city,52600,"39,300","13,300",52600
@@ -37,9 +37,9 @@ KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Кара-Сууский,Kara-suu,Kara-Suu,район,ra
 KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Ноокатский,Nookat,Nookat,район,raion,district,283400,"17,000","266,400",283400
 KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Кара-Кулжинский,Kara-Kulja,Kara-Kulja,район,raion,district,98100,0,"98,100",98100
 KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Узгенский,Uzgen,Uzgen,район,raion,district,267200,"58,800","208,400",267200
-KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Чон-Алайский,Chon-Alai,Chon-Alay,район,raion,district,30400,0,"30,400",30400
+KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Чон-Алайский,Chon-Alai,Chong-Alay,район,raion,district,30400,0,"30,400",30400
 KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Кара-Бууринский,Kara-Buura,Kara-Buura,район,raion,district,65800,0,"65,800",65800
-KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Бакай-Атинский,Bakai-Ata,Bakai-Ata,район,raion,district,51000,0,"51,000",51000
+KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Бакай-Атинский,Bakai-Ata,Bakay-Ata,район,raion,district,51000,0,"51,000",51000
 KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Манасский,Manas,Manas,район,raion,district,36400,0,"36,400",36400
 KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Таласский,Talas,Talas,район,raion,district,68100,0,"68,100",68100
 KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Талас,Talas (city),Talas (city),города областного значения,shaar,independent city,37700,"37,700",0,37700
