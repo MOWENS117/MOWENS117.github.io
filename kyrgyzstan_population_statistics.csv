@@ -1,54 +1,54 @@
 Country,admin0Pcode,admin1Pcode,admin1Name_en,admin1Name_ru,admin2Pcode,admin2Name_ru,Name,shapeName,admin2Type_ru,admin2Type_ky,admin2Type_en,T_TL,Urban_pop,Rural_pop,Pop
-KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Ак-Суйский,Ak-Suu,Ak-Suu,район,raion,district,68300,0,"68,300",68300.00
-KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Жети-Огузский,Jeti-Oguz,Jeti-Oguz,район,raion,district,90400,0,"90,400",90400.00
-KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Иссык-Кульский,Issyk-Kul,Issyk-Kul,район,raion,district,82100,"13,300","68,800",82100.00
-KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Тонский,Ton,Ton,район,raion,district,52600,0,"52,600",52600.00
-KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Тюпский,Tup,Tup,район,raion,district,63900,0,"63,900",63900.00
-KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Каракол,Karakol (city),Karakol (city),города областного значения,shaar,independent city,77700,"77,700",0,77700.00
-KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Балыкчы,Balykchy (city),Balykchy (city),города областного значения,shaar,independent city,48000,"48,000",0,48000.00
-KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Ала-Букинский,Ala-Buka,Ala-Buka,район,raion,district,102200,0,"102,200",102200.00
-KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Базар-Коргонский,Bazar-Korgon,Bazar-Korgon,район,raion,district,171700,0,"171,700",171700.00
-KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Аксыйский,Aksy,Aksy,район,raion,district,131400,"17,900","113,500",131400.00
-KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Ноокенский,Nooken,Nooken,район,raion,district,137000,"16,500","120,500",137000.00
-KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Сузакский,Suzak,Suzak,район,raion,district,288600,"11,600","277,000",288600.00
-KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Тогуз-Тороуский,Toguz-Toro,Toguz-Toro,район,raion,district,24500,0,"24,500",24500.00
-KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Токтогульский,Toktogul,Toktogul,район,raion,district,98800,"19,400","79,400",98800.00
-KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Чаткальский,Chatkal,Chatkal,район,raion,district,27100,0,"27,100",27100.00
-KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Джалал-Абад,Jalal-Abad (city),Jalal-Abad (city),города областного значения,shaar,independent city,117200,"107,500","9,700",117200.00
-KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Таш-Кумыр,Tash-Kumir (city),Tash-Kumir (city),города областного значения,shaar,independent city,41300,"37,300","4,000",41300.00
-KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Майлуу-Суу,Mailuu-Suu (city),Mailuu-Suu (city),города областного значения,shaar,independent city,25400,"25,400",0,25400.00
-KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Кара-Куль,Kara-Kul (city),Kara-Kul (city),города областного значения,shaar,independent city,25400,"23,600","1,800",25400.00
-KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Кок-Жангак,Kok-Zhangak (city),Kok-Zhangak (city),города областного значения,shaar,independent city,11600,"11,600",0,11600.00
-KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Ак-Талинский,Ak-Tala,Ak-Tala,район,raion,district,32400,0,"32,400",32400.00
-KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Ат-Башынский,At-Bashy,At-Bashy,район,raion,district,54200,0,"54,200",54200.00
-KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Жумгальский,Jumgal,Jumgal,район,raion,district,43800,0,"43,800",43800.00
-KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Кочкорский,Kochokor,Kochokor,район,raion,district,65400,0,"65,400",65400.00
-KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Нарынский,Naryn,Naryn,район,raion,district,48700,0,"48,700",48700.00
-KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Нарын,Naryn (city),Naryn (city),города областного значения,shaar,independent city,39300,"39,300",0,39300.00
-KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Баткенский,Batken,Batken,район,raion,district,86600,0,"86,600",86600.00
-KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Лейлекский,Leilek,Leilek,район,raion,district,137100,"21,500","115,600",137100.00
-KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Кадамжайский,Kadamjai,Kadamjai,район,raion,district,189100,"20,300","168,800",189100.00
-KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Баткен,Batken (city),Batken (city),города областного значения,shaar,independent city,25000,"17,600","7,400",25000.00
-KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Сулюкта,Sulukta (city),Sulukta (city),города областного значения,shaar,independent city,23200,"22,400",800,23200.00
-KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Кызыл-Кия,Kyzyl-Kia (city),Kyzyl-Kia (city),города областного значения,shaar,independent city,52600,"39,300","13,300",52600.00
-KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Алайский,Alai,Alai,район,raion,district,84700,0,"84,700",84700.00
-KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Араванский,Aravan,Aravan,район,raion,district,128900,0,"128,900",128900.00
-KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Кара-Сууский,Kara-suu,Kara-suu,район,raion,district,421400,"25,100","396,300",421400.00
-KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Ноокатский,Nookat,Nookat,район,raion,district,283400,"17,000","266,400",283400.00
-KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Кара-Кулжинский,Kara-Kulja,Kara-Kulja,район,raion,district,98100,0,"98,100",98100.00
-KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Узгенский,Uzgen,Uzgen,район,raion,district,267200,"58,800","208,400",267200.00
-KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Чон-Алайский,Chon-Alai,Chon-Alai,район,raion,district,30400,0,"30,400",30400.00
-KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Кара-Бууринский,Kara-Buura,Kara-Buura,район,raion,district,65800,0,"65,800",65800.00
-KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Бакай-Атинский,Bakai-Ata,Bakai-Ata,район,raion,district,51000,0,"51,000",51000.00
-KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Манасский,Manas,Manas,район,raion,district,36400,0,"36,400",36400.00
-KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Таласский,Talas,Talas,район,raion,district,68100,0,"68,100",68100.00
-KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Талас,Talas (city),Talas (city),города областного значения,shaar,independent city,37700,"37,700",0,37700.00
-KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Аламудунский,Alamudun,Alamudun,район,raion,district,176600,0,"176,600",176600.00
-KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Ысык-Атинский,Ysyk-Ata,Ysyk-Ata,район,raion,district,147900,"21,700","126,200",147900.00
-KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Жайылский,Jaiyl,Jaiyl,район,raion,district,106600,"46,100","60,500",106600.00
-KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Кеминский,Kemin,Kemin,район,raion,district,46600,"16,100","30,500",46600.00
-KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Московский,Moscow,Moscow,район,raion,district,96500,0,"96,500",96500.00
-KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Панфиловский,Panfilov,Panfilov,район,raion,district,45900,"9,100","36,800",45900.00
-KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Сокулукский,Sokuluk,Sokuluk,район,raion,district,184100,"9,900","174,200",184100.00
-KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Чуйский,Chui,Chui,район,raion,district,54300,0,"54,300",54300.00
-KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Токмок,Tokmok (city),Tokmok (city),города областного значения,shaar,independent city,63200,"63,200",0,63200.00
+KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Ак-Суйский,Ak-Suu,Ak-Suu,район,raion,district,68300,0,"68,300",68300
+KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Жети-Огузский,Jeti-Oguz,Jeti-Oguz,район,raion,district,90400,0,"90,400",90400
+KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Иссык-Кульский,Issyk-Kul,Issyk Kul,район,raion,district,82100,"13,300","68,800",82100
+KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Тонский,Ton,Tong,район,raion,district,52600,0,"52,600",52600
+KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Тюпский,Tup,Tup,район,raion,district,63900,0,"63,900",63900
+KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Каракол,Karakol (city),Karakol (city),города областного значения,shaar,independent city,77700,"77,700",0,77700
+KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Балыкчы,Balykchy (city),Balykchy (city),города областного значения,shaar,independent city,48000,"48,000",0,48000
+KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Ала-Букинский,Ala-Buka,Ala-Buka,район,raion,district,102200,0,"102,200",102200
+KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Базар-Коргонский,Bazar-Korgon,Bazar-Korgon,район,raion,district,171700,0,"171,700",171700
+KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Аксыйский,Aksy,Aksy,район,raion,district,131400,"17,900","113,500",131400
+KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Ноокенский,Nooken,Nooken,район,raion,district,137000,"16,500","120,500",137000
+KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Сузакский,Suzak,Suzak,район,raion,district,288600,"11,600","277,000",288600
+KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Тогуз-Тороуский,Toguz-Toro,Toguz-Toro,район,raion,district,24500,0,"24,500",24500
+KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Токтогульский,Toktogul,Toktogul,район,raion,district,98800,"19,400","79,400",98800
+KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Чаткальский,Chatkal,Chatkal,район,raion,district,27100,0,"27,100",27100
+KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Джалал-Абад,Jalal-Abad (city),Jalal-Abad (city),города областного значения,shaar,independent city,117200,"107,500","9,700",117200
+KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Таш-Кумыр,Tash-Kumir (city),Tash-Kumir (city),города областного значения,shaar,independent city,41300,"37,300","4,000",41300
+KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Майлуу-Суу,Mailuu-Suu (city),Mailuu-Suu (city),города областного значения,shaar,independent city,25400,"25,400",0,25400
+KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Кара-Куль,Kara-Kul (city),Kara-Kul (city),города областного значения,shaar,independent city,25400,"23,600","1,800",25400
+KG,4.17E+13,4.17E+13,Jalal-Abad,Джалал-Абадская,4.17E+13,Кок-Жангак,Kok-Zhangak (city),Kok-Zhangak (city),города областного значения,shaar,independent city,11600,"11,600",0,11600
+KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Ак-Талинский,Ak-Tala,Ak-Talaa,район,raion,district,32400,0,"32,400",32400
+KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Ат-Башынский,At-Bashy,At-Bashy,район,raion,district,54200,0,"54,200",54200
+KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Жумгальский,Jumgal,Jumgal,район,raion,district,43800,0,"43,800",43800
+KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Кочкорский,Kochokor,Kochkor,район,raion,district,65400,0,"65,400",65400
+KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Нарынский,Naryn,Naryn,район,raion,district,48700,0,"48,700",48700
+KG,4.17E+13,4.17E+13,Naryn,Нарынская,4.17E+13,Нарын,Naryn (city),Naryn (city),города областного значения,shaar,independent city,39300,"39,300",0,39300
+KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Баткенский,Batken,Batken,район,raion,district,86600,0,"86,600",86600
+KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Лейлекский,Leilek,Leilek,район,raion,district,137100,"21,500","115,600",137100
+KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Кадамжайский,Kadamjai,Kadamjai,район,raion,district,189100,"20,300","168,800",189100
+KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Баткен,Batken (city),Batken (city),города областного значения,shaar,independent city,25000,"17,600","7,400",25000
+KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Сулюкта,Sulukta (city),Sulukta (city),города областного значения,shaar,independent city,23200,"22,400",800,23200
+KG,4.17E+13,4.17E+13,Batken,Баткенская,4.17E+13,Кызыл-Кия,Kyzyl-Kia (city),Kyzyl-Kia (city),города областного значения,shaar,independent city,52600,"39,300","13,300",52600
+KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Алайский,Alai,Alay,район,raion,district,84700,0,"84,700",84700
+KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Араванский,Aravan,Aravan,район,raion,district,128900,0,"128,900",128900
+KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Кара-Сууский,Kara-suu,Kara-Suu,район,raion,district,421400,"25,100","396,300",421400
+KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Ноокатский,Nookat,Nookat,район,raion,district,283400,"17,000","266,400",283400
+KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Кара-Кулжинский,Kara-Kulja,Kara-Kulja,район,raion,district,98100,0,"98,100",98100
+KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Узгенский,Uzgen,Uzgen,район,raion,district,267200,"58,800","208,400",267200
+KG,4.17E+13,4.17E+13,Osh,Ошская,4.17E+13,Чон-Алайский,Chon-Alai,Chon-Alay,район,raion,district,30400,0,"30,400",30400
+KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Кара-Бууринский,Kara-Buura,Kara-Buura,район,raion,district,65800,0,"65,800",65800
+KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Бакай-Атинский,Bakai-Ata,Bakai-Ata,район,raion,district,51000,0,"51,000",51000
+KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Манасский,Manas,Manas,район,raion,district,36400,0,"36,400",36400
+KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Таласский,Talas,Talas,район,raion,district,68100,0,"68,100",68100
+KG,4.17E+13,4.17E+13,Talas,Таласская,4.17E+13,Талас,Talas (city),Talas (city),города областного значения,shaar,independent city,37700,"37,700",0,37700
+KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Аламудунский,Alamudun,Alamudun,район,raion,district,176600,0,"176,600",176600
+KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Ысык-Атинский,Ysyk-Ata,Ysyk-Ata,район,raion,district,147900,"21,700","126,200",147900
+KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Жайылский,Jaiyl,Jayyl,район,raion,district,106600,"46,100","60,500",106600
+KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Кеминский,Kemin,Kemin,район,raion,district,46600,"16,100","30,500",46600
+KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Московский,Moscow,Moskva,район,raion,district,96500,0,"96,500",96500
+KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Панфиловский,Panfilov,Panfilov,район,raion,district,45900,"9,100","36,800",45900
+KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Сокулукский,Sokuluk,Sokuluk,район,raion,district,184100,"9,900","174,200",184100
+KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Чуйский,Chui,Chuy,район,raion,district,54300,0,"54,300",54300
+KG,4.17E+13,4.17E+13,Chui,Чуйская,4.17E+13,Токмок,Tokmok (city),Tokmok (city),города областного значения,shaar,independent city,63200,"63,200",0,63200
