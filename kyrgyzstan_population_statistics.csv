@@ -1,5 +1,4 @@
 Country,admin0Pcode,admin1Pcode,admin1Name_en,admin1Name_ru,admin2Pcode,admin2Name_ru,Name,shapeName,admin2Type_ru,admin2Type_ky,admin2Type_en,T_TL,Urban_pop,Rural_pop
-#country +v_iso2,#country +pcode,#adm1 +pcode,#adm1 +name +i_en,#adm1 +name +i_ru,#adm2 +pcode,#adm2 +name +i_ru,#adm2 +name +i_en,#adm2 +name +i_en,#loc +i_ru,#loc +i_ky,#loc +i_en,#population +all,#population+urban,#population+rural
 KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Ак-Суйский,Ak-Suu,Ak-Suu,район,raion,district,"68,300",0,"68,300"
 KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Жети-Огузский,Jeti-Oguz,Jeti-Oguz,район,raion,district,"90,400",0,"90,400"
 KG,4.17E+13,4.17E+13,Issyk-Kul,Иссык-Кульская,4.17E+13,Иссык-Кульский,Issyk-Kul,Issyk-Kul,район,raion,district,"82,100","13,300","68,800"
