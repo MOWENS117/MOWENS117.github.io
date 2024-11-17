@@ -1,4 +1,4 @@
-Date and Time,price,market_cap,total_volume,Date and Time,"power MAX, GW","power MIN, GW","power GUESS, GW","annualised consumption MAX, TWh","annualised consumption MIN, TWh","annualised consumption GUESS, TWh"
+Date and Time,price,market_cap,total_volume,Date and Time 2,"power MAX, GW","power MIN, GW","power GUESS, GW","annualised consumption MAX, TWh","annualised consumption MIN, TWh","annualised consumption GUESS, TWh"
 2013-04-28 00:00:00 UTC,135.3,1500517590,0,2013-04-28T00:00:00,0.211529915,0.000734066,0.040153088,1.854271234,0.006434819,0.351981966
 2013-04-29 00:00:00 UTC,141.96,1575032004,0,2013-04-29T00:00:00,0.215392634,0.00074747,0.040886318,1.888131827,0.006552324,0.35840946
 2013-04-30 00:00:00 UTC,135.3,1501657493,0,2013-04-30T00:00:00,0.214698551,0.000745062,0.040754565,1.882047499,0.00653121,0.357254519
