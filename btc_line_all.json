@@ -1,0 +1,108 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 300,
+    "background": "#1a1f36",
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/main/btc-cons.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "transform": [
+      {
+        "calculate": "toDate(datum['Date and Time'])",
+        "as": "DateParsed"
+      }
+    ],
+    "params": [
+      {
+        "name": "viewChoice",
+        "value": "Consumption",
+        "bind": {
+          "input": "select",
+          "options": ["Consumption", "Price"],
+          "name": "Select Data to Display: "
+        }
+      }
+    ],
+    "layer": [
+      {
+        "transform": [
+          {
+            "filter": "viewChoice == 'Consumption'"
+          }
+        ],
+        "mark": {
+          "type": "line",
+          "color": "darkgoldenrod"
+        },
+        "encoding": {
+          "x": {
+            "field": "Date and Time",
+            "type": "temporal",
+            "axis": {
+              "title": "Date",
+              "titleColor": "white",
+              "labelColor": "white"
+            }
+          },
+          "y": {
+            "field": "annualised consumption GUESS, TWh",
+            "type": "quantitative",
+            "axis": {
+              "title": "Annualised Consumption (TWh)",
+              "titleColor": "white",
+              "labelColor": "white",
+              "orient": "left"  // Make sure this is on the left side
+            }
+          },
+          "tooltip": [
+            {"field": "Date and Time", "type": "temporal", "title": "Date"},
+            {"field": "annualised consumption GUESS, TWh", "type": "quantitative", "title": "Consumption (TWh)"}
+          ]
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "viewChoice == 'Price'"
+          }
+        ],
+        "mark": {
+          "type": "line",
+          "color": "#FFD700"
+        },
+        "encoding": {
+          "x": {
+            "field": "Date and Time",
+            "type": "temporal",
+            "axis": {
+              "title": "Date",
+              "titleColor": "white",
+              "labelColor": "white"
+            }
+          },
+          "y": {
+            "field": "price",
+            "type": "quantitative",
+            "axis": {
+              "title": "BTC-USD Price (USD)",
+              "titleColor": "#FFD700",
+              "labelColor": "#FFD700",
+              "orient": "left"  
+            }
+          },
+          "tooltip": [
+            {"field": "DateParsed", "type": "temporal", "title": "Date"},
+            {"field": "price", "type": "quantitative", "title": "Price (USD)"}
+          ]
+        }
+      }
+    ],
+    "title": {
+      "text": "Bitcoin Annualised Consumption vs BTC-USD Price",
+      "color": "white"
+    }
+  }
+  

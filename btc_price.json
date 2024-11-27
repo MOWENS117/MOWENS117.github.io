@@ -1,0 +1,37 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/main/btc-cons.csv"
+    },
+    "title": {
+      "text": "Bitcoin Price (2013-2024)",
+      "color": "white"
+    },
+    "width": 700,
+    "height": 300,
+    "background": "#1a1f36",
+    "mark": {
+      "type": "line",
+      "color": "darkgoldenrod"
+    },
+    "encoding": {
+      "x": {
+        "field": "Date and Time",
+        "type": "temporal",
+        "axis": {
+          "title": "Date",
+          "titleColor": "white",
+          "labelColor": "white"
+        }
+      },
+      "y": {
+        "field": "price",
+        "type": "quantitative",
+        "axis": {
+          "title": "Price (USD)",
+          "titleColor": "white",
+          "labelColor": "white"
+        }
+      }
+    }
+  }

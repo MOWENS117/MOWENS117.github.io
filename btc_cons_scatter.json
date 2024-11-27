@@ -1,0 +1,75 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 300,
+    "background": "#1a1f36",
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/main/btc-cons.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "Date and Time": "utc:'%Y-%m-%d %H:%M:%S %Z'",
+          "annualised consumption GUESS, TWh": "number",
+          "price": "number"
+        }
+      }
+    },
+    "transform": [
+      {
+        "calculate": "toDate(datum['Date and Time'])",
+        "as": "DateParsed"
+      },
+      {
+        "calculate": "year(datum.DateParsed)",
+        "as": "Year"
+      }
+    ],
+    "mark": {
+      "type": "circle",
+      "size": 60
+    },
+    "encoding": {
+      "x": {
+        "field": "price",
+        "type": "quantitative",
+        "axis": {
+          "title": "BTC-USD Price (USD)",
+          "titleColor": "white",
+          "labelColor": "white"
+        }
+      },
+      "y": {
+        "field": "annualised consumption GUESS, TWh",
+        "type": "quantitative",
+        "axis": {
+          "title": "Annualised Consumption (TWh)",
+          "titleColor": "white",
+          "labelColor": "white"
+        }
+      },
+      "color": {
+        "field": "Date and Time 2",
+        "type": "temporal",
+        "scale": {
+          "scheme": "viridis"
+        },
+        "legend": {
+          "title": "Year",
+          "labelColor": "white",
+          "titleColor": "white"
+        }
+      },
+      "tooltip": [
+        {"field": "Date and Time 2", "type": "temporal", "title": "Date"},
+        {"field": "price", "type": "quantitative", "title": "Price (USD)"},
+        {"field": "annualised consumption GUESS, TWh", "type": "quantitative", "title": "Consumption (TWh)"},
+        {"field": "Year", "type": "ordinal", "title": "Year"}
+      ]
+    },
+    "title": {
+      "text": "Bitcoin Annualised Consumption vs BTC-USD Price",
+      "subtitle": "Data source: Cambridge Centre for Alternative Finance",
+      "subtitleColor" : "White",
+      "color": "white"
+    }
+  }

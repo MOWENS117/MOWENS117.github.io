@@ -1,0 +1,39 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 300,
+    "background": "#1a1f36",
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/main/btc-cons.csv"
+    },
+    "mark": {"type": "bar", "color": "darkgoldenrod"},
+    "encoding": {
+      "x": {
+        "field": "annualised consumption GUESS, TWh",
+        "bin": {"maxbins": 100},
+        "type": "quantitative",
+        "axis": {
+          "title": "Annualised Consumption (TWh)",
+          "titleColor": "white",
+          "labelColor": "white"
+        }
+      },
+      "y": {
+        "aggregate": "count",
+        "type": "quantitative",
+        "axis": {
+          "title": "Frequency",
+          "titleColor": "white",
+          "labelColor": "white"
+        }
+      }
+    },
+    "title": {
+      "text": "Distribution of Bitcoin Annualised Consumption (TWh)",
+      "subtitle": "Data source: Cambrudge Centre for Alternative Finance",
+      "subtitleColor": "white",
+      "color": "white"
+    }
+  }
+  
+  

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/us_presidents_age_inauguration.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "width": 400,
+  "height": 300,
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "color": "#6b4e3d",
+        "strokeWidth": 2,
+        "strokeDash": [4, 2]
+      },
+      "encoding": {
+        "x": {
+          "field": "Inauguration Date",
+          "type": "temporal",
+          "title": "Term Number",
+          "axis": {
+            "titleFontSize": 12,
+            "labelFontSize": 10,
+            "labelColor": "#4a3c31",
+            "titleColor": "#4a3c31"
+          }
+        },
+        "y": {
+          "field": "Age at Inauguration",
+          "type": "quantitative",
+          "title": "Age at Inauguration",
+          "axis": {
+            "titleFontSize": 12,
+            "labelFontSize": 10,
+            "labelColor": "#4a3c31",
+            "titleColor": "#4a3c31"
+          },
+          "scale": {
+            "domain": [35, 90]
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "color": "#8a6a53",
+        "size": 50
+      },
+      "encoding": {
+        "x": {
+          "field": "Inauguration Date",
+          "type": "temporal"
+        },
+        "y": {
+          "field": "Age at Inauguration",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {"field": "Name", "type": "nominal", "title": "President"},
+          {"field": "Inauguration Date", "type": "temporal", "title": "Inauguration Date"},
+          {"field": "Age at Inauguration", "type": "quantitative", "title": "Age"}
+        ]
+      }
+    }
+  ],
+  "title": {
+    "text": "Age of U.S. Presidents at Inauguration",
+    "subtitle": "Data source: Web scrape from Wikipedia",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "subtitleColor": "#4a3c31",
+    "anchor": "start",
+    "color": "#3a2e25",
+    "font": "Times New Roman"
+  },
+  "background": "#f7f4e9"
+}
+
+  

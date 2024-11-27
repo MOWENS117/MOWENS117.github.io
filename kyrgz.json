@@ -1,0 +1,32 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 300,
+    "background": "#FFF8DC",
+    "title": {
+        "text": "Sub-Regional Boundaries, Kyrgyzstan",
+        "subtitle": "Data source: X",
+        "anchor": "start" 
+    },
+    "data": {
+        "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/geoBoundaries-KGZ-ADM2.topojson",
+        "format": {"type": "topojson", "feature": "KGZADM2gbOpen"}
+    },
+    "projection": {"type": "mercator"},
+    "mark": {
+        "type": "geoshape",
+        "stroke": "lightgray",
+        "strokeWidth": 0.25
+    },
+    "encoding": {
+        "tooltip": [
+            {"field": "properties.shapeName", "type": "nominal", "title": "Region Name"}
+        ],
+        "color": {
+            "field": "properties.shapeID",
+            "type": "nominal",
+            "title": "Administrative Zones",
+            "legend": null
+        }
+    }
+}

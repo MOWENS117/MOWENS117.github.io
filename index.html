@@ -48,7 +48,7 @@
         <a href="https://mylesowens.substack.com/">Policy Blog</a> | <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a> | <a href="https://github.com/MOWENS117">GitHub</a> | <a href="cv.html">My CV</a> | <a href="project.html" class="button">Projects</a> | <a href="portfolio.html" class="button">Portfolio</a> 
     </p>
     <h3 class="small">
-        Hey, I’m Myles Owens – I specialise in taking complex economic data and turning it into clear, engaging visuals, using Python and HTML/CSS. Whether it's economic trends, policy analysis, or financial forecasts, I make sure the numbers don’t just sit there – they tell a story.
+        Hey, I’m Myles Owens – I specialise in taking complex economic data and turning it into clear, engaging visuals, using Vega,Python, and HTML/CSS. Whether it's economic trends, policy analysis, or financial forecasts, I make sure the numbers don’t just sit there – they tell a story.
     </h3>
 
     <!-- Carousel Section -->
@@ -56,45 +56,45 @@
         <div class="carousel-inner">
             <div class="carousel-item">
                 <div class="chart-description">
-                    <h2>Data visualisation highlights</h2>
+                    <h2>Data vis highlights</h2>
                     <p>
-                        
+                        This chart uses energy consumption data from the Cambridge Centre for Alternative Finance and Bitcoin Price data to explore the correlation between price and energy consumption.   
                     </p>
                 </div>
                 <figure id="Location1"></figure>
             </div>
             <div class="carousel-item">
                 <div class="chart-description">
-                    <h2>Crypto Chart</h2>
+                    <h2>BTC Consumption vs Price</h2>
                     <p>
-                        We've added a second chart of my choice. This time on crypto.
+                        This chart explores the co-ovements over time of Bitcoin's price and energy consumption.
                     </p>
                 </div>
                 <figure id="Location2"></figure>
             </div>
             <div class="carousel-item">
                 <div class="chart-description">
-                    <h2>CO2 Chart</h2>
+                    <h2>BTC energy distribution</h2>
                     <p>
-                        We've added a third chart of my choice. This time on emissions.
+                        This chart captures the distribution of comsumption with the ability to filter from 2013 to 2024.
                     </p>
                 </div>
                 <figure id="Location3"></figure>
             </div>
             <div class="carousel-item">
                 <div class="chart-description">
-                    <h2>API Chart</h2>
+                    <h2>Python Scraping Excercise</h2>
                     <p>
-                        We've taken an inflation chart from the economic observatory which utilises the API.
+                        I've created a scraping algorithm which pulls information from wikipedia to create an interesting visual on the age of US presidents.
                     </p>
                 </div>
                 <figure id="Location4"></figure>
             </div>
             <div class="carousel-item">
                 <div class="chart-description">
-                    <h2>GitHub Chart</h2>
+                    <h2>Geographic Data</h2>
                     <p>
-                        We've added a chart using a CSV file from our GitHub.
+                        This chart demonstrates my ability to utilize geographic data in tandem with subregional population data.
                     </p>
                 </div>
                 <figure id="Location5"></figure>
@@ -121,11 +121,11 @@
 
     <script>
         // Vega-Lite specifications for embedding charts
-        let figure_1_spec = "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/2/s2_chart2.json"
-        let figure_2_spec = "wk1_ether.json"
-        let figure_3_spec = "wk1_co2.json"
-        let figure_4_spec = "inflation_ex.json"
-        let figure_5_spec = "vice_spending.json"
+        let figure_1_spec = "btc_cons_scatter.json"
+        let figure_2_spec = "btc_price_cons_line_log.json"
+        let figure_3_spec = "btc_cons_hist_time.json"
+        let figure_4_spec = "president_age.json"
+        let figure_5_spec = "kyrgz_pop.json"
 
         // Embed the charts into their respective figures
         vegaEmbed('#Location1', figure_1_spec)

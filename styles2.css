@@ -1,275 +1,375 @@
-/* General Reset */
+/* ================================
+   1. CSS Variables for Consistent Styling
+=============================== */
+
+/* Define a vibrant and modern color palette using CSS variables */
+:root {
+  --primary-color: #1e3a8a;        /* Deep Blue */
+  --secondary-color: #3b82f6;      /* Bright Blue */
+  --accent-color: #ef4444;         /* Vivid Red for accents */
+  --background-color: #f0f4f8;     /* Light Blue-Gray */
+  --section-bg-color: #ffffff;     /* White */
+  --text-color: #333333;           /* Dark Grey for body text */
+  --heading-color: #111827;        /* Almost Black for headings */
+  --link-color: var(--secondary-color);
+  --link-hover-color: var(--accent-color);
+  --button-bg-color: var(--secondary-color);
+  --button-hover-bg-color: var(--primary-color);
+  --border-color: #dddddd;         /* Light Grey for borders */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Slightly darker shadow */
+  --gradient-bg: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%); /* Gradient for headers/nav */
+}
+
+/* ================================
+   2. General Reset
+=============================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   /* DEBUG: Applied general reset for all elements */
-  
 }
 
-/* Body Styling */
+/* ================================
+   3. Body Styling
+=============================== */
+
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
-  color: #333;
+  color: var(--text-color);
   line-height: 1.6;
-  background-color: #f8f9fa; /* Light grey to soften the overall appearance */
+  background-color: var(--background-color);
   margin: 0 auto;
-  max-width: 960px; /* Reduced width for standard format */ /* Slightly wider for better data visualisation layouts */
-  padding: 40px 20px; /* Provides breathing room around content */
-  /* DEBUG: Applied body styling */
-/*Heading Font*/  
+  max-width: 960px;
+  padding: 40px 20px;
+  transition: background-color 0.3s ease;
 }
+
+/* Utility Class for Smaller Text */
 .small {
-  font-size: 14px; /* Adjust as needed */
+  font-size: 0.875em; /* 14px */
 }
-/* Headings */
+
+/* ================================
+   4. Headings
+=============================== */
+
 h1, h2, h3, h4, h5, h6 {
-  color: #222; /* Darker text for better readability */
+  color: var(--heading-color);
   margin-top: 24px;
   margin-bottom: 16px;
   font-weight: 700;
-  /* DEBUG: Headings styling applied */
-  
+  position: relative;
 }
 
+h1::after {
+  content: ''; /* Keeps it functional if needed later */
+  position: absolute;
+  width: 0; /* Set width to 0 to hide the line */
+  height: 0; /* Set height to 0 to remove the line */
+  background-color: transparent; /* Makes sure there's no visible color */
+}
+
+/* Specific Heading Sizes */
 h1 {
-  font-size: 2.5em; /* Adjusted font size to fit heading on one line */
-  border-bottom: 2px solid #065f46; /* Adds a distinct separator for main title */
-  padding-bottom: 0.2em;
-  /* DEBUG: h1 styling applied */
-  
+  font-size: 2.5em;
 }
 
 h2 {
   font-size: 2.25em;
-  /* DEBUG: h2 styling applied */
-  
 }
 
 h3 {
   font-size: 1.75em;
-  /* DEBUG: h3 styling applied */
-  
 }
 
 h4 {
   font-size: 1em;
 }
 
-/* Paragraph Styling */
+/* ================================
+   5. Paragraphs
+=============================== */
+
 p {
   margin-bottom: 1.5em;
   font-weight: 300;
-  max-width: 800px; /* Keeps text lines from becoming too long */
-  /* DEBUG: Paragraph styling applied */
-  
+  max-width: 800px;
+  color: #555555; /* Slightly lighter text for better readability */
+  transition: color 0.3s ease;
 }
 
-/* Section Spacing */
+p:hover {
+  color: var(--secondary-color);
+}
+
+/* ================================
+   6. Sections
+=============================== */
+
 section {
-  margin-bottom: 3em;  /* More space between sections for a cleaner feel */
+  margin-bottom: 3em;
   padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for better section separation */
-  /* DEBUG: Section styling applied */
-  
+  background-color: var(--section-bg-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Link Styling */
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+/* ================================
+   7. Links
+=============================== */
+
 a {
-  color: #00796b; /* Calmer shade of green for links */
+  color: var(--link-color);
   text-decoration: none;
   font-weight: 500;
-  /* DEBUG: Link styling applied */
-  
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: var(--link-hover-color);
+  left: 0;
+  bottom: -2px;
+  transition: width 0.3s ease;
 }
 
 a:hover {
-  text-decoration: underline;
-  color: #004d40; /* Darker shade on hover for emphasis */
-  /* DEBUG: Link hover styling applied */
-  
+  color: var(--link-hover-color);
 }
 
-/* Button Styling */
+a:hover::after {
+  width: 100%;
+}
+
+/* ================================
+   8. Buttons
+=============================== */
+
 button {
-  background-color: #065f46;
-  color: white;
-  border: 2px solid #004d40;
-  padding: 15px 30px; /* Increased padding for chunkier buttons */
-  border-radius: 4px; /* Small border-radius to keep the rectangular shape */
+  background-color: var(--button-bg-color);
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px; /* Fully rounded for a pill-shaped button */
   cursor: pointer;
-  font-size: 1.2em; /* Slightly larger font for chunkier appearance */
-  transition: background-color 0.3s ease;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-  background-color: #004d40;
+  background-color: var(--button-hover-bg-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-/* Image Styling */
+/* ================================
+   9. Images
+=============================== */
+
 img {
   max-width: 100%;
   height: auto;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-bottom: 1.5em;
-  /* DEBUG: Image styling applied */
-  
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Navigation Bar */
+img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px var(--shadow-color);
+}
+
+/* ================================
+   10. Navigation Bar
+=============================== */
+
 nav {
-  background-color: #065f46;
-  padding: 10px 20px;
+  background: var(--gradient-bg);
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 6px;
+  border-radius: 8px;
   margin-bottom: 40px;
-  /* DEBUG: Navigation bar styling applied */
-  
+  box-shadow: 0 4px 8px var(--shadow-color);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav:hover {
+  box-shadow: 0 6px 12px var(--shadow-color);
 }
 
 nav a {
-  color: #fff;
-  margin-right: 20px;
+  color: #ffffff;
+  margin-right: 25px;
   text-decoration: none;
-  transition: color 0.3s;
-  /* DEBUG: Navigation link styling applied */
-  
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+nav a:last-child {
+  margin-right: 0;
 }
 
 nav a:hover {
-  color: #e0f2f1;
-  /* DEBUG: Navigation link hover styling applied */
-  
+  color: #ffeb3b; /* Bright yellow on hover for contrast */
 }
 
-/* Footer Styling */
+/* ================================
+   11. Footer
+=============================== */
+
 footer {
   text-align: center;
   margin-top: 50px;
   font-size: 0.9em;
-  color: #666;
-  /* DEBUG: Footer styling applied */
-  
+  color: #888888;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
 }
 
 footer a {
-  color: #065f46;
+  color: var(--primary-color);
   text-decoration: none;
-  /* DEBUG: Footer link styling applied */
-  
+  transition: color 0.3s ease;
 }
 
 footer a:hover {
-  text-decoration: underline;
-  color: #004d40;
-  /* DEBUG: Footer link hover styling applied */
-  
+  color: var(--accent-color);
 }
 
-/* Utility Classes */
+/* ================================
+   12. Utility Classes
+=============================== */
+
 .text-center {
   text-align: center;
-  /* DEBUG: Utility class .text-center applied */
-  
 }
 
 .mt-4 {
   margin-top: 2em;
-  /* DEBUG: Utility class .mt-4 applied */
-  
 }
 
 .mb-4 {
   margin-bottom: 2em;
-  /* DEBUG: Utility class .mb-4 applied */
-  
 }
 
 .p-4 {
   padding: 2em;
-  /* DEBUG: Utility class .p-4 applied */
-  
 }
 
-/* Table Styling for Data Visualisation */
+/* ================================
+   13. Table Styling
+=============================== */
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 2em;
-  /* DEBUG: Table styling applied */
-  
 }
 
 table, th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  /* DEBUG: Table border and padding styling applied */
-  
+  border: 1px solid var(--border-color);
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  transition: background-color 0.3s ease;
 }
 
 th {
-  background-color: #f1f1f1;
+  background-color: var(--secondary-color);
+  color: #ffffff;
   font-weight: 600;
-  /* DEBUG: Table header styling applied */
-  
 }
 
 td {
-  background-color: #ffffff;
-  /* DEBUG: Table cell styling applied */
-  
+  background-color: var(--section-bg-color);
 }
 
-/* Chart Container for Data Visualisation */
+tr:nth-child(even) td {
+  background-color: #f9fafb;
+}
+
+tr:hover td {
+  background-color: #eef2ff;
+}
+
+/* ================================
+   14. Chart Container
+=============================== */
+
 .chart-container {
   margin: 3em 0;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  /* DEBUG: Chart container styling applied */
-  
+  padding: 25px;
+  background-color: var(--section-bg-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Responsiveness */
+.chart-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+/* ================================
+   15. Responsiveness
+=============================== */
+
 @media (max-width: 768px) {
   body {
     padding: 20px;
-    /* DEBUG: Responsive body padding applied */
-    
   }
 
   h1 {
-    font-size: 2.5em;
-    /* DEBUG: Responsive h1 font size applied */
-    
+    font-size: 2em;
   }
 
   h2 {
-    font-size: 2em;
-    /* DEBUG: Responsive h2 font size applied */
-    
+    font-size: 1.75em;
   }
 
   nav {
     flex-direction: column;
     align-items: flex-start;
-    /* DEBUG: Responsive navigation styling applied */
-    
+    padding: 20px;
   }
 
   nav a {
-    margin: 5px 0;
-    /* DEBUG: Responsive navigation link margin applied */
-    
+    margin: 10px 0;
+    font-size: 1.1em;
   }
 
-}
+  .chart-container, section {
+    padding: 15px;
+  }
 
-/* End of CSS File */
+  button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1em;
+    border-radius: 50px;
+  }
+}

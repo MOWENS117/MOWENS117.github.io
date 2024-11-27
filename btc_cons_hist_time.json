@@ -1,0 +1,73 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 300,
+    "background": "#1a1f36",
+    "params": [
+      {
+        "name": "minDate",
+        "value": 2013,
+        "bind": {"input": "number", "name": "Minimum Year: "}
+      },
+      {
+        "name": "maxDate",
+        "value": 2024,
+        "bind": {"input": "number", "name": "Maximum Year: "}
+      }
+    ],
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/btc-cons-updated.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "Year": "number",
+          "annualised consumption GUESS, TWh": "number",
+          "price": "number"
+        }
+      }
+    },
+    "transform": [
+      {
+        "filter": "(datum.Year >= minDate) && (datum.Year <= maxDate)"
+      }
+    ],
+    "mark": {
+      "type": "bar",
+      "color": "darkgoldenrod"
+    },
+    "encoding": {
+      "x": {
+        "field": "annualised consumption GUESS, TWh",
+        "bin": {
+          "maxbins": 100
+        },
+        "type": "quantitative",
+        "scale": {
+          "domain": [0, 200]  
+        },
+        "axis": {
+          "title": "Annualised Consumption (TWh)",
+          "titleColor": "white",
+          "labelColor": "white"
+        }
+      },
+      "y": {
+        "aggregate": "count",
+        "type": "quantitative",
+        "scale": {
+          "domain": [0, 500] 
+        },
+        "axis": {
+          "title": "Frequency",
+          "titleColor": "white",
+          "labelColor": "white"
+        }
+      }
+    },
+    "title": {
+      "text": "Distribution of Bitcoin Annualised Consumption (TWh)",
+      "subtitle":"Data source: Cambridge Centre for Alternative Finance",
+      "subtitleColor": "white",
+      "color": "white"
+    }
+  }

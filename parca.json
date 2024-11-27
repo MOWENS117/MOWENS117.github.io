@@ -1,16 +1,41 @@
-
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  
+  "config": {
+    "facet": {
+      "spacing": -1  
+    },
+    "font": "Times New Roman",
+    "axis": {
+      "labelFont": "Times New Roman",
+      "titleFont": "Times New Roman"
+    },
+    "header": {
+      "labelFont": "Times New Roman",
+      "titleFont": "Times New Roman",
+      "labelFontSize": 13,
+      "labelFontWeight": "bold",
+      "labelColor": "black"
+    },
+    "legend": {
+      "labelFont": "Times New Roman",
+      "titleFont": "Times New Roman"
+    },
+    "title": {
+      "font": "Times New Roman"
+    },
+    "text": {
+      "font": "Times New Roman"
+    }
+  },
   "title": {
-    "text": "Statewide, All Grades, % Proficient",
-    "subtitle": "Alabama Comprehensive Assessment Program",
-    "subtitleFontStyle": "italic",
-    "subtitleFontSize": 10,
-    "anchor": "start",
+    "text": "Statewide, All Grades, % Proficient________________________            ",
+    "subtitle": "Entire Sytstem",
+    "fontSize": 21,
+    "subtitleFontStyle": "",
+    "subtitleFontSize": 13,
+    "anchor": "middle",
     "color": "black"
   },
-  
   "data": {
     "values": [
       {"Year": "2021", "Subject": "Science", "Percentage": 36.5},
@@ -27,89 +52,95 @@
       {"Year": "2024", "Subject": "Math", "Percentage": 32.4}
     ]
   },
-  
   "facet": {
-    "field": "Subject", // Facet by the 'Subject' field to create separate panels for each subject
-    "type": "nominal", // The type of the facet field is nominal (categorical)
-    "columns": 1, // Display the facets in a single column
-    "sort": ["Math", "ELA", "Science"], // Arrange the order of the subjects
+    "field": "Subject",
+    "type": "nominal",
+    "sort": ["Math", "ELA", "Science"],
     "header": {
-      "title": null // Do not display a title for the header
+      "title": null
     }
   },
-  
   "spec": {
-    "width": 200, // Set the width for each faceted chart
-    "height": 300, // Set the height for each faceted chart
+    "width": 200,
+    "height": 300,
+    "transform": [
+      {
+        "calculate": "format(datum.Percentage, '.1f') + '%'",
+        "as": "PercentageLabel"
+      }
+    ],
     "layer": [
       {
         "mark": {
-          "type": "bar", // Define the type of mark as a bar
-          "size": 25 // Set the size of the bars for visual clarity
+          "type": "bar",
+          "size": 40
         },
         "encoding": {
           "x": {
-            "field": "Year", // X-axis shows the 'Year' field
-            "type": "nominal", // The type of the x-axis field is nominal (categorical)
+            "field": "Year",
+            "type": "nominal",
             "axis": {
-              "labelPadding": 10, // Set padding for labels to improve spacing
-              "labelFontSize": 14, // Set font size for the x-axis labels
-              "labelFontWeight": "bold", // Make x-axis labels bold
-              "title": null, // No title for the x-axis
-              "grid": false, // Do not display grid lines for the x-axis
-              "ticks": false, // Hide ticks on the x-axis
-              "labelAngle": 0 // Keep the labels horizontal for better readability
+              "labelPadding": 10,
+              "labelFontSize": 14,
+              "labelFontWeight": "bold",
+              "title": null,
+              "grid": false,
+              "ticks": false,
+              "labelAngle": 270
             }
           },
           "y": {
-            "field": "Percentage", // Y-axis shows the 'Percentage' field
-            "type": "quantitative", // The type of the y-axis field is quantitative (numerical)
-            "scale": { "domain": [0, 100] }, // Set the y-axis scale from 0 to 100
-            "title": "% Proficient", // Title for the y-axis
+            "field": "Percentage",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0, 100]
+            },
+            "title": "% Proficient",
             "axis": {
-              "labelPadding": 10, // Set padding for labels to improve spacing
-              "labelFontSize": 14, // Set font size for the y-axis labels
-              "labelFontWeight": "bold", // Make y-axis labels bold
-              "grid": true // Display grid lines for better data comparison
+              "labelPadding": 10,
+              "labelFontSize": 14,
+              "labelFontWeight": "bold",
+              "grid": true
             }
           },
           "color": {
-            "field": "Year", // Use the 'Year' field to determine the color of the bars
-            "type": "nominal", // The type of the color field is nominal (categorical)
+            "field": "Year",
+            "type": "nominal",
             "scale": {
-              "domain": ["2021", "2022", "2023", "2024"], // Define the color domain based on years
-              "range": ["#4E79A7", "#E15759", "#4daf4a", "#F28E2B"] // Set color values for each year
+              "domain": ["2021", "2022", "2023", "2024"],
+              "range": ["#4E79A7", "#E15759", "#76B7B2", "#F28E2B"]
             },
-            "legend": null // Remove the legend to declutter the visualization
+            "legend": null
           }
         }
       },
       {
         "mark": {
-          "type": "text", // Add text to display the value at the top of each bar
-          "align": "center", // Center-align the text above each bar
-          "baseline": "bottom", // Set the baseline to bottom to position the text properly
-          "dy": -5, // Adjust vertical position slightly above the bar
-          "fontSize": 12 // Set font size for the text labels
+          "type": "text",
+          "align": "center",
+          "baseline": "bottom",
+          "dy": -5,
+          "fontSize": 12
         },
         "encoding": {
           "x": {
-            "field": "Year", // Text is positioned based on the 'Year' field on the x-axis
+            "field": "Year",
             "type": "nominal"
           },
           "y": {
-            "field": "Percentage", // Text is positioned based on the 'Percentage' field on the y-axis
+            "field": "Percentage",
             "type": "quantitative"
           },
           "text": {
-            "field": "Percentage", // The text label shows the percentage value
-            "type": "quantitative"
+            "field": "PercentageLabel",
+            "type": "nominal"
           },
           "color": {
-            "value": "black" // Set the color of the text labels to black for visibility
+            "value": "black"
           }
         }
       }
     ]
   }
 }
+

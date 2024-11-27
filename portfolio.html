@@ -49,7 +49,7 @@
     <p style="margin-top: 0px; color: darkblue">
         <!-- we're setting the margin to 0px so the header and authour name are close together -->
         <a href="https://mylesowens.substack.com/">Policy Blog</a> | <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a> | <a
-            href="https://github.com/MOWENS117">GitHub</a>
+            href="https://github.com/MOWENS117">GitHub</a> | <a href="index.html">Home</a> | <a href="project.html">Project</a>
     </p>
     <h3 class="small"> <!-- We have added a class to the header called "small" which we can use to style it in the CSS -->
         Hey, I’m Myles Owens – I make economic data talk. I specialise in taking complex economic data and turning it into clear, engaging visuals, using Python and HTML/CSS. Whether it's economic trends, policy analysis, or financial forecasts, I make sure the numbers don’t just sit there – they tell a story.
@@ -129,15 +129,67 @@
             CC4. Replication. Re-create, then improve, someone else’s chart.        
         </h2>
         <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-            I recreated and then edited this chart on test scores form teh public research council of ALabama. The bar form of the chart seems innapropiate and can be better converyed with a simple line chart.
+            I recreated and edited the test score chart from the Public Research Council of Alabama, replacing the inappropriate bar chart with a simple line chart. Due to Vega-Lite's limitation on independently positioning the title and subtitle, this is the closest replication I could achieve.
         </p>
     </div>
     <div class="charts-container">
         <figure>
-            <img src="parca_statewide_score.png" alt="PARCA Statewide Score"> 
+            <img src="parca_statewide_score.png"> 
         </figure>        
+        <figure id="Location7"></figure>
         <figure id="Location8"></figure>
-        <figure id="Location9"></figure>
+    </div>
+</section>
+<!-- We created a ninth section containing a chart, title and a description -->
+<section>
+    <div class="chart-description">
+        <h2>CC5. Scraper. Implement a data scraper of your own.</h2>
+        <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+            I scraped wikipedia because I knew that wikipedia is well organized and would contain interesting information on any topic.
+            In this instance I visualized the age of US presidents.
+            <a href="https://colab.research.google.com/drive/1MYjvvkVLA4b93i0HsW2YAd9yz8fHvZ3l?usp=sharing">Python Code</a> 
+        </p>
+    </div>
+    <div class="charts-container">
+        <figure id="Location9"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </div>
+</section>
+<!-- We created a tenth section containing a chart, title and a description -->
+<section>
+    <div class="chart-description">
+        <h2>CC7. Maps. Base maps and choropleths</h2>
+        <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+            Two chloropleth maps of the sub-adminstrative zones in Kyrgyzstan with the latter capturing the relative populations.
+        </p>
+    </div>
+    <div class="charts-container">
+        <figure id="Location10"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+        <figure id="Location11"></figure>
+    </div>
+</section>
+<!-- We created another section containing a chart, title and a description -->
+<section>
+    <div class="chart-description">
+        <h2>CC8. Analytics Charts</h2>
+        <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+            The fist chart, a scatter plot, relates energy conumption of bitcoin (y) against its price (x). The second chart is a histogram of energy consumption.
+        </p>
+    </div>
+    <div class="charts-container">
+        <figure id="Location12"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+        <figure id="Location13"></figure>
+    </div>
+</section>
+<!-- We created another section containing a chart, title and a description -->
+<section>
+    <div class="chart-description">
+        <h2>CC10 – Option 2. Interactive Visualisations</h2>
+        <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+            The first chart improves on the previous histogtam by allowing the user to filter the start and end year.
+        </p>
+    </div>
+    <div class="charts-container">
+        <figure id="Location14"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     </div>
 </section>
     <!-- This is a script, it's a way to run JavaScript code on the page -->
@@ -150,17 +202,28 @@
         let figure_4_spec = "inflation_ex.json"
         let figure_5_spec = "vice_spending.json"
         let figure_6_spec = "inequality.json"
-        let figure_7_spec = "parca_statewide_score.png"
-        let figure_8_spec = "parca_old.json"
-        let figure_9_spec = "parca_new.json"
+        let figure_7_spec = "parca.json"
+        let figure_8_spec = "parca_new.json"
+        let figure_9_spec = "president_age.json"
+        let figure_10_spec = "kyrgz.json"
+        let figure_11_spec = "kyrgz_pop.json"
+        let figure_12_spec = "btc_cons_scatter.json"
+        let figure_13_spec = "btc_cons_hist.json"
+        let figure_14_spec = "btc_cons_hist_time.json"
         vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
         vegaEmbed('#Location2', figure_2_spec)
         vegaEmbed('#Location3', figure_3_spec)
         vegaEmbed('#Location4', figure_4_spec)
         vegaEmbed('#Location5', figure_5_spec)
         vegaEmbed('#Location6', figure_6_spec)
+        vegaEmbed('#Location7', figure_7_spec)
         vegaEmbed('#Location8', figure_8_spec)
         vegaEmbed('#Location9', figure_9_spec)
+        vegaEmbed('#Location10', figure_10_spec)
+        vegaEmbed('#Location11', figure_11_spec)
+        vegaEmbed('#Location12', figure_12_spec)
+        vegaEmbed('#Location13', figure_13_spec)
+        vegaEmbed('#Location14', figure_14_spec)
         // Do you want to add more graphs?
         // try defining a new variable for figure_3_spec, adding VegaEmbed for Location3, and adding a new section in the HTML
         // e.g. 

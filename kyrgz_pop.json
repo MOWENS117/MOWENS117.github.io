@@ -1,0 +1,57 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 300,
+    "title": {
+      "text": "Sub-Regional Population Density in Kyrgyzstan",
+      "subtitle": "Data source: X",
+      "fontSize": 18,
+      "anchor": "start",
+      "color": "black"
+    },
+    "background": "#FFF8DC", 
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/geoBoundaries-KGZ-ADM2.topojson",
+      "format": {
+        "type": "topojson",
+        "feature": "KGZADM2gbOpen"
+      }
+    },
+    "transform": [
+      {
+        "lookup": "properties.shapeName",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/kyrgyzstan_population_statistics.csv"
+          },
+          "key": "shapeName",
+          "fields": ["Name", "T_TL"]
+        }
+      },
+      {
+        "calculate": "toNumber(datum.T_TL)",
+        "as": "Population"
+      }
+    ],
+    "projection": {
+      "type": "mercator"
+  },
+  "mark": {
+    "type": "geoshape",
+    "stroke": "lightgrey", 
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "color": {
+      "field": "Population",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "reds"
+      }
+    },
+      "tooltip": [
+        {"field": "Name", "type": "nominal", "title": "Name"},
+        {"field": "Population", "type": "quantitative", "title": "Population"}
+      ]
+    }
+  }
