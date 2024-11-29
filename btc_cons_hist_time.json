@@ -5,14 +5,15 @@
     "background": "#1a1f36",
     "params": [
       {
-        "name": "minDate",
-        "value": 2013,
-        "bind": {"input": "number", "name": "Minimum Year: "}
-      },
-      {
-        "name": "maxDate",
-        "value": 2024,
-        "bind": {"input": "number", "name": "Maximum Year: "}
+        "name": "selectedDate",
+        "value": 2021,
+        "bind": {
+          "input": "range",
+          "min": 2013,
+          "max": 2024,
+          "step": 1,
+          "name": "Select Year: "
+        }
       }
     ],
     "data": {
@@ -28,7 +29,7 @@
     },
     "transform": [
       {
-        "filter": "(datum.Year >= minDate) && (datum.Year <= maxDate)"
+        "filter": "datum.Year <= selectedDate"
       }
     ],
     "mark": {
@@ -43,7 +44,7 @@
         },
         "type": "quantitative",
         "scale": {
-          "domain": [0, 200]  
+          "domain": [0, 200]
         },
         "axis": {
           "title": "Annualised Consumption (TWh)",
@@ -55,7 +56,7 @@
         "aggregate": "count",
         "type": "quantitative",
         "scale": {
-          "domain": [0, 500] 
+          "domain": [0, 500]
         },
         "axis": {
           "title": "Frequency",
@@ -66,7 +67,7 @@
     },
     "title": {
       "text": "Distribution of Bitcoin Annualised Consumption (TWh)",
-      "subtitle":"Data source: Cambridge Centre for Alternative Finance",
+      "subtitle": "Data source: Cambridge Centre for Alternative Finance Bitcoin Electricity Consumption Index ",
       "subtitleColor": "white",
       "color": "white"
     }

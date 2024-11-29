@@ -14,13 +14,14 @@
             overflow: hidden;
         }
         .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
+         display: flex;
+         transition: transform 0.5s ease-in-out;
+         align-items: center; /* Center items vertically if needed */
         }
         .carousel-item {
-            min-width: 100%;
+            min-width: 90%;
             box-sizing: border-box;
-            margin-right: 10px;
+            margin-right: 15%;
         }
         .carousel-buttons {
             position: absolute;
@@ -56,7 +57,7 @@
         <div class="carousel-inner">
             <div class="carousel-item">
                 <div class="chart-description">
-                    <h2>Data vis highlights</h2>
+                    <h2>Visualisation highlights</h2>
                     <p>
                         This chart uses energy consumption data from the Cambridge Centre for Alternative Finance and Bitcoin Price data to explore the correlation between price and energy consumption.   
                     </p>
@@ -151,9 +152,11 @@
         });
 
         function updateCarousel() {
-            const offset = -currentIndex * 100; // Adjust to 100% for full slide effect
-            carouselInner.style.transform = `translateX(${offset}%)`;
-        }
+    const itemWidth = carouselInner.children[0].offsetWidth;
+    const totalWidth = itemWidth + parseInt(getComputedStyle(carouselInner.children[0]).marginRight);
+    const offset = -currentIndex * totalWidth;
+    carouselInner.style.transform = `translateX(${offset}px)`;
+}
     </script>
 
     <!-- Link to CV Page -->

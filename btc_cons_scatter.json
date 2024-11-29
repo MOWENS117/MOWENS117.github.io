@@ -8,7 +8,7 @@
       "format": {
         "type": "csv",
         "parse": {
-          "Date and Time": "utc:'%Y-%m-%d %H:%M:%S %Z'",
+          "Date and Time": "date",
           "annualised consumption GUESS, TWh": "number",
           "price": "number"
         }
@@ -16,22 +16,24 @@
     },
     "transform": [
       {
-        "calculate": "toDate(datum['Date and Time'])",
-        "as": "DateParsed"
+        "calculate": "year(datum['Date and Time'])",
+        "as": "Year"
       },
       {
-        "calculate": "year(datum.DateParsed)",
-        "as": "Year"
+        "filter": "datum.Year <= selectedDate"
       }
     ],
     "mark": {
       "type": "circle",
-      "size": 60
+      "size": 25
     },
     "encoding": {
       "x": {
         "field": "price",
         "type": "quantitative",
+        "scale": {
+          "domain": [0, 100000]
+        },
         "axis": {
           "title": "BTC-USD Price (USD)",
           "titleColor": "white",
@@ -41,6 +43,9 @@
       "y": {
         "field": "annualised consumption GUESS, TWh",
         "type": "quantitative",
+        "scale": {
+          "domain": [0, 200]
+        },
         "axis": {
           "title": "Annualised Consumption (TWh)",
           "titleColor": "white",
@@ -48,10 +53,10 @@
         }
       },
       "color": {
-        "field": "Date and Time 2",
-        "type": "temporal",
+        "field": "Year",
+        "type": "ordinal",
         "scale": {
-          "scheme": "viridis"
+          "scheme": "darkmulti"
         },
         "legend": {
           "title": "Year",
@@ -60,16 +65,45 @@
         }
       },
       "tooltip": [
-        {"field": "Date and Time 2", "type": "temporal", "title": "Date"},
-        {"field": "price", "type": "quantitative", "title": "Price (USD)"},
-        {"field": "annualised consumption GUESS, TWh", "type": "quantitative", "title": "Consumption (TWh)"},
-        {"field": "Year", "type": "ordinal", "title": "Year"}
+        {
+          "field": "Date and Time",
+          "type": "temporal",
+          "title": "Date"
+        },
+        {
+          "field": "price",
+          "type": "quantitative",
+          "title": "Price (USD)"
+        },
+        {
+          "field": "annualised consumption GUESS, TWh",
+          "type": "quantitative",
+          "title": "Consumption (TWh)"
+        },
+        {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year"
+        }
       ]
     },
+    "params": [
+      {
+        "name": "selectedDate",
+        "value": 2024,
+        "bind": {
+          "input": "range",
+          "min": 2013,
+          "max": 2024,
+          "step": 1,
+          "name": "Select year:"
+        }
+      }
+    ],
     "title": {
       "text": "Bitcoin Annualised Consumption vs BTC-USD Price",
-      "subtitle": "Data source: Cambridge Centre for Alternative Finance",
-      "subtitleColor" : "White",
+      "subtitle": "Data source: Cambridge Centre for Alternative Finance Bitcoin Electricity Consumption Index ",
+      "subtitleColor": "White",
       "color": "white"
     }
   }

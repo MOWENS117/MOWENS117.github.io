@@ -10,18 +10,18 @@
   },
   "data": {
     "values": [
-      {"Year": "2021", "Subject": "Math", "Percentage": 21.8},
-      {"Year": "2022", "Subject": "Math", "Percentage": 27.8},
-      {"Year": "2023", "Subject": "Math", "Percentage": 30.8},
-      {"Year": "2024", "Subject": "Math", "Percentage": 32.4},
-      {"Year": "2021", "Subject": "ELA", "Percentage": 47.8},
-      {"Year": "2022", "Subject": "ELA", "Percentage": 49.6},
-      {"Year": "2023", "Subject": "ELA", "Percentage": 51.9},
-      {"Year": "2024", "Subject": "ELA", "Percentage": 56.0},
-      {"Year": "2021", "Subject": "Science", "Percentage": 36.5},
-      {"Year": "2022", "Subject": "Science", "Percentage": 39.8},
-      {"Year": "2023", "Subject": "Science", "Percentage": 41.0},
-      {"Year": "2024", "Subject": "Science", "Percentage": 41.1}
+      {"Year": "2021-01-01", "Subject": "Math", "Percentage": 21.8},
+      {"Year": "2022-01-01", "Subject": "Math", "Percentage": 27.8},
+      {"Year": "2023-01-01", "Subject": "Math", "Percentage": 30.8},
+      {"Year": "2024-01-01", "Subject": "Math", "Percentage": 32.4},
+      {"Year": "2021-01-01", "Subject": "ELA", "Percentage": 47.8},
+      {"Year": "2022-01-01", "Subject": "ELA", "Percentage": 49.6},
+      {"Year": "2023-01-01", "Subject": "ELA", "Percentage": 51.9},
+      {"Year": "2024-01-01", "Subject": "ELA", "Percentage": 56.0},
+      {"Year": "2021-01-01", "Subject": "Science", "Percentage": 36.5},
+      {"Year": "2022-01-01", "Subject": "Science", "Percentage": 39.8},
+      {"Year": "2023-01-01", "Subject": "Science", "Percentage": 41.0},
+      {"Year": "2024-01-01", "Subject": "Science", "Percentage": 41.1}
     ]
   },
   "height": 400,
@@ -38,11 +38,11 @@
       "encoding": {
         "x": {
           "field": "Year",
-          "type": "ordinal",
+          "type": "temporal",
           "axis": {
             "title": "Year",
             "grid": false,
-            "labelAngle": 45,
+            "labelAngle": 0,
             "labelFontSize": 12,
             "titleFontSize": 14
           }
@@ -78,7 +78,7 @@
           }
         },
         "tooltip": [
-          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "Year", "type": "temporal", "title": "Year"},
           {"field": "Subject", "type": "nominal", "title": "Subject"},
           {"field": "Percentage", "type": "quantitative", "title": "% Proficient"}
         ]
@@ -94,7 +94,7 @@
       "encoding": {
         "x": {
           "field": "Year",
-          "type": "ordinal"
+          "type": "temporal"
         },
         "y": {
           "field": "Percentage",
@@ -102,7 +102,7 @@
         },
         "text": {
           "condition": {
-            "test": "datum.Year === '2024'",
+            "test": "datum.Year === '2024-01-01'",
             "field": "Subject",
             "type": "nominal"
           }
