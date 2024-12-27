@@ -1,139 +1,194 @@
 <!DOCTYPE html>
 <html>
 <head>    
-    <link rel="stylesheet" type="text/css" href="styles2.css">
-    <title>My Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <style>
-        #carousel {
-            width: 60%; /* Standard width for better viewing */
-            margin: auto;
-            position: relative;
-            overflow: hidden;
-        }
-        .carousel-inner {
-         display: flex;
-         transition: transform 0.5s ease-in-out;
-         align-items: center; /* Center items vertically if needed */
-        }
-        .carousel-item {
-            min-width: 90%;
-            box-sizing: border-box;
-            margin-right: 15%;
-        }
-        .carousel-buttons {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            padding: 0 20px; /* Add padding to ensure both buttons are visible */
-        }
-        .carousel-buttons button {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myles Owens | Economic Policy</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6" defer></script>
 </head>
 <body>
-    <h1 class="big" style="margin-bottom: 0px;">
-        <img src=> Myles Owens | LSE MPA | Economic Policy
-    </h1>        
-    <p style="margin-top: 0px; color: darkblue">
-        <a href="https://mylesowens.substack.com/">Policy Blog</a> | <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a> | <a href="https://github.com/MOWENS117">GitHub</a> | <a href="cv.html">My CV</a> | <a href="project.html" class="button">Projects</a> | <a href="portfolio.html" class="button">Portfolio</a> 
-    </p>
-    <h3 class="small">
-        Hey, I’m Myles Owens – I specialise in taking complex economic data and turning it into clear, engaging visuals. Whether it's economic trends, policy analysis, or financial forecasts, I make sure the numbers don’t just sit there – they tell a story.
-    </h3>
-
-    <!-- Carousel Section -->
-    <div id="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item">
-                <div class="chart-description">
-                    <h2>Visualisation highlights</h2>
-                    <p>
-                        This chart uses energy consumption data from the Cambridge Centre for Alternative Finance and Bitcoin Price data to explore the correlation between price and energy consumption.   
-                    </p>
-                </div>
-                <figure id="Location1"></figure>
+<!-- Hero Section -->
+<div class="hero">
+    <div class="nav-container">
+        <nav>
+            <div class="nav-links">
+                <a href="#work">Featured Work</a>
+                <a href="#about">About</a>
+                <a href="cv.html">CV</a>
+                <a href="project.html">Projects</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="https://mylesowens.substack.com/">Blog</a>
+                <a href="#contact">Contact</a>
             </div>
-            <div class="carousel-item">
-                <div class="chart-description">
-                    <h2>BTC Consumption vs Price</h2>
-                    <p>
-                        This chart explores the co-ovements over time of Bitcoin's price and energy consumption.
-                    </p>
-                </div>
-                <figure id="Location2"></figure>
-            </div>
-            <div class="carousel-item">
-                <div class="chart-description">
-                    <h2>BTC energy distribution</h2>
-                    <p>
-                        This chart captures the distribution of consumption with the ability to filter from 2013 to 2024.
-                    </p>
-                </div>
-                <figure id="Location3"></figure>
-            </div>
-            <div class="carousel-item">
-                <div class="chart-description">
-                    <h2>Python Scraping Excercise</h2>
-                    <p>
-                        I've created a scraping algorithm which pulls information from wikipedia to create an interesting visual on the age of US presidents.
-                    </p>
-                </div>
-                <figure id="Location4"></figure>
-            </div>
-            <div class="carousel-item">
-                <div class="chart-description">
-                    <h2>Geographic Data</h2>
-                    <p>
-                        This chart demonstrates my ability to utilize geographic data in tandem with subregional population data.
-                    </p>
-                </div>
-                <figure id="Location5"></figure>
-            </div>
+        </nav>
+    </div>
+    <!-- Add these divs inside your hero section, before the hero-content -->
+<div class="sliding-text sliding-text-1">
+    Econometrics • Data Analysis • Statistical Modeling • Time Series Analysis • Regression
+</div>
+<div class="sliding-text sliding-text-2">
+    Machine Learning • Causal Inference • Panel Data • Economic Policy • Market Analysis
+</div>
+<div class="sliding-text sliding-text-3">
+    Data Visualization • Policy Research • Economic Theory • Quantitative Methods • R&D
+</div>
+<div class="sliding-text sliding-text-4">
+    HTML • Stata • R Programming • Python • SQL • Tableau • LaTeX • Excel • Vega-lite
+</div>
+    <div class="hero-content">
+        <div class="animated-header">
+            <h1 class="gradient-text">Myles Owens</h1>
+            <div class="title-text">LSE MPA | Economic Policy</div>
+        </div>
+        <p class="hero-description">
+            Transforming complex economic data into clear, engaging visualizations that tell compelling stories.
+        </p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/myles-owens" class="social-icon" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/MOWENS117" class="social-icon" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://mylesowens.substack.com/" class="social-icon" aria-label="Blog">
+                <i class="fas fa-newspaper"></i>
+            </a>
         </div>
     </div>
-    
-    <!-- Carousel Buttons -->
-    <div class="carousel-buttons" style="position: relative; top: 20px; display: flex; justify-content: center; gap: 20px;">
-    <button id="prevBtn">&#8249;</button>
-    <button id="nextBtn">&#8250;</button>
 </div>
 
-    <!-- About Me Section -->
-    <section id="about-me" style="text-align: center; margin-top: 50px;">
-        <div style="display: flex; justify-content: center; gap: 20px;">
-            <img src="exp.png" alt="Experience Board" style="max-width: 300px; width: 300px; height: 300px; margin-bottom: 20px; object-fit: cover;">
-            <img src="aboutmepic2.jpg" alt="Picture of Myles Owens" style="max-width: 300px; width: 300px; height: 300px; margin-bottom: 20px; object-fit: cover;">
-            <img src="policypulse.png" alt="Policy Pulse Blog" style="max-width: 300px; width: 300px; height: 300px; margin-bottom: 20px; object-fit: cover;">
+    <!-- Work Section -->
+    <section id="work" class="work-section">
+        <h2 class="section-title">Featured Work</h2>
+        <div class="carousel-container">
+            <div class="modern-carousel">
+                <div class="carousel-inner">
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item">
+                        <div class="project-card">
+                            <div class="chart-description">
+                                <h3>Interactive Visualisations</h3>
+                                <p> I'm able to create visuaulzations that aren't just nice to look at but also prompt the user to explore the data in a more meaningful way. This paticular chart explores the correlation between Bitcoin price and energy consumption over time.</p>
+                                <div class="chart-controls">
+                                    
+                                </div>
+                            </div>
+                            <figure id="Location1" class="chart-figure"></figure>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Item 2 -->
+                    <div class="carousel-item">
+                        <div class="project-card">
+                            <div class="chart-description">
+                                <h3>Unstructured Data</h3>
+                                <p>Often the data we are interested in isn't neatly filed into a spreadsheet, which is why it's improtant to be able to know how to creatively use unstructured data. I've created a scraping algorithm usign python which pulls information from Wikipedia to create an interesting visual on the age of US presidents.</p>
+                            </div>
+                            <figure id="Location4" class="chart-figure"></figure>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Item 3 -->
+                    <div class="carousel-item">
+                        <div class="project-card">
+                            <div class="chart-description">
+                                <h3>Geographic Data</h3>
+                                <p>Lines a points are great but sometimes we need to look at data through a different lens such as a political one. This chart demonstrates my ability to utilize geographic data in tandem with subregional population data for Kyrgyzstan.</p>
+                            </div>
+                            <figure id="Location5" class="chart-figure"></figure>
+                        </div>
+                    </div>
+    <!-- Carousel Item 4 -->
+    <div class="carousel-item">
+        <div class="project-card">
+            <div class="chart-description">
+                <h3>Policy Pulse</h3>
+                <p>I enjoy writing about complex policy stories that interest me on my blog policy pulse and elsewhere. My piece "Race, Riches and Crypto" explores the claims that cryptocurrency is a tool for financial inclusion.</p>
+            </div>
+            <figure class="project-image">
+                <img src="rrc.jpg" alt="Race Riches and Crypto" style="width: 300px; height: auto;">
+            </figure>
         </div>
-        <h2>About Me</h2>
-        <p>My name is Myles Owens, and I am a current graduate student at LSE, specialising in economic policy. My expertise lies in data analysis, visualisation, and economic storytelling. I am currently seeking roles where I can analyse economic, financial, and political data and trends, leveraging my experience in causal inference techniques. Outside of work, I enjoy writing about policy and economic trends on my blog, and I exploring London's many museums and galleries. I recently worked as a Blockchain Policy Researcher at the Bank for International Settlements, where I contributed to policy development for a public-private blockchain payment system.</p>
+    </div>
+</div>
+                
+                <!-- Carousel Controls -->
+                <div class="carousel-controls">
+                    <button id="prevBtn" class="carousel-button" aria-label="Previous slide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="nextBtn" class="carousel-button" aria-label="Next slide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <script>
-        // Vega-Lite specifications for embedding charts
-        let figure_1_spec = "btc_cons_scatter.json"
-        let figure_2_spec = "btc_price_cons_line_log.json"
-        let figure_3_spec = "btc_cons_hist_time.json"
-        let figure_4_spec = "president_age.json"
-        let figure_5_spec = "kyrgz_pop.json"
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="section-title">About Me</h2>
+                <p>I'm currently a graduate student at LSE specializing in economic policy. I'm an economist by training but I'd call myself an "economics storyteller" with a passion for data analysis and visualization.</p>
+                <p>Recently, I contributed to blockchain policy development at the Bank for International Settlements, working on public-private payment systems. When I'm not studying, you'll find me exploring London's museums or running through Victoria park.</p>
+            </div>
+            <div class="about-images">
+                <img src="aboutmepic2.jpg" alt="Myles Owens" class="profile-image">
+                <div class="image-grid">
+                    <img src="exp.png" alt="Experience" class="grid-image">
+                    <img src="policypulse.png" alt="Policy Blog" class="grid-image">
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Embed the charts into their respective figures
-        vegaEmbed('#Location1', figure_1_spec)
-        vegaEmbed('#Location2', figure_2_spec)
-        vegaEmbed('#Location3', figure_3_spec)
-        vegaEmbed('#Location4', figure_4_spec)
-        vegaEmbed('#Location5', figure_5_spec)
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-content">
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="contact-button">
+                    <i class="fas fa-envelope"></i>
+                    Email Me
+                </a>
+                <a href="cv.html" class="contact-button">
+                    <i class="fas fa-file-alt"></i>
+                    View CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Myles Owens. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Vega-Lite specifications and chart embedding
+        document.addEventListener('DOMContentLoaded', () => {
+            const specs = {
+                figure_1_spec: "btc_cons_scatter.json",
+                figure_2_spec: "btc_price_cons_line_log.json",
+                figure_3_spec: "btc_cons_hist_time.json",
+                figure_4_spec: "president_age.json",
+                figure_5_spec: "kyrgz_pop.json"
+            };
+
+            // Embed charts
+            Object.entries(specs).forEach(([_, spec], index) => {
+                vegaEmbed(`#Location${index + 1}`, spec);
+            });
+        });
 
         // Carousel functionality
         const carouselInner = document.querySelector('.carousel-inner');
@@ -141,27 +196,49 @@
         const nextBtn = document.getElementById('nextBtn');
         let currentIndex = 0;
 
+        function updateCarousel() {
+            const itemWidth = carouselInner.querySelector('.carousel-item').offsetWidth;
+            const transform = -currentIndex * itemWidth;
+            carouselInner.style.transform = `translateX(${transform}px)`;
+            
+            // Update button states
+            prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+            nextBtn.style.opacity = currentIndex === carouselInner.children.length - 1 ? '0.5' : '1';
+        }
+
         prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselInner.children.length - 1;
-            updateCarousel();
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
         });
 
         nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex < carouselInner.children.length - 1) ? currentIndex + 1 : 0;
-            updateCarousel();
+            if (currentIndex < carouselInner.children.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
         });
 
-        function updateCarousel() {
-    const itemWidth = carouselInner.children[0].offsetWidth;
-    const totalWidth = itemWidth + parseInt(getComputedStyle(carouselInner.children[0]).marginRight);
-    const offset = -currentIndex * totalWidth;
-    carouselInner.style.transform = `translateX(${offset}px)`;
-}
-    </script>
+        // Handle window resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(updateCarousel, 250);
+        });
 
-    <!-- Link to CV Page -->
-    <div style="text-align: center; margin-top: 20px;">
-        <a href="my_cv.html" style="font-size: 1.2em; color: #00796b; text-decoration: none;">View My CV</a>
-    </div>
+        // Initialize carousel
+        document.addEventListener('DOMContentLoaded', updateCarousel);
+
+        // Year slider functionality
+        const yearSlider = document.getElementById('yearSlider');
+        const yearDisplay = document.querySelector('.year-display');
+
+        if (yearSlider && yearDisplay) {
+            yearSlider.addEventListener('input', (e) => {
+                yearDisplay.textContent = e.target.value;
+            });
+        }
+    </script>
 </body>
 </html>
