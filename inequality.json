@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
-  "height": 250,
+  "width": 450,
+  "height": 142.5,
   "data": {
     "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/bottom_percent.csv",
     "format": {"type": "csv"}
