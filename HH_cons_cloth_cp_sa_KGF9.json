@@ -1,0 +1,76 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 200,
+    "height": 200,
+    "background": "#1a1f36",
+    "title": {
+      "text": "Household Final Consumption Expenditure:",
+      "color": "white",
+      "fontSize": 16,
+      "subtitle":"Clothing & footwear: Growth Rate %: Current Price: SA",
+      "subtitleColor":"white",
+      "subtitleFontSize": 13,
+      "anchor": "start"
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/HH_ons_KGF9.json",
+      "format": {
+        "type": "json",
+        "property": "years"
+      }
+    },
+    "mark": {
+      "type": "line",
+      "point": false,
+      "strokeWidth": 3,
+      "color": "#00cb0a"
+    },
+    "encoding": {
+      "x": {
+        "field": "date",
+        "type": "temporal",
+        "title": "Year",
+        "axis": {
+          "labelAngle": 0,
+          "gridOpacity": 0.2,
+          "titleColor": "white",
+          "labelColor": "white",
+          "gridColor": "rgba(255, 255, 255, 0.2)",
+          "labelOffset": 10,
+          "labelOverlap": true
+        }
+      },
+      "y": {
+        "field": "value",
+        "type": "quantitative", 
+        "title": "Growth Rate %",
+        "axis": {
+          "gridOpacity": 0.2,
+          "titleColor": "white",
+          "labelColor": "white",
+          "gridColor": "rgba(255, 255, 255, 0.2)"
+        }
+      },
+      "tooltip": [
+        {"field": "year", "type": "temporal", "title": "Year"},
+        {"field": "growth_rate", "type": "quantitative", "title": "Value", "format": ".1f"}
+      ]
+    },
+    "config": {
+      "axis": {
+        "titleFontSize": 12,
+        "labelFontSize": 11,
+        "domainColor": "white",
+        "tickColor": "white"
+      },
+      "legend": {
+        "titleFontSize": 12,
+        "labelFontSize": 11,
+        "titleColor": "white",
+        "labelColor": "white"
+      },
+      "view": {
+        "stroke": "transparent"
+      }
+    }
+  }
