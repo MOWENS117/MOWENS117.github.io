@@ -1,0 +1,11 @@
+<script>start("c:\\Users\\myles\\OneDrive\\Documents\\LSE\\PP434\\Code Examples\\hh_ons\\");</script>
+<script>onHasParentDirectory();</script>
+<script>addRow("employer_social_dtwp.json","employer_social_dtwp.json",0,2020,"2.0 kB",1735009071,"12/23/24, 8:57:51 PM");</script>
+<script>addRow("HH_cons_alc_cp_sa_KGF3.json","HH_cons_alc_cp_sa_KGF3.json",0,2049,"2.0 kB",1735009071,"12/23/24, 8:57:51 PM");</script>
+<script>addRow("HH_cons_cloth_cp_sa_KGF9.json","HH_cons_cloth_cp_sa_KGF9.json",0,2050,"2.0 kB",1735009071,"12/23/24, 8:57:51 PM");</script>
+<script>addRow("HH_cons_cp_sa_kg6u.json","HH_cons_cp_sa_kg6u.json",0,2038,"2.0 kB",1735009071,"12/23/24, 8:57:51 PM");</script>
+<script>addRow("HH_cons_edu_cp_sa_kgb2.json","HH_cons_edu_cp_sa_kgb2.json",0,2041,"2.0 kB",1735009071,"12/23/24, 8:57:51 PM");</script>
+<script>addRow("HH_cons_food_cp_sa_kg9n.json","HH_cons_food_cp_sa_kg9n.json",0,2044,"2.0 kB",1735009071,"12/23/24, 8:57:51 PM");</script>
+<script>addRow("HH_cons_house_cp_sa_KGG7.json","HH_cons_house_cp_sa_KGG7.json",0,2047,"2.0 kB",1735009071,"12/23/24, 8:57:51 PM");</script>
+<script>addRow("HH_cons_rest_cp_sa_Kgc6.json","HH_cons_rest_cp_sa_Kgc6.json",0,2051,"2.0 kB",1735008845,"12/23/24, 8:54:05 PM");</script>
+<script>addRow("HH_exp_a275.json","HH_exp_a275.json",0,2019,"2.0 kB",1735008836,"12/23/24, 8:53:56 PM");</script>

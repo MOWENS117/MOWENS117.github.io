@@ -1,0 +1,50 @@
+{
+    "config": {
+      "view": {"continuousWidth": 300, "continuousHeight": 300}
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/tea_table.csv"
+    },
+    "transform": [
+      {
+        "calculate": "(datum.price - datum.start_price)/datum.start_price",
+        "as": "price_change"
+      }
+    ],
+    "mark": {
+      "type": "line",
+      "interpolate": "basis"
+    },
+    "encoding": {
+      "x": {
+        "field": "year_month",
+        "type": "temporal",
+        "axis": {
+          "tickCount": "month",
+          "labelAngle": -45,
+          "format": "%b"
+        },
+        "title": "Month"
+      },
+      "y": {
+        "field": "price_change",
+        "type": "quantitative",
+        "scale": {"zero": false},
+        "axis": {
+          "format": ".0%"
+        },
+        "title": "Price Change (%)"
+      },
+      "color": {
+        "field": "cpi_name",
+        "type": "nominal",
+        "title": "Product"
+      },
+      "tooltip": [
+        {"field": "cpi_name", "type": "nominal", "title": "Product"},
+        {"field": "price_change", "type": "quantitative", "format": ".1%", "title": "Price Change"},
+        {"field": "price", "type": "quantitative", "format": ".2f", "title": "Price"},
+        {"field": "start_price", "type": "quantitative", "format": ".2f", "title": "Starting Price"}
+      ]
+    }
+  }
