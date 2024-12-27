@@ -1,121 +1,212 @@
 <!DOCTYPE html>
-<html>
-<head>    
-    <link rel="stylesheet" type="text/css" href="styles2.css">
-    <title>My Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <style>
-        #carousel {
-            width: 60%; /* Standard width for better viewing */
-            margin: auto;
-            position: relative;
-            overflow: hidden;
-        }
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .carousel-item {
-            min-width: 100%;
-            box-sizing: border-box;
-            margin-right: 10px;
-        }
-        .carousel-buttons {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            padding: 0 20px; /* Add padding to ensure both buttons are visible */
-        }
-        .carousel-buttons button {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-    </style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Sustainability Project - Myles Owens</title>
+    <link rel="stylesheet" type="text/css" href="styles_btc.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/5.22.1/vega.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/5.6.0/vega-lite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/6.21.0/vega-embed.min.js"></script>
 </head>
 <body>
-    <h1 class="big" style="margin-bottom: 0px;">
-        <img src=> Myles Owens | LSE MPA | Economic Policy
-    </h1>        
-    <p style="margin-top: 0px; color: darkblue">
-        <a href="https://mylesowens.substack.com/">Policy Blog</a> | <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a> | <a href="https://github.com/MOWENS117">GitHub</a> | <a href="cv.html">My CV</a> | <a href="project.html" class="button">Projects</a> | <a href="portfolio.html" class="button">Portfolio</a> | <a href="index.html">Home</a>
-    </p>
-    <h3 class="small">
-        This project explores the sustainability of Bitcoin.
-    </h3>
-    
+<!-- Hero Section -->
+<section class="hero">
+    <!-- Bouncing Circles Container -->
+    <div id="circleContainer"></div>
 
-    <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
-    <section>
-        <div class="chart-description">
-            <h2>Bitcoin Price vs consumption</h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav>
+            <div class="nav-links">
+                <a href="https://mylesowens.substack.com/" class="button">Policy Blog</a>
+                <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a>
+                <a href="https://github.com/MOWENS117">GitHub</a>
+                <a href="cv.html">My CV</a>
+                <a href="project.html" class="active">Projects</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="index.html">Home</a>
+            </div>
+        </nav>
+    </div>
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="animated-header">
+                <<h1 class="gradient-text">
+                    <span style="font-family: 'Arial', sans-serif; font-size: 1.2em;">₿</span>itcoin Sustainability: Visual Analysis
+                  </h1>
+                <p class="title-text">Exploring the sustainability of the world's most valuable digital asset. *Work in progress*</p>
+            </div>
+            <p class="hero-description">
+                
             </p>
         </div>
-        <figure id="Location1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     </section>
-    <!-- We created a second section containing a chart, title and a description -->
-  <section>
-    <div class="chart-description">
-        <h2>Bitcoin Energy Consumption Frequency</h2>
-    </div>
-    <figure id="Location2"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-</section>
-    <!-- We created a new section containing a chart, title and a description -->
-    <section>
-        <div class="chart-description">
-            <h2>Bitcoin Price</h2>
-        </div>
-        <figure id="Location3"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-        <!-- We created a new section containing a chart, title and a description -->
-        <section>
+
+    <!-- Work Section -->
+    <div class="work-section">
+                <!-- Log Values Analysis -->
+                <section class="project-card">
+                    <div class="chart-description">
+                        <h2>Price vs Consumption Logarithmic Analysis</h2>
+                        <p>Both the price of Bitcoin and TWh energy consumption has steadily increased since the coin's inception.</p>
+                    </div>
+                    <div class="charts-container">
+                        <figure id="Location1" class="chart-figure"></figure>
+                    </div>
+                </section>
+                <!-- Energy Consumption Frequency -->
+                <section class="project-card">
+                    <div class="chart-description">
+                        <h2>Energy Consumption Frequency Analysis</h2>
+                        <p>The distribution of energy consumption has widened over time with no sign of anchoring.</p>
+                    </div>
+                    <div class="charts-container">
+                        <figure id="Location2" class="chart-figure"></figure>
+                    </div>
+                </section>
+        <!-- Price vs Consumption Analysis -->
+        <section class="project-card">
             <div class="chart-description">
-                <h2>Bitcoin Energy Consumption</h2>
+                <h2>Bitcoin Price vs Energy Consumption</h2>
+                <p>Energy consumption and price are clearly correlated with the lowest energy consumption being when Bitcoins price was lowest. The behavior overtime can be described as a "staircase pattern". With each jump in price energy sonsumption increases before plateauing again.</p>
             </div>
-            <figure id="Location4"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+            <div class="charts-container">
+                <figure id="Location3" class="chart-figure"></figure>
+            </div>
         </section>
-      <!-- We created a new section containing a chart, title and a description -->
-      <section>
-        <div class="chart-description">
-            <h2>Bitcoin Energy Consumption vs Price Log Values</h2>
+        <!-- Bitcoin Energy Detrended -->
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>Energy Consumption Trends</h2>
+                <p>Detrended fluctuation of Bitcoin's energy consumption alongside historical price levels.</p>
+            </div>
+            <div class="charts-container">
+                <figure id="Location4" class="chart-figure"></figure>
+            </div>
+        </section>
+
+        <!-- Energy Detrended 2 -->
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>Energy Consumption Trends</h2>
+                <p>Taking a closer look at energy consumption fluctuations we are in a positve fluctuation period and it is the largest deviation from the trend in recorded history.</p>
+            </div>
+            <div class="charts-container">
+                <figure id="Location5" class="chart-figure"></figure>
+            </div>
+        </section>
+            
+
+
+
+    </div>
+<!-- Project Analysis Write-up -->
+<section class="project-card analysis-writeup">
+    <div class="writeup-content">
+        <h2 class="section-heading">Project Information</h2>
+        
+        <div class="writeup-section">
+            <h3>Project Aims</h3>
+            <div class="content">
+                <p>This project investigates the relationship between Bitcoin's market dynamics and its environmental impact through energy consumption patterns. The primary objectives were to:</p>
+                <p>Analyze the correlation between Bitcoin's price movements and its energy consumption trends, examining whether increased market value leads to proportional increases in energy usage. Additionally, we aimed to identify any potential decoupling between price and energy consumption that might suggest improvements in mining efficiency or shifts in mining practices.</p>
+                <p>Furthermore, the project sought to understand the long-term sustainability implications of Bitcoin's growing energy demands and evaluate whether the network's energy consumption shows signs of stabilization or continues to grow unbounded with price appreciation.</p>
+            </div>
         </div>
-        <figure id="Location5"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
 
+        <!-- Repeat the same structure for other sections -->
+        <div class="writeup-section">
+            <h3>Data Sources & Methodology</h3>
+            <div class="content">
+                <p>The analysis combines data from multiple authoritative sources:</p>
+                <p>Bitcoin price and volume data was sourced from the Coin Gecko, providing historical daily price points from 2013 to present. Energy consumption data was collected from the Cambridge Bitcoin Electricity Consumption Index (CBECI), which offers a real-time estimate of Bitcoin's electricity consumption.</p>
+            </div>
+        </div>
 
-
-    <!-- This is a script, it's a way to run JavaScript code on the page -->
+        <!-- Continue with Technical Challenges and Key Conclusions sections -->
+    </div>
+</section>
+    <!-- Scripts -->
     <script>
-        // This is a comment in JavaScript - it's a different language to HTML and CSS
-
-        let figure_1_spec = "btc_cons_scatter.json"
+        // Chart specifications
+        let figure_1_spec = "btc_price_cons_line_log.json"
         let figure_2_spec = "btc_cons_hist_time.json"
-        let figure_3_spec = "btc_price.json"
-        let figure_4_spec = "btc_cons_line.json"
-        let figure_5_spec = "btc_price_cons_line_log.json"
-        vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
+        let figure_3_spec = "btc_cons_scatter.json"
+        let figure_4_spec = "btc_cons_detrend.json"
+        let figure_5_spec = "btc_cons_detrend_bar.json"
+
+        // Embed charts
+        vegaEmbed('#Location1', figure_1_spec)
         vegaEmbed('#Location2', figure_2_spec)
         vegaEmbed('#Location3', figure_3_spec)
         vegaEmbed('#Location4', figure_4_spec)
         vegaEmbed('#Location5', figure_5_spec)
-        
-        // Do you want to add more graphs?
-        // try defining a new variable for figure_3_spec, adding VegaEmbed for Location3, and adding a new section in the HTML
-        // e.g. 
-        // let figure_3_spec = ...
-        // vegaEmbed('#Location3', figure_3_spec)
-
-
     </script>
-
+    <script>
+        // Bouncing circles animation
+        class Circle {
+            constructor(container) {
+        const circle = document.createElement('div');
+        circle.className = 'circle';
+        
+        // Create and add the Bitcoin symbol inside each circle
+        const bitcoinSymbol = document.createElement('span');
+        bitcoinSymbol.textContent = '₿';
+        bitcoinSymbol.className = 'bitcoin-symbol';
+        circle.appendChild(bitcoinSymbol);
+        
+        container.appendChild(circle);
+                
+                // Initialize physics properties
+                this.element = circle;
+                this.size = Math.random() * 100 + 100;
+                this.x = Math.random() * (container.clientWidth - this.size);
+                this.y = Math.random() * (container.clientHeight - this.size);
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = (Math.random() - 0.5) * 2;
+                this.container = container;
+                
+                // Set initial size
+                this.element.style.width = this.size + 'px';
+                this.element.style.height = this.size + 'px';
+            }
+            
+            updatePosition() {
+                // Update position based on velocity
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Bounce off walls
+                if (this.x <= 0 || this.x + this.size >= this.container.clientWidth) {
+                    this.vx = -this.vx;
+                    this.x = Math.max(0, Math.min(this.x, this.container.clientWidth - this.size));
+                }
+                
+                // Bounce off floor/ceiling
+                if (this.y <= 0 || this.y + this.size >= this.container.clientHeight) {
+                    this.vy = -this.vy;
+                    this.y = Math.max(0, Math.min(this.y, this.container.clientHeight - this.size));
+                }
+                
+                // Apply position using transform for better performance
+                const rotation = (this.x + this.y) % 360;
+        this.element.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${rotation}deg)`;
+            }
+        }
+    
+        // Initialize animation
+        const container = document.getElementById('circleContainer');
+        const circles = Array.from({length: 7}, () => new Circle(container));
+        
+        // Animation loop using requestAnimationFrame
+        function animate() {
+            circles.forEach(circle => circle.updatePosition());
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
 </body>
+</html>
     
 </html>
