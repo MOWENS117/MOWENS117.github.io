@@ -1,0 +1,60 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 300,
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/tea_table.csv"
+    },
+    "transform": [
+      {
+        "calculate": "(datum.price - datum.start_price)/datum.start_price",
+        "as": "price_change"
+      },
+      {
+        "calculate": "datum.cpi_name == 'tea bags pkt of 80 (230g-250g)' || datum.cpi_name == 'tea bags-2-packet of 240' || datum.cpi_name == 'flavrd tea 15-20 bags, 30-40g' ? 'Tea' : 'Coffee'",
+        "as": "category"
+      },
+      {
+        "aggregate": [{
+          "op": "mean",
+          "field": "price_change",
+          "as": "avg_price_change"
+        }],
+        "groupby": ["year_month", "category"]
+      }
+    ],
+    "mark": {
+      "type": "line",
+      "interpolate": "basis"
+    },
+    "encoding": {
+      "x": {
+        "field": "year_month",
+        "type": "temporal",
+        "axis": {
+          "tickCount": "month",
+          "labelAngle": -45,
+          "format": "%b"
+        },
+        "title": "Month"
+      },
+      "y": {
+        "field": "avg_price_change",
+        "type": "quantitative",
+        "scale": {"zero": false},
+        "axis": {
+          "format": ".0%"
+        },
+        "title": "Average Price Change (%)"
+      },
+      "color": {
+        "field": "category",
+        "type": "nominal",
+        "title": "Category"
+      },
+      "tooltip": [
+        {"field": "category", "type": "nominal", "title": "Category"},
+        {"field": "avg_price_change", "type": "quantitative", "format": ".1%", "title": "Average Price Change"}
+      ]
+    }
+  }

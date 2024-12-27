@@ -32,10 +32,8 @@
         <!-- Hero Content -->
         <div class="hero-content">
             <div class="animated-header">
-                <<h1 class="gradient-text">
-                    <span style="font-family: 'Arial', sans-serif; font-size: 1.2em;">₿</span>itcoin Sustainability: Visual Analysis
-                  </h1>
-                <p class="title-text">Exploring the sustainability of the world's most valuable digital asset. *Work in progress*</p>
+                <h1 class="gradient-text">Bitcoin Sustainability Analysis</h1>
+                <p class="title-text">Exploring the sustainability of the world's most valuable digital asset.</p>
             </div>
             <p class="hero-description">
                 
@@ -69,7 +67,7 @@
         <section class="project-card">
             <div class="chart-description">
                 <h2>Bitcoin Price vs Energy Consumption</h2>
-                <p>Energy consumption and price are clearly correlated with the lowest energy consumption being when Bitcoins price was lowest. The behavior overtime can be described as a "staircase pattern". With each jump in price energy sonsumption increases before plateauing again.</p>
+                <p>Energy consumption and price are clearly correlated with the lowest energy consumption being when Bitcoins price was lowest.</p>
             </div>
             <div class="charts-container">
                 <figure id="Location3" class="chart-figure"></figure>
@@ -90,43 +88,16 @@
         <section class="project-card">
             <div class="chart-description">
                 <h2>Energy Consumption Trends</h2>
-                <p>Taking a closer look at energy consumption fluctuations we are in a positve fluctuation period and it is the largest deviation from the trend in recorded history.</p>
+                <p>Detrended fluctuation of Bitcoin's energy consumption.</p>
             </div>
             <div class="charts-container">
                 <figure id="Location5" class="chart-figure"></figure>
             </div>
         </section>
-            
-
 
 
     </div>
-<!-- Project Analysis Write-up -->
-<section class="project-card analysis-writeup">
-    <div class="writeup-content">
-        <h2 class="section-heading">Project Information</h2>
-        
-        <div class="writeup-section">
-            <h3>Project Aims</h3>
-            <div class="content">
-                <p>This project investigates the relationship between Bitcoin's market dynamics and its environmental impact through energy consumption patterns. The primary objectives were to:</p>
-                <p>Analyze the correlation between Bitcoin's price movements and its energy consumption trends, examining whether increased market value leads to proportional increases in energy usage. Additionally, we aimed to identify any potential decoupling between price and energy consumption that might suggest improvements in mining efficiency or shifts in mining practices.</p>
-                <p>Furthermore, the project sought to understand the long-term sustainability implications of Bitcoin's growing energy demands and evaluate whether the network's energy consumption shows signs of stabilization or continues to grow unbounded with price appreciation.</p>
-            </div>
-        </div>
 
-        <!-- Repeat the same structure for other sections -->
-        <div class="writeup-section">
-            <h3>Data Sources & Methodology</h3>
-            <div class="content">
-                <p>The analysis combines data from multiple authoritative sources:</p>
-                <p>Bitcoin price and volume data was sourced from the Coin Gecko, providing historical daily price points from 2013 to present. Energy consumption data was collected from the Cambridge Bitcoin Electricity Consumption Index (CBECI), which offers a real-time estimate of Bitcoin's electricity consumption.</p>
-            </div>
-        </div>
-
-        <!-- Continue with Technical Challenges and Key Conclusions sections -->
-    </div>
-</section>
     <!-- Scripts -->
     <script>
         // Chart specifications
@@ -147,20 +118,13 @@
         // Bouncing circles animation
         class Circle {
             constructor(container) {
-        const circle = document.createElement('div');
-        circle.className = 'circle';
-        
-        // Create and add the Bitcoin symbol inside each circle
-        const bitcoinSymbol = document.createElement('span');
-        bitcoinSymbol.textContent = '₿';
-        bitcoinSymbol.className = 'bitcoin-symbol';
-        circle.appendChild(bitcoinSymbol);
-        
-        container.appendChild(circle);
+                const circle = document.createElement('div');
+                circle.className = 'circle';
+                container.appendChild(circle);
                 
                 // Initialize physics properties
                 this.element = circle;
-                this.size = Math.random() * 100 + 100;
+                this.size = Math.random() * 100 + 50;
                 this.x = Math.random() * (container.clientWidth - this.size);
                 this.y = Math.random() * (container.clientHeight - this.size);
                 this.vx = (Math.random() - 0.5) * 2;
@@ -190,14 +154,13 @@
                 }
                 
                 // Apply position using transform for better performance
-                const rotation = (this.x + this.y) % 360;
-        this.element.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${rotation}deg)`;
+                this.element.style.transform = `translate(${this.x}px, ${this.y}px)`;
             }
         }
     
         // Initialize animation
         const container = document.getElementById('circleContainer');
-        const circles = Array.from({length: 7}, () => new Circle(container));
+        const circles = Array.from({length: 15}, () => new Circle(container));
         
         // Animation loop using requestAnimationFrame
         function animate() {
@@ -208,3 +171,34 @@
     </script>
 </body>
 </html>
+
+                <!-- Energy Comparison and Contrast -->
+                <section class="project-card">
+                    <div class="chart-description">
+                        <h2>Industry Comparison</h2>
+                        <p>Bitcoin Energy Consumption comapred to other industries</p>
+                    </div>
+                    <div class="charts-container">
+                        <figure id="Location5" class="chart-figure"></figure>
+                    </div>
+                </section>
+                      <!-- Energy Prediction ML -->
+                      <section class="project-card">
+                        <div class="chart-description">
+                            <h2>Consumption Forecast</h2>
+                            <p>How will energy production go into the future></p>
+                        </div>
+                        <div class="charts-container">
+                            <figure id="Location5" class="chart-figure"></figure>
+                        </div>
+                    </section>        
+                         <!-- ML Clustering / Classification -->
+                         <section class="project-card">
+                            <div class="chart-description">
+                                <h2>Clustering / Classification</h2>
+                                <p>Are all miners alike?></p>
+                            </div>
+                            <div class="charts-container">
+                                <figure id="Location5" class="chart-figure"></figure>
+                            </div>
+                        </section>      

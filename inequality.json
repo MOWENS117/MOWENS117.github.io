@@ -1,48 +1,58 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/bottom_percent.csv",
-      "format": {
-        "type": "csv"
-      }
-    },
-    "transform": [
-      {
-        "filter": "datum['Income share held by lowest decile (%)'] != null && datum['GDPPC'] != null"
-      }
-    ],
-    "mark": {
-      "type" : "square",
-      "color" :"red"
-    },
-    "title": {
-      "text": "Economic Growth vs. Income Inequality",
-      "subtitle": [
-        "GDP per Capita Growth (2018) and Income Share of the Bottom 10%", 
-        "Source: World Bank"
-      ]
-    },
-    "encoding": {
-      "x": {
-        "field": "GDPPC",
-        "type": "quantitative",
-        "title": "GDP per Capita Growth (%)",
-        "axis" : {
-          "grid" : false
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 250,
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/bottom_percent.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "filter": "datum['Income share held by lowest decile (%)'] != null && datum['GDPPC'] != null"
+    }
+  ],
+  "mark": {
+    "type": "circle",
+    "opacity": 0.6,
+    "size": 100,
+    "color": "crimson"
+  },
+  "encoding": {
+    "x": {
+      "field": "GDPPC",
+      "type": "quantitative",
+      "title": "GDP per Capita Growth (%)",
+      "axis": {
+        "grid": false,
+        "titleFontSize": 14,
+        "labelFontSize": 12,
+        "titleFontWeight": "bold"
       },
-      "y": {
-        "field": "Income share held by lowest decile (%)",
-        "type": "quantitative",
-        "title": "Income Share of the Bottom 10% (%)",
-        "scale": {
-          "domain": [0, 5],
-          "nice": false
-        },
-        "axis" : { 
-          "grid" : false }
+      "scale": {"domain": [-5, 11]}
+    },
+    "y": {
+      "field": "Income share held by lowest decile (%)",
+      "type": "quantitative",
+      "title": "Income Share of the Bottom 10% (%)",
+      "scale": {"domain": [0, 6], "nice": false},
+      "axis": {
+        "grid": false,
+        "titleFontSize": 14,
+        "labelFontSize": 12,
+        "titleFontWeight": "bold"
       }
     }
+  },
+  "title": {
+    "text": "DEBUNKED: The Growth-Prosperity Myth",
+    "subtitle": [
+      "Higher GDP Growth Does NOT Mean Better Lives for the Poor",
+      "Data Source: World Bank"
+    ],
+    "fontSize": 20,
+    "subtitleFontSize": 14,
+    "fontWeight": "bold"
+  }
   }
   
   

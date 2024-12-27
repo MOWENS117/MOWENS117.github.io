@@ -1,74 +1,150 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 400,
-    "height": 300,
-    "background": "#1a1f36",
-    "params": [
-      {
-        "name": "selectedDate",
-        "value": 2021,
-        "bind": {
-          "input": "range",
-          "min": 2013,
-          "max": 2024,
-          "step": 1,
-          "name": "Select Year: "
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 275,
+  "background": "#1a1f36",
+  "title": {
+    "text": "Distribution of Bitcoin Annualised Consumption (TWh)",
+    "subtitle": "Data Source: Cambridge Centre for Alternative Finance Bitcoin Electricity Consumption Index",
+    "subtitleColor": "white",
+    "color": "white",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "params": [
+    {
+      "name": "selectedDate",
+      "value": 2021,
+      "bind": {
+        "input": "range",
+        "min": 2013,
+        "max": 2024,
+        "step": 1,
+        "name": "Select Year: "
       }
-    ],
-    "data": {
-      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/btc-cons-updated.csv",
-      "format": {
-        "type": "csv",
-        "parse": {
-          "Year": "number",
-          "annualised consumption GUESS, TWh": "number",
-          "price": "number"
-        }
-      }
-    },
-    "transform": [
-      {
-        "filter": "datum.Year <= selectedDate"
-      }
-    ],
-    "mark": {
-      "type": "bar",
-      "color": "darkgoldenrod"
-    },
-    "encoding": {
-      "x": {
-        "field": "annualised consumption GUESS, TWh",
-        "bin": {
-          "maxbins": 100
-        },
-        "type": "quantitative",
-        "scale": {
-          "domain": [0, 200]
-        },
-        "axis": {
-          "title": "Annualised Consumption (TWh)",
-          "titleColor": "white",
-          "labelColor": "white"
-        }
-      },
-      "y": {
-        "aggregate": "count",
-        "type": "quantitative",
-        "scale": {
-          "domain": [0, 500]
-        },
-        "axis": {
-          "title": "Frequency",
-          "titleColor": "white",
-          "labelColor": "white"
-        }
-      }
-    },
-    "title": {
-      "text": "Distribution of Bitcoin Annualised Consumption (TWh)",
-      "subtitle": "Data source: Cambridge Centre for Alternative Finance Bitcoin Electricity Consumption Index ",
-      "subtitleColor": "white",
-      "color": "white"
     }
-  }
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/btc-cons-updated.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Year": "number",
+        "annualised consumption GUESS, TWh": "number",
+        "price": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.Year <= selectedDate"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": "darkgoldenrod",
+        "tooltip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "annualised consumption GUESS, TWh",
+          "bin": {"maxbins": 100},
+          "type": "quantitative",
+          "scale": {"domain": [0, 200]},
+          "axis": {
+            "title": "Annualised Consumption (TWh)",
+            "titleColor": "white",
+            "labelColor": "white",
+            "gridColor": "rgba(255, 255, 255, 0.1)"
+          }
+        },
+        "y": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "scale": {"domain": [0, 515]},
+          "axis": {
+            "title": "Frequency",
+            "titleColor": "white",
+            "labelColor": "white",
+            "gridColor": "rgba(255, 255, 255, 0.1)"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "annualised consumption GUESS, TWh",
+            "type": "quantitative",
+            "bin": true,
+            "title": "Consumption Bin"
+          },
+          {
+            "aggregate": "count",
+            "title": "Frequency"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "median",
+              "field": "annualised consumption GUESS, TWh",
+              "as": "medianConsumption"
+            }
+          ]
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "white",
+        "strokeWidth": 2,
+        "opacity": 0.8
+      },
+      "encoding": {
+        "x": {
+          "field": "medianConsumption",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "median",
+              "field": "annualised consumption GUESS, TWh",
+              "as": "medianConsumption"
+            }
+          ]
+        },
+        {
+          "calculate": "'Median: ' + format(datum.medianConsumption, '.2f')",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dy": -10,
+        "dx": 5,
+        "color": "crimson",
+        "fontSize": 12,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {
+          "field": "medianConsumption",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

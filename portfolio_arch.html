@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myles Owens | Economic Policy Analyst</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/5.22.1/vega.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/5.6.0/vega-lite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/6.21.0/vega-embed.min.js"></script>
+    <style>
+        #chartGrid {
+            display: flex;
+        }
+        
+        /* Grid style for your loops section */
+        .loops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+            gap: 10px;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        .chart-figure {
+            width: 100%;
+            height: 400px;
+            background: var(--background-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            margin: 0;
+        }
+
+        .chart-three-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        .charts-container {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        @media (max-width: 1200px) {
+            .loops-grid, .chart-three-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .chart-grid, .loops-grid, .chart-three-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Background Sliding Text -->
+        <div class="sliding-text sliding-text-1">Economic Policy • Data Analysis • Visualization</div>
+        <div class="sliding-text sliding-text-2">Python • HTML • CSS • Data Science</div>
+        <div class="sliding-text sliding-text-3">LSE MPA • Economic Policy • Analysis</div>
+        <div class="sliding-text sliding-text-4">Storytelling Through Data • Innovation</div>
+
+        <!-- Navigation -->
+        <div class="nav-container">
+            <nav>
+                <div class="nav-links">
+                    <a href="https://mylesowens.substack.com/" class="button">Policy Blog</a>
+                    <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a>
+                    <a href="https://github.com/MOWENS117">GitHub</a>
+                    <a href="index.html">Home</a>
+                    <a href="project.html">Project</a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="animated-header">
+                <h1 class="gradient-text">Portfolio</h1>
+                <p class="title-text">PP 434 | Automated Data Visualization</p>
+            </div>
+            <p class="hero-description">
+                This portfolio showcased the diverse array of data visualization and data analysis skills I have aquired in PP434.
+            </p>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <div class="work-section">
+        <!-- CC1 Section -->
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>CC1. Hosting</h2>
+                <p>Here I've embedded charts produced by other analyst. In this case I've added charts on crypto and emissions data from Richard Davies of the Economics Observatory.</p>
+            </div>
+            <div class="charts-container chart-grid">
+                <figure id="Location2" class="chart-figure"></figure>
+                <figure id="Location3" class="chart-figure"></figure>
+            </div>
+        </section>
+
+        <!-- CC2 Section -->
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>CC2. Building</h2>
+                <p>Create your own visualizations showcasing economic trends and patterns.</p>
+            </div>
+            <div class="charts-container chart-grid">
+                <figure id="Location4" class="chart-figure"></figure>
+                <figure id="Location5" class="chart-figure"></figure>
+            </div>
+        </section>
+
+        <!-- CC3 Section -->
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>CC3. Debating</h2>
+                <p>
+                    At the Festival of Economics, the author of "Beyond Fair Play" called out the myth that GDP growth makes society fairer, especially for the bottom deciles.
+                </p>
+                <p>
+                    When fairness is measured by the income share of the bottom 10%, the data reveals that there is no correlation between higher economic growth and equity. 
+                </p>
+            </div>
+            <div class="charts-container">
+                <figure id="Location6" class="chart-figure"></figure>
+            </div>
+        </section>
+
+<!-- CC4 Section -->
+<section class="project-card">
+    <div class="chart-description">
+        <h2>CC4. Replication</h2>
+        <p>I recreated and then enhanced a chart on test score results in Alabama. I replaced the bar chart with a line because it conveys the trend over time more effectively.</p>
+    </div>
+    <div style="position: relative; width: 100%; overflow: hidden;">
+        <div class="carousel-container" style="width: 100%; max-width: 100%; padding: 0; margin: 0;">
+            <div class="carousel-inner" style="display: flex; transition: transform 0.5s ease;">
+                <div class="carousel-item" style="min-width: 100%; flex-shrink: 0;">
+                    <img src="parca_statewide_score.png" alt="Original PARCA Chart" style="width: 100%; height: 400px; object-fit: contain;">
+                </div>
+                <div class="carousel-item" style="min-width: 100%; flex-shrink: 0;">
+                    <figure id="Location7" style="width: 100%; height: 400px; margin: 0;padding-left: 70px;"></figure>
+                </div>
+                <div class="carousel-item" style="min-width: 100%; flex-shrink: 0;">
+                    <figure id="Location8" style="width: 100%; height: 400px; margin: 0;padding-left: 70px;"></figure>
+                </div>
+            </div>
+            
+            <div style="position: absolute; top: 50%; transform: translateY(-50%); width: 100%; display: flex; justify-content: space-between; padding: 0 20px;">
+                <button class="carousel-button prev" style="background: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">❮</button>
+                <button class="carousel-button next" style="background: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">❯</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- CC5 Section -->
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>CC5. Scraper</h2>
+                <p>I scraped the U.S. Presidents' Wikipedia page and calculated their ages at inauguration using their birth and inauguration dates.
+                    <a href="https://colab.research.google.com/drive/1MYjvvkVLA4b93i0HsW2YAd9yz8fHvZ3l?usp=sharing" class="gradient-text">Python Code</a>
+                </p>
+            </div>
+            <div class="charts-container">
+                <figure id="Location9" class="chart-figure"></figure>
+            </div>
+        </section>
+
+        <!-- CC6 Section -->
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>CC6. Loops Dashboard</h2>
+                <p>I created a dashboard looping the ONS API in python. The dashboard displays household consumption exppenditure on a variety of goods and services.</p>
+            </div>
+            <div class="charts-container loops-grid">
+                <figure id="LocationLoop1" class="chart-figure"></figure>
+                <figure id="LocationLoop2" class="chart-figure"></figure>
+                <figure id="LocationLoop3" class="chart-figure"></figure>
+                <figure id="LocationLoop4" class="chart-figure"></figure>
+                <figure id="LocationLoop5" class="chart-figure"></figure>
+                <figure id="LocationLoop6" class="chart-figure"></figure>
+                <figure id="LocationLoop7" class="chart-figure"></figure>
+                <figure id="LocationLoop8" class="chart-figure"></figure>
+                <figure id="LocationLoop9" class="chart-figure"></figure>
+            </div>
+        </section>
+    </div>
+
+    <!-- CC7 Section -->
+    <section class="project-card">
+        <div class="chart-description">
+            <h2>CC7. Maps</h2>
+            <p>Two chloropleth maps of the counties in Alabama with the latter capturing the spatial distribution of the population.</p>
+        </div>
+        <div class="charts-container chart-grid">
+            <figure id="Location10" class="chart-figure"></figure>
+            <figure id="Location11" class="chart-figure"></figure>
+        </div>
+    </section>
+    <!-- CC8 Section -->
+    <section class="project-card">
+        <div class="chart-description">
+            <h2>CC8. Big Data</h2>
+            <p>
+                I merged and filtered DataFrames to analyze tea and coffee retail prices, using pandas to calculate monthly median prices and create a price index. After data transformation and aggregation, I used Vega-Lite to visualize price trends through multi-line charts, tracking changes from 2023-2024.
+            </p>
+        </div>
+        <div class="charts-container chart-grid">
+            <figure id="Location15" class="chart-figure"></figure>
+            <figure id="Location16" class="chart-figure"></figure>
+        </div>
+    </section>
+    <!-- CC9 Section -->
+    <section class="project-card">
+        <div class="chart-description">
+            <h2>CC9. Analytics Charts</h2>
+            <p>
+
+            </p>
+        </div>
+        <div class="charts-container">
+            <figure id="Location17" class="chart-figure"></figure>
+            <figure id="Location13" class="chart-figure"></figure>
+        </div>
+    </section>
+
+    <!-- CC10 Section -->
+    <section class="project-card">
+        <div class="chart-description"style="position: relative; width: 100%; overflow: visible;">
+            <h2>CC10 – Option 2. Interactive Visualisations</h2>
+            <p>The first chart improves on the previous histogram by allowing the user to filter the start and end year.</p>
+        </div>
+        <div class="charts-container chart-grid">
+            <figure id="Location14" class="chart-figure"></figure>
+            <figure id="Location12" class="chart-figure"></figure>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        // Chart specifications
+        let figure_2_spec = "wk1_ether.json"
+        let figure_3_spec = "wk1_co2.json"
+        let figure_4_spec = "inflation_ex.json"
+        let figure_5_spec = "vice_spending.json"
+        let figure_6_spec = "inequality.json"
+        let figure_7_spec = "parca.json"
+        let figure_8_spec = "parca_new.json"
+        let figure_9_spec = "president_age.json"
+        
+        // Loop chart specifications
+        let figure_loop_1 = "hh_ons/employer_social_dtwp.json";
+        let figure_loop_2 = "hh_ons/HH_cons_alc_cp_sa_KGF3.json";
+        let figure_loop_3 = "hh_ons/HH_cons_cloth_cp_sa_KGF9.json";
+        let figure_loop_4 = "hh_ons/HH_cons_cp_sa_kg6u.json";
+        let figure_loop_5 = "hh_ons/HH_cons_edu_cp_sa_kgb2.json";
+        let figure_loop_6 = "hh_ons/HH_cons_food_cp_sa_kg9n.json";
+        let figure_loop_7 = "hh_ons/HH_cons_house_cp_sa_KGG7.json";
+        let figure_loop_8 = "hh_ons/HH_cons_rest_cp_sa_kgc6.json";
+        let figure_loop_9 = "hh_ons/HH_exp_a275.json";
+
+        // Embed charts
+        vegaEmbed('#Location2', figure_2_spec)
+        vegaEmbed('#Location3', figure_3_spec)
+        vegaEmbed('#Location4', figure_4_spec)
+        vegaEmbed('#Location5', figure_5_spec)
+        vegaEmbed('#Location6', figure_6_spec)
+        vegaEmbed('#Location7', figure_7_spec)
+        vegaEmbed('#Location8', figure_8_spec)
+        vegaEmbed('#Location9', figure_9_spec)
+
+        // Add chart specifications for CC7-CC10
+        let figure_10_spec = "alabama_county.json"
+        let figure_11_spec = "alabama_pop.json"
+        let figure_12_spec = "btc_cons_scatter.json"
+        let figure_13_spec = "btc_cons_detrend_bar.json"
+        let figure_14_spec = "btc_cons_hist_time.json"
+        let figure_15_spec = "tea.json"
+        let figure_16_spec = "tea_coffee.json"
+        let figure_17_spec = "btc_cons_detrend.json"
+
+        // Embed CC7-CC10 charts
+        vegaEmbed('#Location10', figure_10_spec)
+        vegaEmbed('#Location11', figure_11_spec)
+        vegaEmbed('#Location12', figure_12_spec)
+        vegaEmbed('#Location13', figure_13_spec)
+        vegaEmbed('#Location14', figure_14_spec)
+        vegaEmbed('#Location15', figure_15_spec)
+        vegaEmbed('#Location16', figure_16_spec)
+        vegaEmbed('#Location17', figure_17_spec)
+
+        // Embed loop charts
+        vegaEmbed('#LocationLoop1', figure_loop_1);
+        vegaEmbed('#LocationLoop2', figure_loop_2);
+        vegaEmbed('#LocationLoop3', figure_loop_3);
+        vegaEmbed('#LocationLoop4', figure_loop_4);
+        vegaEmbed('#LocationLoop5', figure_loop_5);
+        vegaEmbed('#LocationLoop6', figure_loop_6);
+        vegaEmbed('#LocationLoop7', figure_loop_7);
+        vegaEmbed('#LocationLoop8', figure_loop_8);
+        vegaEmbed('#LocationLoop9', figure_loop_9);
+
+        const carousel = document.querySelector('.carousel-inner');
+const items = document.querySelectorAll('.carousel-item');
+const prevBtn = document.querySelector('.carousel-button.prev');
+const nextBtn = document.querySelector('.carousel-button.next');
+let currentIndex = 0;
+
+function updateCarousel() {
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    updateCarousel();
+});
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % items.length;
+    updateCarousel();
+});
+
+updateCarousel();
+    </script>
+</body>
+</html>

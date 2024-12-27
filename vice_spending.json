@@ -1,30 +1,67 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/simple_data.csv",
-      "format": {
-        "type": "dsv",
-        "delimiter": ","
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#FFEBF5", 
+  "title": {
+    "text": "Vice spending",
+    "subtitle": ["Spending on Alcohol, Tobacco, and Narcotics, Source: ONS"],
+    "anchor": "start",
+    "fontSize": 24,
+    "subtitleFontSize": 16,
+    "color": "#9900CC",
+    "subtitleColor": "#FF0080"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/simple_data.csv",
+    "format": {"type": "dsv", "delimiter": ","}
+  },
+  "mark": {
+    "type": "line",
+    "strokeWidth": 2,
+    "point": {"filled": true, "size": 15}
+  },
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {
+        "domain": true,
+        "domainColor": "#FF0080",
+        "domainWidth": 3,
+        "tickColor": "#FF0080",
+        "tickSize": 10,
+        "labelColor": "#9900CC",
+        "labelFontSize": 14,
+        "titleColor": "#9900CC",
+        "titleFontSize": 14,
+        "grid": true,
+        "gridColor": "#FFC0E0",
+        "gridDash": [4, 4],
+        "gridWidth": 1
       }
     },
-    "mark": {
-      "type": "line"
-    },
-    "title": {
-      "text": "Vice spending",
-      "subtitle": ["Spending on Alcohol, Tobacco, and Narcotics, Source: ONS"]
-    },
-    "encoding": {
-      "x": {
-        "field": "date",
-        "type": "temporal"
-      },
-      "y": {
-        "field": "value",
-        "type": "quantitative"
-      },
-      "color": {
-        "field": "series"
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "domain": true,
+        "domainColor": "#FF0080",
+        "domainWidth": 3,
+        "tickColor": "#FF0080",
+        "tickSize": 10,
+        "labelColor": "#9900CC",
+        "labelFontSize": 14,
+        "titleColor": "#9900CC",
+        "titleFontSize": 14,
+        "grid": true,
+        "gridColor": "#FFC0E0",
+        "gridDash": [4, 4],
+        "gridWidth": 1
       }
+    },
+    "color": {
+      "field": "series",
+      "type": "nominal",
+      "scale": {"scheme": "category20"}
     }
   }
+}

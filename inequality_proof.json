@@ -1,0 +1,73 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 400,
+    "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/bottom_percent.csv",
+    "format": {"type": "csv"}
+    },
+    "transform": [
+    {
+      "filter": "datum['Income share held by lowest decile (%)'] != null && datum['GDPPC'] != null"
+    }
+    ],
+    "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "opacity": 0.6,
+        "size": 80,
+        "color": "green"
+      },
+      "encoding": {
+        "y": {
+          "field": "GDPPC",
+          "type": "quantitative", 
+          "title": "GDP per Capita Growth (%)",
+          "axis": {
+            "grid": false,
+            "titleFontSize": 14,
+            "labelFontSize": 12,
+            "titleFontWeight": "bold"
+          },
+          "scale": {"domain": [-4, 8]}
+        },
+        "x": {
+          "field": "Income share held by lowest decile (%)",
+          "type": "quantitative",
+          "title": "Income Share of Bottom 10% (%)",
+          "scale": {"domain": [0.75, 4.5], "nice": false},
+          "axis": {
+            "grid": false,
+            "titleFontSize": 14,
+            "labelFontSize": 12,
+            "titleFontWeight": "bold"
+          }
+        }
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "darkgreen", "size": 3},
+      "transform": [
+        {
+          "regression": "GDPPC",
+          "on": "Income share held by lowest decile (%)"
+        }
+      ],
+      "encoding": {
+        "y": {"field": "GDPPC", "type": "quantitative"},
+        "x": {"field": "Income share held by lowest decile (%)", "type": "quantitative"}
+      }
+    }
+    ],
+    "title": {
+    "text": "PROOF: More Growth Drives Equality",
+    "subtitle": [
+      "Countries That Share More With The Poor Grow Faster",
+      "Data Source: World Bank"
+    ],
+    "fontSize": 20,
+    "subtitleFontSize": 14,
+    "fontWeight": "bold"
+    }
+    }

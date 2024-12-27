@@ -1,14 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "config": {
-    "facet": {
-      "spacing": -1  
-    },
+    "facet": {"spacing": -1},
     "font": "Times New Roman",
-    "axis": {
-      "labelFont": "Times New Roman",
-      "titleFont": "Times New Roman"
-    },
+    "axis": {"labelFont": "Times New Roman", "titleFont": "Times New Roman"},
     "header": {
       "labelFont": "Times New Roman",
       "titleFont": "Times New Roman",
@@ -16,22 +11,16 @@
       "labelFontWeight": "bold",
       "labelColor": "black"
     },
-    "legend": {
-      "labelFont": "Times New Roman",
-      "titleFont": "Times New Roman"
-    },
-    "title": {
-      "font": "Times New Roman"
-    },
-    "text": {
-      "font": "Times New Roman"
-    }
+    "legend": {"labelFont": "Times New Roman", "titleFont": "Times New Roman"},
+    "title": {"font": "Times New Roman"},
+    "text": {"font": "Times New Roman"}
   },
   "title": {
-    "text": "Statewide, All Grades, % Proficient________________________            ",
+    "text": "Statewide, All Grades, % Proficient                                            ‎ ",
     "subtitle": "Entire Sytstem",
     "fontSize": 21,
     "subtitleFontStyle": "",
+    "subtitleAnchor": "center",
     "subtitleFontSize": 13,
     "anchor": "middle",
     "color": "black"
@@ -40,12 +29,12 @@
     "values": [
       {"Year": "2021", "Subject": "Science", "Percentage": 36.5},
       {"Year": "2022", "Subject": "Science", "Percentage": 39.8},
-      {"Year": "2023", "Subject": "Science", "Percentage": 41.0},
+      {"Year": "2023", "Subject": "Science", "Percentage": 41},
       {"Year": "2024", "Subject": "Science", "Percentage": 41.1},
       {"Year": "2021", "Subject": "ELA", "Percentage": 47.8},
       {"Year": "2022", "Subject": "ELA", "Percentage": 49.6},
       {"Year": "2023", "Subject": "ELA", "Percentage": 51.9},
-      {"Year": "2024", "Subject": "ELA", "Percentage": 56.0},
+      {"Year": "2024", "Subject": "ELA", "Percentage": 56},
       {"Year": "2021", "Subject": "Math", "Percentage": 21.8},
       {"Year": "2022", "Subject": "Math", "Percentage": 27.8},
       {"Year": "2023", "Subject": "Math", "Percentage": 30.8},
@@ -55,10 +44,9 @@
   "facet": {
     "field": "Subject",
     "type": "nominal",
+    "columns": 1,
     "sort": ["Math", "ELA", "Science"],
-    "header": {
-      "title": null
-    }
+    "header": {"title": null}
   },
   "spec": {
     "width": 200,
@@ -71,10 +59,7 @@
     ],
     "layer": [
       {
-        "mark": {
-          "type": "bar",
-          "size": 40
-        },
+        "mark": {"type": "bar", "size": 40},
         "encoding": {
           "x": {
             "field": "Year",
@@ -92,9 +77,7 @@
           "y": {
             "field": "Percentage",
             "type": "quantitative",
-            "scale": {
-              "domain": [0, 100]
-            },
+            "scale": {"domain": [0, 100]},
             "title": "% Proficient",
             "axis": {
               "labelPadding": 10,
@@ -123,21 +106,10 @@
           "fontSize": 12
         },
         "encoding": {
-          "x": {
-            "field": "Year",
-            "type": "nominal"
-          },
-          "y": {
-            "field": "Percentage",
-            "type": "quantitative"
-          },
-          "text": {
-            "field": "PercentageLabel",
-            "type": "nominal"
-          },
-          "color": {
-            "value": "black"
-          }
+          "x": {"field": "Year", "type": "nominal"},
+          "y": {"field": "Percentage", "type": "quantitative"},
+          "text": {"field": "PercentageLabel", "type": "nominal"},
+          "color": {"value": "black"}
         }
       }
     ]

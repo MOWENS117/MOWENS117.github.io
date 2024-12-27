@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Myles Owens</title>
+    <link href="styles3.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="https://mylesowens.substack.com/">Policy Blog</a>
+            <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a>
+            <a href="https://github.com/MOWENS117">GitHub</a>
+            <a href="cv_new.html" class = active> My CV</a>
+            <a href="project.html">Projects</a>
+            <a href="portfolio.html">Portfolio</a>
+        </div>
+    </nav>
+
+    <div class="hero" style="min-height: 40vh">
+        <div class="sliding-text sliding-text-1">Data Analysis Machine Learning Python R</div>
+        <div class="sliding-text sliding-text-2">Economics Policy Research Visualization</div>
+        <div class="sliding-text sliding-text-3">Central Banking Blockchain AI Strategy</div>
+        <div class="sliding-text sliding-text-4">Quantitative Methods Data Science</div>
+        
+        <div class="hero-content">
+            <div class="animated-header">
+                <h1 class="gradient-text">Curriculum Vitae</h1>
+                <p class="title-text">m.a.owens@lse.ac.uk | (+44) 7874 341647 UK | (+1) 205-531-5920 US</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="work-section">
+        <div class="contact-links" style="margin-bottom: 2rem;">
+            <button class="contact-button" onclick="showSection('education')">Education</button>
+            <button class="contact-button" onclick="showSection('experience')">Experience</button>
+            <button class="contact-button" onclick="showSection('skills')">Skills & Research</button>
+        </div>
+
+        <div class="carousel-container">
+            <div class="project-card" id="education">
+                <div class="chart-description">
+                    <h2>Education</h2>
+                    <h3>London School of Economics</h3>
+                    <p>Master of Public Administration, Economic Policy Specialism | June 2025</p>
+                    <p class="text-sm">Relevant Coursework: Quantitative Methods, Advanced Quantitative Methods, Model Based Quantitative Analysis, Automated Data Visualization, Public Economics, Growth Diagnostics, Public Policy for Block-chain Technology</p>
+                    
+                    <h3>Loyola University New Orleans</h3>
+                    <p>Bachelor of Arts, Political Science, Economics, Cum Laude (3.54) | May 2022</p>
+                    <p class="text-sm">Relevant Coursework: Microeconomics, Macroeconomics, Econometrics, Mathematical Economics, Constitutional Law, Political Economy, Comparative Government, International Relations</p>
+                </div>
+            </div>
+
+            <div class="project-card" id="experience" style="display: none;">
+                <div class="chart-description">
+                    <h2>Experience</h2>
+                    <h3>Bank of England Capstone Consultant</h3>
+                    <p>London School of Economics | October 2024 – Present</p>
+                    <ul>
+                        <li>Advised the Bank of England on their AI strategy</li>
+                        <li>Developing quantitative KPIs for central bankers</li>
+                        <li>Served as team's expert on central banking</li>
+                    </ul>
+
+                    <h3>Distributed Ledger Technology Policy Researcher</h3>
+                    <p>Bank for International Settlements Innovation Hub | July - September 2024</p>
+                    <ul>
+                        <li>Developed policy report for Project Agorá</li>
+                        <li>Conducted knowledge transfer sessions</li>
+                        <li>Acquired expertise in emergent financial technologies</li>
+                    </ul>
+
+                    <h3>Mercatus Fellow</h3>
+                    <p>Mercatus Center at George Mason University | May 2022 – May 2023</p>
+                    <ul>
+                        <li>Completed 18 hours of PhD coursework (3.45 GPA)</li>
+                        <li>Conducted literature reviews and data analysis</li>
+                        <li>Attended economics research seminars</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-card" id="skills" style="display: none;">
+                <div class="chart-description">
+                    <h2>Skills & Research</h2>
+                    <h3>Technical Skills</h3>
+                    <p>Stata, R, Python, HTML, SQL, Tableau, LaTeX, Excel, Vega-lite</p>
+
+                    <h3>Analysis Capabilities</h3>
+                    <p>Regression, Event Studies, Data Visualization, Machine Learning, Forecasting, Bayesian Modeling, Text Analysis</p>
+
+                    <h3>Notable Research</h3>
+                    <ul>
+                        <li>Crypto, Carbon, and Climate: Visualising Bitcoin's Sustainability</li>
+                        <li>Testing For Binding Constraints to Economic Growth in Zimbabwe</li>
+                        <li>Impact of Increased Russian Georgian Trade, Post-Ukraine Invasion</li>
+                        <li>Short-Term Rentals Impact Study in New Orleans</li>
+                        <li>Corporate Average Fuel Economy Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.style.display = 'none';
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).style.display = 'grid';
+            
+            // Update active button state
+            document.querySelectorAll('.contact-button').forEach(button => {
+                if (button.textContent.toLowerCase().includes(sectionId)) {
+                    button.style.opacity = '1';
+                    button.style.transform = 'translateY(-2px)';
+                } else {
+                    button.style.opacity = '0.8';
+                    button.style.transform = 'none';
+                }
+            });
+        }
+        
+        // Show education section by default
+        showSection('education');
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/btc-cons.csv"
+    },
+    "title": {
+      "text": "Bitcoin Annualised Consumption, TWh",
+      "color": "white"
+    },
+    "width": 700,
+    "height": 300,
+    "background": "#1a1f36",
+    "layer": [
+      {
+        "mark": {
+          "type": "line",
+          "color": "darkgoldenrod"
+        },
+        "encoding": {
+          "x": {
+            "field": "Date and Time",
+            "type": "temporal",
+            "axis": {
+              "title": "Date",
+              "titleColor": "white",
+              "labelColor": "white"
+            }
+          },
+          "y": {
+            "field": "annualised consumption GUESS, TWh",
+            "type": "quantitative",
+            "axis": {
+              "title": "Annualised Consumption (TWh)",
+              "titleColor": "white",
+              "labelColor": "white"
+            }
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "line",
+          "color": "steelblue"
+        },
+        "encoding": {
+          "x": {
+            "field": "Date and Time",
+            "type": "temporal"
+          },
+  "y": {
+    "field": "Predicted",
+    "type": "quantitative",
+    "scale": {"domain": [-40, 180]}
+  }
+        }
+      },
+      {
+        "mark": {
+          "type": "line",
+          "color": "crimson"
+        },
+        "encoding": {
+          "x": {
+            "field": "Date and Time",
+            "type": "temporal"
+          },
+          "y": {
+            "field": "Detrended",
+            "type": "quantitative"
+          }
+        }
+      }
+    ]
+  }
+  

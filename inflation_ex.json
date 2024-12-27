@@ -1,54 +1,62 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Inflation",
-    "anchor": "start",
-    "subtitle": "CPI, % | Source: TURKSTAT through ECO API",
-    "fontSize": "24",
-    "subtitleFontSize": "12",
-    "color": "#f4134d",
-    "subtitleColor": "#000000"
-  },
-  "height": "250",
-  "width": "500",
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
+  "width": 500,
+  "height": 250,
   "background": "#ffffff",
-  "view": {
-    "fill": "#ffffff",
-    "strokeOpacity": 0
+  "title": {
+    "text": "Turkish Inflation Rate",
+    "anchor": "start",
+    "subtitle": "Consumer Price Index (YoY %) | Source: TURKSTAT through ECO API",
+    "fontSize": 20,
+    "subtitleFontSize": 11,
+    "color": "black",
+    "subtitleColor": "#555",
+    "subtitlePadding": 5
   },
   "data": {
     "url": "https://api.economicsobservatory.com/tur/infl?vega",
-    "format": {
-      "type": "json"
-    }
+    "format": {"type": "json"}
   },
   "mark": {
     "type": "line",
-    "color": "#f4134d",
-    "strokeWidth": "6"
+    "strokeWidth": 1.5,
+    "color": "black",
+    "strokeDash": [2, 2]
   },
   "encoding": {
     "x": {
       "field": "date",
       "type": "temporal",
       "axis": {
-        "title": "",
-        "titleColor": "#122B39",
-        "grid": false
+        "domain": false,
+        "ticks": false,
+        "labelColor": "#666",
+        "labelFontSize": 8,
+        "format": "%b %Y",
+        "title": "Monthly Data",
+        "titleFontSize": 11,
+        "titleColor": "#555",
+        "titlePadding": 10
       }
     },
     "y": {
       "field": "value",
       "type": "quantitative",
       "axis": {
-        "title": "",
-        "titleColor": "#122B39",
-        "grid": false
+        "domain": false,
+        "ticks": false,
+        "labelColor": "#666",
+        "labelFontSize": 12,
+        "format": ".1f",
+        "title": "CPI Annual Change",
+        "titleFontSize": 11,
+        "titleColor": "#555",
+        "titlePadding": 10
       }
-    }
+    },
+    "tooltip": [
+      {"field": "date", "type": "temporal", "title": "Period", "format": "%B %Y"},
+      {"field": "value", "type": "quantitative", "title": "Inflation", "format": ".1f"}
+    ]
   }
 }

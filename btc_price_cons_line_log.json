@@ -1,94 +1,114 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 400,
-    "height": 300,
-    "background": "#1a1f36",
-    "data": {
-      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/main/btc-cons.csv",
-      "format": {
-        "type": "csv"
-      }
-    },
-    "transform": [
-      {
-        "calculate": "toDate(datum['Date and Time'])",
-        "as": "DateParsed"
-      }
-    ],
-    "layer": [
-      {
-        "mark": {
-          "type": "line",
-          "color": "darkgoldenrod"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 300,
+  "background": "#1a1f36",
+  "title": {
+    "text": "Bitcoin Electricity Consumption vs BTC Price (Log Scales)",
+    "subtitle": "Data: Cambridge Centre for Alternative Finance",
+    "subtitleColor": "white",
+    "color": "white",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/main/btc-cons.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "calculate": "toDate(datum['Date and Time'])",
+      "as": "DateParsed"
+    }
+  ],
+  "config": {
+    "axis": {
+      "gridOpacity": 0.1,
+      "gridColor": "white"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": false,
+        "color": "darkgoldenrod",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "DateParsed",
+          "type": "temporal",
+          "title": "Date",
+          "axis": {
+            "titleColor": "white",
+            "labelColor": "white",
+            "grid": true
+          }
         },
-        "encoding": {
-          "x": {
-            "field": "Date and Time",
-            "type": "temporal",
-            "axis": {
-              "title": "Date",
-              "titleColor": "white",
-              "labelColor": "white"
-            }
+        "y": {
+          "field": "annualised consumption GUESS, TWh",
+          "type": "quantitative",
+          "title": "Annualised Electricity Consumption (TWh)",
+          "axis": {
+            "orient": "right",
+            "labelColor": "darkgoldenrod",
+            "titleColor": "darkgoldenrod",
+            "grid": true
           },
-          "y": {
+          "scale": {"type": "log"}
+        },
+        "tooltip": [
+          {"field": "DateParsed", "type": "temporal", "title": "Date"},
+          {
             "field": "annualised consumption GUESS, TWh",
             "type": "quantitative",
-            "scale": {
-              "type": "log"  
-            },
-            "axis": {
-              "title": "Annualised Consumption (TWh)",
-              "labelColor": "darkgoldenrod",
-              "titleColor": "darkgoldenrod",
-                          "orient": "right"
-            }
-          },
-          "tooltip": [
-            {"field": "Date and Time", "type": "temporal", "title": "Date"},
-            {"field": "annualised consumption GUESS, TWh", "type": "quantitative", "title": "Consumption (TWh)"}
-          ]
-        }
+            "title": "Consumption (TWh)",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "point": false,
+        "color": "#FFD700",
+        "strokeWidth": 2
       },
-      {
-        "mark": {
-          "type": "line",
-          "color": "#FFD700"  
+      "encoding": {
+        "x": {
+          "field": "DateParsed",
+          "type": "temporal",
+          "title": null,
+          "axis": {
+            "labelColor": "white",
+            "grid": false
+          }
         },
-        "encoding": {
-          "x": {
-            "field": "Date and Time",
-            "type": "temporal",
-            "axis": {
-              "title": "Date",
-              "labelColor": "white"
-            }
+        "y": {
+          "field": "price",
+          "type": "quantitative",
+          "title": "Bitcoin Price (USD)",
+          "axis": {
+            "orient": "left",
+            "titleColor": "#FFD700",
+            "labelColor": "#FFD700",
+            "grid": false
           },
-          "y": {
+          "scale": {"type": "log"}
+        },
+        "tooltip": [
+          {"field": "DateParsed", "type": "temporal", "title": "Date"},
+          {
             "field": "price",
             "type": "quantitative",
-            "scale": {
-              "type": "log"  
-            },
-            "axis": {
-              "title": "BTC-USD Price (USD)",
-              "titleColor": "#FFD700",
-              "labelColor": "#FFD700",
-              "orient": "left"
-            }
-          },
-          "tooltip": [
-            {"field": "DateParsed", "type": "temporal", "title": "Date"},
-            {"field": "price", "type": "quantitative", "title": "Price (USD)"}
-          ]
-        }
+            "title": "Price (USD)",
+            "format": ".2f"
+          }
+        ]
       }
-    ],
-    "title": {
-      "text": "Bitcoin Consumption vs BTC Price (USD) (Log Values)",
-      "subtitle": "Data Source: Cambridge Centre for Alternative Finance",
-      "subtitleColor": "white",
-      "color": "white"
     }
-  }
-  
+  ]
+}
