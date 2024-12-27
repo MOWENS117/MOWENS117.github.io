@@ -1,0 +1,91 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 300,
+  "background": "#FFF8DC",
+  "title": {
+    "text": "County Population, Alabama",
+    "fontSize": 18,
+    "anchor": "start",
+    "color": "black"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/subyfly/topojson/refs/heads/master/us-states/AL-01-alabama-counties.json",
+    "format": { 
+      "type": "topojson", 
+      "feature": "cb_2015_alabama_county_20m" 
+    }
+  },
+  "transform": [
+    {
+      "lookup": "properties.NAME",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/alabama_counties.csv",
+          "format": {"type": "csv"}
+        },
+        "key": "County",
+        "fields": ["Population"]
+      }
+    },
+    {
+      "calculate": "toNumber(datum.Population)",
+      "as": "Population"
+    }
+  ],
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "mark": {
+        "type": "geoshape"
+      },
+      "selection": {
+        "highlight": {
+          "type": "single",
+          "on": "mouseover",
+          "clear": "mouseout",
+          "empty": "none"
+        }
+      },
+      "encoding": {
+        "color": {
+          "field": "Population",
+          "type": "quantitative",
+          "scale": {"scheme": "reds"},
+          "legend": {
+            "title": "Population",
+            "titleColor": "black",
+            "labelColor": "black"
+          }
+        },
+        "stroke": {
+          "condition": {
+            "selection": "highlight",
+            "value": "black"
+          },
+          "value": "lightgrey"
+        },
+        "strokeWidth": {
+          "condition": {
+            "selection": "highlight",
+            "value": 1.5
+          },
+          "value": 0.5
+        },
+        "tooltip": [
+          {
+            "field": "properties.NAME",
+            "type": "nominal",
+            "title": "County"
+          },
+          {
+            "field": "Population",
+            "type": "quantitative",
+            "title": "Population",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ]
+}

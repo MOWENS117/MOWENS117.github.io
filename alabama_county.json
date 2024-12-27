@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 300,
+  "background": "#FFF8DC",
+  "title": {
+    "text": "Counties, Alabama",
+    "anchor": "start"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/subyfly/topojson/refs/heads/master/us-states/AL-01-alabama-counties.json",
+    "format": {
+      "type": "topojson",
+      "feature": "cb_2015_alabama_county_20m"
+    }
+  },
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "geoshape"
+      },
+      "selection": {
+        "highlight": {
+          "type": "single",
+          "on": "mouseover",
+          "clear": "mouseout",
+          "empty": "none"
+        }
+      },
+      "encoding": {
+        "color": {
+          "field": "properties.NAME",
+          "type": "nominal",
+          "title": "Administrative Zones",
+          "legend": null,
+          "scale": {
+            "scheme": "category20"
+          }
+        },
+        "stroke": {
+          "condition": {
+            "selection": "highlight",
+            "value": "black"
+          },
+          "value": "lightgray"
+        },
+        "strokeWidth": {
+          "condition": {
+            "selection": "highlight",
+            "value": 1.5
+          },
+          "value": 0.25
+        },
+        "tooltip": [
+          {
+            "field": "properties.NAME",
+            "type": "nominal",
+            "title": "Region Name"
+          }
+        ]
+      }
+    }
+  ]
+}

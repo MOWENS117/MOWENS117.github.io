@@ -1,0 +1,98 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 300,
+    "background": "#1a1f36",
+    "title": {
+      "text": "Bitcoin Annualised Consumption, TWh",
+      "subtitle": "Three Key Series: Actual, Predicted, and Detrended",
+      "color": "white",
+      "subtitleColor": "white",
+      "fontSize": 18,
+      "subtitleFontSize": 13,
+      "anchor": "start"
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/btc-cons.csv"
+    },
+    "transform": [
+      {
+        "fold": [
+          "annualised consumption GUESS, TWh",
+          "Predicted",
+          "Detrended"
+        ],
+        "as": ["Measure", "Value"]
+      }
+    ],
+  
+    "selection": {
+      "brush": {
+        "type": "interval",
+        "encodings": ["x"],
+        "bind": "scales"
+      }
+    },
+  
+    "mark": {
+      "type": "line",
+      "point": {"filled": true, "size": 10},
+      "interpolate": "monotone",
+      "strokeWidth": 2
+    },
+  
+    "encoding": {
+      "x": {
+        "field": "Date and Time",
+        "type": "temporal",
+        "title": "Date",
+        "axis": {
+          "titleColor": "white",
+          "labelColor": "white",
+          "gridColor": "rgba(255, 255, 255, 0.1)"
+        }
+      },
+      "y": {
+        "field": "Value",
+        "type": "quantitative",
+        "title": "Consumption (TWh)",
+        "scale": {"domain": [-40, 250]},
+        "axis": {
+          "titleColor": "white",
+          "labelColor": "white",
+          "gridColor": "rgba(255, 255, 255, 0.1)"
+        }
+      },
+      "color": {
+        "field": "Measure",
+        "type": "nominal",
+        "scale": {
+          "domain": [
+            "annualised consumption GUESS, TWh",
+            "Predicted",
+            "Detrended"
+          ],
+          "range": ["darkgoldenrod", "steelblue", "crimson"]
+        },
+        "legend": {
+          "title": "Measure",
+          "labelColor": "white",
+          "titleColor": "white",
+          "labelFontSize": 12,
+          "titleFontSize": 14,
+          "orient": "top-left"
+        }
+      },
+      "tooltip": [
+        {"field": "Date and Time", "type": "temporal", "title": "Date"},
+        {"field": "Measure", "type": "nominal", "title": "Series"},
+        {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Value (TWh)",
+          "format": ".2f"
+        }
+      ]
+    }
+  }
+  
