@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html> 
+    <!-- HTML is hierarchical: tags like this define elements on the page. 
+    Each tag serves a specific purpose. For example:
+        - The <html> tag defines the entire document.
+        - The <h1> tag defines a prominent heading.
+        - The <p> tag defines a paragraph.
+        - Tags appear as an opening <div> and closing </div> pair.
+    -->
+
+<head>    
+    <!-- The head tag links to resources our page needs and defines information about it. Tags in the <head> aren't displayed on the page. -->
+
+    <!-- Link to the main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="styles2.css">
+    <title>Myles Owens | Portfolio</title> <!-- The title displayed in the browser tab, not on the page itself -->
+
+    <!-- Links to Vega-Lite for graphing -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <style>
+        /* Carousel Container */
+        .carousel {
+            width: 60%; /* Standard width for better viewing */
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        /* Carousel Inner */
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            align-items: center; /* Center items vertically if needed */
+        }
+
+        /* Carousel Item */
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Carousel Navigation Buttons */
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px; /* Add padding to ensure both buttons are visible */
+        }
+
+        .carousel-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 1.5em;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Chart Description */
+        .chart-description {
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .carousel {
+                width: 95%;
+            }
+
+            .carousel-buttons button {
+                padding: 8px 12px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+
+<body> 
+<!-- The body tag contains the elements that visitors to our page will see. -->
+    <!-- Header Section -->
+    <header class="text-center my-4">
+        <h1 class="big mb-0">
+            Myles Owens | LSE MPA | Economic Policy
+        </h1>
+        <nav>
+            <p class="mt-0" style="color: darkblue">
+                <a href="https://mylesowens.substack.com/">Policy Blog</a> | 
+                <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a> | 
+                <a href="https://github.com/MOWENS117">GitHub</a> | 
+                <a href="index.html">Home</a> | 
+                <a href="project.html">Projects</a>
+            </p>
+        </nav>
+        <h3 class="small">
+            I’m Myles Owens – an economist specializing in transforming complex economic data into intuitive and impactful visualizations. With expertise in Python and HTML/CSS, I create data-driven narratives that support strategic decision-making and policy development.
+        </h3>
+    </header>
+
+    <!-- Portfolio Sections -->
+    <main class="container">
+        <!-- Section 1: Hosting - Display Charts on Your Site -->
+        <section class="mb-5">
+            <div class="chart-description">
+                <h2>Hosting: Integrate Interactive Charts Seamlessly</h2>
+                <p>
+                    Demonstrated ability to embed dynamic and interactive charts into websites, enhancing data accessibility and user engagement for stakeholders.
+                </p>
+            </div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item active">
+                        <figure id="Location1"></figure>
+                    </div>
+                    <!-- Carousel Item 2 -->
+                    <div class="carousel-item">
+                        <figure id="Location2"></figure>
+                    </div>
+                </div>
+                <!-- Carousel Navigation Buttons -->
+                <div class="carousel-buttons">
+                    <button class="prevBtn">&#8249;</button>
+                    <button class="nextBtn">&#8250;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Building - Create Custom Visualizations -->
+        <section class="mb-5">
+            <div class="chart-description">
+                <h2>Building: Develop Tailored Data Visualizations</h2>
+                <p>
+                    Engineered custom visualization solutions to address specific data analysis needs, leveraging advanced tools to deliver clear and actionable insights.
+                </p>
+            </div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item active">
+                        <figure id="Location3"></figure>
+                    </div>
+                    <!-- Carousel Item 2 -->
+                    <div class="carousel-item">
+                        <figure id="Location4"></figure>
+                    </div>
+                </div>
+                <!-- Carousel Navigation Buttons -->
+                <div class="carousel-buttons">
+                    <button class="prevBtn">&#8249;</button>
+                    <button class="nextBtn">&#8250;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Debating - Utilize Visuals in Policy Discussions -->
+        <section class="mb-5">
+            <div class="chart-description">
+                <h2>Debating: Enhance Policy Discussions with Data Visuals</h2>
+                <p>
+                    Utilized compelling visualizations to support economic and policy arguments, effectively communicating complex concepts to diverse audiences.
+                </p>
+            </div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item active">
+                        <figure id="Location5"></figure>
+                    </div>
+                    <!-- Carousel Item 2 -->
+                    <div class="carousel-item">
+                        <figure id="Location6"></figure>
+                    </div>
+                </div>
+                <!-- Carousel Navigation Buttons -->
+                <div class="carousel-buttons">
+                    <button class="prevBtn">&#8249;</button>
+                    <button class="nextBtn">&#8250;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Replication - Recreate and Optimize Existing Charts -->
+        <section class="mb-5">
+            <div class="chart-description">
+                <h2>Replication: Recreate and Optimize Data Visualizations</h2>
+                <p>
+                    Reproduced and enhanced existing charts to improve clarity and accuracy, ensuring data is presented in the most effective format for analysis.
+                </p>
+            </div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item active">
+                        <figure>
+                            <img src="parca_statewide_score.png" alt="Replicated Chart" class="img-fluid">
+                        </figure>
+                    </div>
+                    <!-- Carousel Item 2 -->
+                    <div class="carousel-item">
+                        <figure id="Location7"></figure>
+                    </div>
+                    <!-- Carousel Item 3 -->
+                    <div class="carousel-item">
+                        <figure id="Location8"></figure>
+                    </div>
+                </div>
+                <!-- Carousel Navigation Buttons -->
+                <div class="carousel-buttons">
+                    <button class="prevBtn">&#8249;</button>
+                    <button class="nextBtn">&#8250;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Scraper - Implement Custom Data Scraping Solutions -->
+        <section class="mb-5">
+            <div class="chart-description">
+                <h2>Scraper: Develop Custom Data Scraping Tools</h2>
+                <p>
+                    Designed and implemented a robust data scraper to collect and visualize relevant information, such as analyzing the age demographics of US presidents.
+                    <a href="https://colab.research.google.com/drive/1MYjvvkVLA4b93i0HsW2YAd9yz8fHvZ3l?usp=sharing">View Python Code</a> 
+                </p>
+            </div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item active">
+                        <figure id="Location9"></figure>
+                    </div>
+                </div>
+                <!-- Carousel Navigation Buttons -->
+                <div class="carousel-buttons">
+                    <button class="prevBtn">&#8249;</button>
+                    <button class="nextBtn">&#8250;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Maps - Create Informative Geographic Visualizations -->
+        <section class="mb-5">
+            <div class="chart-description">
+                <h2>Maps: Develop Base Maps and Choropleth Visualizations</h2>
+                <p>
+                    Crafted detailed geographic visualizations using base maps and choropleth techniques to effectively represent and analyze spatial data.
+                </p>
+            </div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item active">
+                        <figure id="Location10"></figure>
+                    </div>
+                    <!-- Carousel Item 2 -->
+                    <div class="carousel-item">
+                        <figure id="Location11"></figure>
+                    </div>
+                </div>
+                <!-- Carousel Navigation Buttons -->
+                <div class="carousel-buttons">
+                    <button class="prevBtn">&#8249;</button>
+                    <button class="nextBtn">&#8250;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Analytics Charts -->
+        <section class="mb-5">
+            <div class="chart-description">
+                <h2>Analytics Charts: Advanced Data Analysis Visualizations</h2>
+                <p>
+                    Created sophisticated analytical charts, including scatter plots and histograms, to uncover and illustrate intricate data relationships and distributions.
+                </p>
+            </div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item active">
+                        <figure id="Location12"></figure>
+                    </div>
+                    <!-- Carousel Item 2 -->
+                    <div class="carousel-item">
+                        <figure id="Location13"></figure>
+                    </div>
+                </div>
+                <!-- Carousel Navigation Buttons -->
+                <div class="carousel-buttons">
+                    <button class="prevBtn">&#8249;</button>
+                    <button class="nextBtn">&#8250;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Interactive Visualizations -->
+        <section class="mb-5">
+            <div class="chart-description">
+                <h2>Interactive Visualizations: Enhance User Engagement</h2>
+                <p>
+                    Developed interactive visualizations that allow users to manipulate data views in real-time, facilitating deeper data exploration and personalized insights.
+                </p>
+            </div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item active">
+                        <figure id="Location14"></figure>
+                    </div>
+                </div>
+                <!-- Carousel Navigation Buttons -->
+                <div class="carousel-buttons">
+                    <button class="prevBtn">&#8249;</button>
+                    <button class="nextBtn">&#8250;</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- About Me Section -->
+    <section id="about-me" style="text-align: center; margin-top: 50px;">
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <img src="exp.png" alt="Experience Board" style="max-width: 300px; width: 100%; height: auto; margin-bottom: 20px; object-fit: cover;">
+            <img src="aboutmepic2.jpg" alt="Picture of Myles Owens" style="max-width: 300px; width: 100%; height: auto; margin-bottom: 20px; object-fit: cover;">
+            <img src="policypulse.png" alt="Policy Pulse Blog" style="max-width: 300px; width: 100%; height: auto; margin-bottom: 20px; object-fit: cover;">
+        </div>
+        <h2>About Me</h2>
+        <p>
+            My name is Myles Owens, and I am a current graduate student at LSE, specialising in economic policy. My expertise lies in data analysis, visualization, and economic storytelling. I am currently seeking roles where I can analyze economic, financial, and political data and trends, leveraging my experience in causal inference techniques. Outside of work, I enjoy writing about policy and economic trends on my blog, and exploring London's many museums and galleries. I recently worked as a Blockchain Policy Researcher at the Bank for International Settlements, where I contributed to policy development for a public-private blockchain payment system.
+        </p>
+    </section>
+
+    <!-- JavaScript for Embedding Charts and Carousel Functionality -->
+    <script>
+        // Vega-Lite specifications for embedding charts
+        const chartSpecs = {
+            Location1: "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/2/s2_chart2.json",
+            Location2: "wk1_ether.json",
+            Location3: "wk1_co2.json",
+            Location4: "inflation_ex.json",
+            Location5: "vice_spending.json",
+            Location6: "inequality.json",
+            Location7: "parca.json",
+            Location8: "parca_new.json",
+            Location9: "president_age.json",
+            Location10: "kyrgz.json",
+            Location11: "kyrgz_pop.json",
+            Location12: "btc_cons_scatter.json",
+            Location13: "btc_cons_hist.json",
+            Location14: "btc_cons_hist_time.json"
+        };
+
+        // Embed each chart into its respective figure
+        for (const [id, spec] of Object.entries(chartSpecs)) {
+            vegaEmbed(`#${id}`, spec).catch(console.error);
+        }
+
+        // Carousel Functionality
+        const carousels = document.querySelectorAll('.carousel');
+
+        carousels.forEach((carousel) => {
+            const carouselInner = carousel.querySelector('.carousel-inner');
+            const prevBtn = carousel.querySelector('.prevBtn');
+            const nextBtn = carousel.querySelector('.nextBtn');
+            const totalItems = carouselInner.children.length;
+            let currentIndex = 0;
+
+            // Function to update the carousel position
+            function updateCarousel() {
+                const itemWidth = carouselInner.children[0].offsetWidth;
+                const totalWidth = itemWidth;
+                const offset = -currentIndex * totalWidth;
+                carouselInner.style.transform = `translateX(${offset}px)`;
+            }
+
+            // Event Listener for Previous Button
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalItems - 1;
+                updateCarousel();
+            });
+
+            // Event Listener for Next Button
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+            });
+
+            // Initialize the carousel position
+            updateCarousel();
+
+            // Optional: Swipe Support for Touch Devices
+            let startX = 0;
+            let isDown = false;
+
+            carouselInner.addEventListener('touchstart', (e) => {
+                isDown = true;
+                startX = e.touches[0].clientX;
+            });
+
+            carouselInner.addEventListener('touchmove', (e) => {
+                if (!isDown) return;
+                const currentX = e.touches[0].clientX;
+                const diff = startX - currentX;
+                if (diff > 50) {
+                    nextBtn.click();
+                    isDown = false;
+                } else if (diff < -50) {
+                    prevBtn.click();
+                    isDown = false;
+                }
+            });
+
+            carouselInner.addEventListener('touchend', () => {
+                isDown = false;
+            });
+        });
+    </script>
+
+    <!-- Link to CV Page -->
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="my_cv.html" style="font-size: 1.2em; color: #00796b; text-decoration: none;">View My CV</a>
+    </div>
+</body>
+</html>
