@@ -48,8 +48,8 @@
 
         .charts-container {
             width: 100%;
-            padding: 0;
-            margin: 0;
+            padding: 1;
+            margin: 1;
         }
 
         @media (max-width: 1200px) {
@@ -154,11 +154,12 @@
                 <p>
                     When fairness is measured by the income share of the bottom 10%, the data can be presented in ways that both support and reject the author's argument. 
                 </p>
-            </div>
+            </div> 
             <div class="charts-container" style="overflow: visible; height: auto;">
-                <figure id="Location18" class="chart-figure" style="margin-bottom: 70px; overflow: visible; height: auto;"></figure>
+                <figure id="Location18" class="chart-figure" style="margin-bottom: 80px; overflow: visible; height: auto;"></figure>
                 <figure id="Location6" class="chart-figure" style="overflow: visible; height: auto;"></figure>
-            </div>      
+            </div>
+            
         </section>
 
 <!-- CC4 Section -->
@@ -285,15 +286,15 @@
         let figure_9_spec = "president_age.json"
         
         // Loop chart specifications
-        let figure_loop_1 = "employer_social_dtwp.json";
-        let figure_loop_2 = "HH_cons_alc_cp_sa_KGF3.json";
-        let figure_loop_3 = "HH_cons_cloth_cp_sa_KGF9.json";
-        let figure_loop_4 = "HH_cons_cp_sa_kg6u.json";
-        let figure_loop_5 = "HH_cons_edu_cp_sa_kgb2.json";
-        let figure_loop_6 = "HH_cons_food_cp_sa_kg9n.json";
-        let figure_loop_7 = "HH_cons_house_cp_sa_KGG7.json";
-        let figure_loop_8 = "HH_cons_rest_cp_sa_Kgc6.json";
-        let figure_loop_9 = "HH_exp_a275.json";
+        let figure_loop_1 = "hh_ons/employer_social_dtwp.json";
+        let figure_loop_2 = "hh_ons/HH_cons_alc_cp_sa_KGF3.json";
+        let figure_loop_3 = "hh_ons/HH_cons_cloth_cp_sa_KGF9.json";
+        let figure_loop_4 = "hh_ons/HH_cons_cp_sa_kg6u.json";
+        let figure_loop_5 = "hh_ons/HH_cons_edu_cp_sa_kgb2.json";
+        let figure_loop_6 = "hh_ons/HH_cons_food_cp_sa_kg9n.json";
+        let figure_loop_7 = "hh_ons/HH_cons_house_cp_sa_KGG7.json";
+        let figure_loop_8 = "hh_ons/HH_cons_rest_cp_sa_kgc6.json";
+        let figure_loop_9 = "hh_ons/HH_exp_a275.json";
 
         // Embed charts
         vegaEmbed('#Location2', figure_2_spec)
@@ -308,7 +309,7 @@
         // Add chart specifications for CC7-CC10
         let figure_10_spec = "alabama_county.json"
         let figure_11_spec = "alabama_pop.json"
-        let figure_12_spec = "btc_cons_scatter.json"
+        let figure_12_spec = "btc_cons_scatter_old.json"
         let figure_13_spec = "btc_cons_detrend_bar.json"
         let figure_14_spec = "btc_cons_hist_time.json"
         let figure_15_spec = "tea.json"
