@@ -1,114 +1,143 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 400,
-  "height": 300,
-  "background": "#1a1f36",
-  "title": {
-    "text": "Bitcoin Electricity Consumption vs BTC Price (Log Scales)",
-    "subtitle": "Data: Cambridge Centre for Alternative Finance",
-    "subtitleColor": "white",
-    "color": "white",
-    "fontSize": 16,
-    "subtitleFontSize": 12,
-    "anchor": "start"
-  },
-  "data": {
-    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/main/btc-cons.csv",
-    "format": {"type": "csv"}
-  },
-  "transform": [
-    {
-      "calculate": "toDate(datum['Date and Time'])",
-      "as": "DateParsed"
-    }
-  ],
-  "config": {
-    "axis": {
-      "gridOpacity": 0.1,
-      "gridColor": "white"
-    }
-  },
-  "layer": [
-    {
-      "mark": {
-        "type": "line",
-        "point": false,
-        "color": "darkgoldenrod",
-        "strokeWidth": 2
-      },
-      "encoding": {
-        "x": {
-          "field": "DateParsed",
-          "type": "temporal",
-          "title": "Date",
-          "axis": {
-            "titleColor": "white",
-            "labelColor": "white",
-            "grid": true
-          }
-        },
-        "y": {
-          "field": "annualised consumption GUESS, TWh",
-          "type": "quantitative",
-          "title": "Annualised Electricity Consumption (TWh)",
-          "axis": {
-            "orient": "right",
-            "labelColor": "darkgoldenrod",
-            "titleColor": "darkgoldenrod",
-            "grid": true
-          },
-          "scale": {"type": "log"}
-        },
-        "tooltip": [
-          {"field": "DateParsed", "type": "temporal", "title": "Date"},
-          {
-            "field": "annualised consumption GUESS, TWh",
-            "type": "quantitative",
-            "title": "Consumption (TWh)",
-            "format": ".2f"
-          }
-        ]
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "background": "#1a1f36",
+    "params": [
+      {
+        "name": "selectedDate",
+        "value": 2024,
+        "bind": {
+          "input": "range",
+          "min": 2010,
+          "max": 2024,
+          "step": 1,
+          "name": "Select Year: "
+        }
       }
+    ],
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/btc_cons_new.csv"
     },
-    {
-      "mark": {
-        "type": "line",
-        "point": false,
-        "color": "#FFD700",
-        "strokeWidth": 2
+    "transform": [
+      {"calculate": "toDate(datum['Date and Time'])", "as": "DateParsed"},
+      {"calculate": "year(datum.DateParsed)", "as": "Year"},
+      {"filter": "datum.Year >= 2010 && datum.Year <= selectedDate"}
+    ],
+    "hconcat": [
+      {
+        "repeat": {
+          "row": [
+            "BTC / USD Denominated Closing Price",
+            "BTC / Total Issuance (USD)",
+            "BTC / 30 Day Volatility",
+            "BTC / Mean Block Size (in bytes)"
+          ]
+        },
+        "spec": {
+          "width": 300,
+          "height": 150,
+          "layer": [
+            {
+              "mark": {
+                "type": "line",
+                "color": "darkgoldenrod",
+                "strokeWidth": 1
+              },
+              "encoding": {
+                "x": {
+                  "field": "DateParsed",
+                  "type": "temporal",
+                  "axis": {"titleColor": "white", "labelColor": "white"}
+                },
+                "y": {
+                  "field": "annualised consumption GUESS, TWh",
+                  "type": "quantitative",
+                  "axis": {
+                    "orient": "right",
+                    "labelColor": "darkgoldenrod",
+                    "titleColor": "darkgoldenrod"
+                  },
+                  "scale": {"type": "log", "zero": false}
+                }
+              }
+            },
+            {
+              "mark": {"type": "line", "color": "#FFD700", "strokeWidth": 1},
+              "encoding": {
+                "x": {"field": "DateParsed", "type": "temporal"},
+                "y": {
+                  "field": {"repeat": "row"},
+                  "type": "quantitative",
+                  "axis": {
+                    "orient": "left",
+                    "titleColor": "#FFD700",
+                    "labelColor": "#FFD700"
+                  },
+                  "scale": {"type": "log", "zero": false}
+                }
+              }
+            }
+          ]
+        }
       },
-      "encoding": {
-        "x": {
-          "field": "DateParsed",
-          "type": "temporal",
-          "title": null,
-          "axis": {
-            "labelColor": "white",
-            "grid": false
-          }
+      {
+        "repeat": {
+          "row": [
+            "BTC / Difficulty",
+            "BTC / Mean Hash Rate",
+            "BTC / Miner Revenue (USD)",
+            "BTC / Miner Supply (USD)"
+          ]
         },
-        "y": {
-          "field": "price",
-          "type": "quantitative",
-          "title": "Bitcoin Price (USD)",
-          "axis": {
-            "orient": "left",
-            "titleColor": "#FFD700",
-            "labelColor": "#FFD700",
-            "grid": false
-          },
-          "scale": {"type": "log"}
-        },
-        "tooltip": [
-          {"field": "DateParsed", "type": "temporal", "title": "Date"},
-          {
-            "field": "price",
-            "type": "quantitative",
-            "title": "Price (USD)",
-            "format": ".2f"
-          }
-        ]
+        "spec": {
+          "width": 300,
+          "height": 150,
+          "layer": [
+            {
+              "mark": {
+                "type": "line",
+                "color": "darkgoldenrod",
+                "strokeWidth": 1
+              },
+              "encoding": {
+                "x": {
+                  "field": "DateParsed",
+                  "type": "temporal",
+                  "axis": {"titleColor": "white", "labelColor": "white"}
+                },
+                "y": {
+                  "field": "annualised consumption GUESS, TWh",
+                  "type": "quantitative",
+                  "axis": {
+                    "orient": "right",
+                    "labelColor": "darkgoldenrod",
+                    "titleColor": "darkgoldenrod"
+                  },
+                  "scale": {"type": "log", "zero": false}
+                }
+              }
+            },
+            {
+              "mark": {"type": "line", "color": "#FFD700", "strokeWidth": 1},
+              "encoding": {
+                "x": {"field": "DateParsed", "type": "temporal"},
+                "y": {
+                  "field": {"repeat": "row"},
+                  "type": "quantitative",
+                  "axis": {
+                    "orient": "left",
+                    "titleColor": "#FFD700",
+                    "labelColor": "#FFD700"
+                  },
+                  "scale": {"type": "log", "zero": false}
+                }
+              }
+            }
+          ]
+        }
       }
+    ],
+    "config": {
+      "axis": {"gridOpacity": 0.1, "gridColor": "white"},
+      "view": {"stroke": "white", "strokeOpacity": 0.2}
     }
-  ]
-}
+  }
