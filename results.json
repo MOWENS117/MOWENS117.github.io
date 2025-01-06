@@ -1,0 +1,92 @@
+{
+    "Training Data Start": "2022-01-01 00:00:00",
+    "Training Data End": "2023-12-31 00:00:00",
+    "Number of Training Samples": 730,
+    "Test Data Start": "2024-01-01 00:00:00",
+    "Test Data End": "2024-11-16 00:00:00",
+    "Number of Test Samples": 321,
+    "Mean Squared Error": 155.2069359487633,
+    "R^2 Score": -0.1432815412928492,
+    "Feature Importances": [
+        {
+            "feature": "BTC / Difficulty",
+            "importance": 0.2186590015583848
+        },
+        {
+            "feature": "BTC / SER (Supply Equality Ratio)",
+            "importance": 0.21241509314089355
+        },
+        {
+            "feature": "BTC / Mean Hash Rate, 30 Day",
+            "importance": 0.2071140369429988
+        },
+        {
+            "feature": "BTC / Mean Difficulty",
+            "importance": 0.18517454864584207
+        },
+        {
+            "feature": "BTC / Addr Cnt of Bal ? $1M",
+            "importance": 0.10242410519223388
+        },
+        {
+            "feature": "BTC / 30 Day Active Supply",
+            "importance": 0.016561114813392144
+        },
+        {
+            "feature": "BTC / Val in Addrs w/ Bal ? $1M USD",
+            "importance": 0.014637677275621147
+        },
+        {
+            "feature": "BTC / 30 Day Volatility",
+            "importance": 0.008450109560248765
+        },
+        {
+            "feature": "BTC / Market Cap (USD)",
+            "importance": 0.006381478579444987
+        },
+        {
+            "feature": "BTC / Total Issuance (USD)",
+            "importance": 0.005579367550300705
+        },
+        {
+            "feature": "BTC / USD Denominated Closing Price",
+            "importance": 0.004403998766109284
+        },
+        {
+            "feature": "BTC / Mean Tx Size (USD)",
+            "importance": 0.004059906908081184
+        },
+        {
+            "feature": "BTC / Mean Tx Fee (USD)",
+            "importance": 0.0037030945372018937
+        },
+        {
+            "feature": "BTC / Mean Hash Rate",
+            "importance": 0.002228800301132937
+        },
+        {
+            "feature": "BTC / Miner Supply (USD)",
+            "importance": 0.0021293665619700097
+        },
+        {
+            "feature": "BTC / Active Addr Cnt",
+            "importance": 0.0013871336730720701
+        },
+        {
+            "feature": "BTC / Miner Revenue per Hash per Sec (USD)",
+            "importance": 0.0013106936266935377
+        },
+        {
+            "feature": "BTC / Mean Block Size (in bytes)",
+            "importance": 0.0012147898341199632
+        },
+        {
+            "feature": "BTC / Tx per Second Cnt",
+            "importance": 0.001129685550949079
+        },
+        {
+            "feature": "BTC / Miner Revenue per Hash (USD)",
+            "importance": 0.0010359969813091621
+        }
+    ]
+}
