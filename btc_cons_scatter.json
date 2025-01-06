@@ -1,166 +1,280 @@
-{
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 225,
-    "background": "#1a1f36",
-    "data": {
-      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/main/btc-cons.csv",
-      "format": {
-        "type": "csv",
-        "parse": {
-          "Date and Time": "date",
-          "annualised consumption GUESS, TWh": "number",
-          "price": "number"
-        }
-      }
-    },
-    "transform": [
-      {
-        "calculate": "year(datum['Date and Time'])",
-        "as": "Year"
-      },
-      {
-        "filter": "datum.Year <= selectedDate"
-      }
-    ],
-    "params": [
-      {
-        "name": "selectedDate",
-        "value": 2024,
-        "bind": {
-          "input": "range",
-          "min": 2013,
-          "max": 2024,
-          "step": 1,
-          "name": "Select year:"
-        }
-      }
-    ],
-    "layer": [
-      {
-        "mark": {
-          "type": "circle",
-          "size": 60,
-          "opacity": 0.8
-        },
-        "encoding": {
-          "x": {
-            "field": "price",
-            "type": "quantitative",
-            "scale": {
-              "domain": [0, 100000]
-            },
-            "axis": {
-              "title": "BTC-USD Price (USD)",
-              "titleColor": "white",
-              "labelColor": "white",
-              "gridColor": "rgba(255, 255, 255, 0.2)",
-              "labelFontSize": 12,
-              "titleFontSize": 14
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Sustainability Project - Myles Owens</title>
+    <link rel="stylesheet" type="text/css" href="styles_btc.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/5.22.1/vega.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/5.6.0/vega-lite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/6.21.0/vega-embed.min.js"></script>
+</head>
+<body>
+<!-- Hero Section -->
+<section class="hero">
+    <!-- Bouncing Circles Container -->
+    <div id="circleContainer"></div>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav>
+            <div class="nav-links">
+                <a href="https://mylesowens.substack.com/" class="button">Policy Blog</a>
+                <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a>
+                <a href="https://github.com/MOWENS117">GitHub</a>
+                <a href="cv.html">My CV</a>
+                <a href="project.html" class="active">Projects</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="index.html">Home</a>
+            </div>
+        </nav>
+    </div>
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="animated-header">
+                <<h1 class="gradient-text">
+                    <span style="font-family: 'Arial', sans-serif; font-size: 1.2em;">₿</span>itcoin Sustainability: Visual Analysis
+                  </h1>
+                <p class="title-text">Exploring the sustainability of the world's most valuable digital asset. *Work in progress*</p>
+                <p>
+                    *This project was created for LSE PP434 Autoated Data Visualisation.*
+                </p>
+            </div>
+            <p class="hero-description">
+                
+            </p>
+        </div>
+    </section>
+<!-- Project Analysis Write-up -->
+<section class="project-card analysis-writeup">
+    <div class="writeup-content">
+        <h2 class="section-heading">Project Information</h2>
+        
+        <div class="writeup-section">
+            <h3>Project Aims</h3>
+            <div class="content">
+                <p>Consumers are increasingly demanding that the financial services and products they use reflect their values. Many industries have been quick to respond. A glance at any major financial services provider's website reveals extensive information about their environmental, social, and governance (ESG) goals.</p>
+                
+                <p>Traditional finance's newer and more mysterious cousin, decentralised finance (DeFi), has been criticised for being much less responsible in terms of ESG. DeFi's claim to fame is its ability to support a surprisingly robust financial ecosystem without centralised control. However, this decentralisation comes at a cost. The technology enabling DeFi assets, known as blockchain, is computationally intense. Think of it like running a giant, global spreadsheet of every transaction that requires constant upkeep from thousands of computers, it’s no small feat.</p>
+                
+                <p>The most well-known and valuable DeFi asset, Bitcoin, consumes a significant amount of energy. To put it in perspective, the energy used by Bitcoin annually rivals that of some small countries. This naturally raises questions about its long-term sustainability.</p>
+                
+                <p>The goal of this project is to visually explore the dynamics of Bitcoin's sustainability:</p>
+                <ul>
+                    <li>What are the current sustainability trends?</li>
+                    <li>What is the relationship between market fundamentals and sustainability?</li>
+                    <li>What should we expect in the years to come?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Repeat the same structure for other sections -->
+        <div class="writeup-section">
+            <h3>Data Sources & Methodology</h3>
+            <div class="content">
+                <p>The analysis combines data from multiple authoritative sources.
+                    Market and technical fundamentals such as Bitcoin price and  block-size were sourced from the Coin Metrics. Energy consumption data was collected from the Cambridge Bitcoin Electricity Consumption Index (CBECI), which offers a real-time estimate of Bitcoin's electricity consumption. Fortuantely both of these data sources provided historically comprehensive set of daily observations. </p>
+                <p> Unfortuantely, the automated aspect of this project is limited. The first limitaton is that CCAF does not offer an API. The CCAF data can be requested from the centre, although there can be lengthy delays in recieving a response. 
+                    In the future I would like to construct a workaround. 
+                    Potentially, a python scraping script could capture the most recent values uploaded to the sites dashboards.
+                    The second limitation is monetary. 
+                    There are APIs that offer comprehensive Bitcoin data and there are free APIs, rarely are these APIs one and the same.
+                    The bright side is that this is a simple fix. I would simply have to edit the vega-lite specification to pull data from the API instead of the csv hosted on my github repository.
+                </p>
+            </div>
+        </div>
+
+        <!-- Continue with Technical Challenges and Key Conclusions sections -->
+        <div class="writeup-section">
+            <h3>Challenges</h3>
+            <div class="content">
+            <p>
+                The primary challenge to analysis was the model selection process for the machine learning component. I went into this section fairly blind. Initally my ML models were being trained on random data samples which was an issue because it was using future data to predict past data which created a seemingly accurate model but was not really a true prediction.
+                I was able to overcome this by making the training data based on temporal windows. 
+                I used past values to predict future values rather than random training samples predicting random test samples.
+            </p>
+            <p>
+                The analysis in the non ML charts came rather easily.
+                The biggest challenge was getting the parameter sliders to work on multiple plots for the dashboard. 
+                I was able to achieve a fix after much trial and error which I believe it was worth it because thsi trellis-like set up offers a much more comprehensive view than a single plot would.
+            </p>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Work Section -->
+    <div class="work-section">
+                <!-- Log Values Analysis -->
+                <section class="project-card">
+                    <div class="chart-description">
+                        <h2>Bitcoin Metrics & Energy Consumption Dashboard</h2>
+                        <p>C1. Bitcoin's market metrics, including variables such as Closing Price, Market Cap, 30 Day Volatility, and Mean Block Size (in bytes), show steady growth alongside increased transaction activity. 
+                            Meanwhile, mining metrics, including Difficulty, Mean Hash Rate, and Miner Supply (USD), highlight the network's expanding security, and computational power. 
+                            Interestingly Miner Revenue per Hash (USD) has declined over time.</p>
+                        <p>
+                            Note for PP434 grader: I was unsure if this dashboard, although consisting of one vega-lite specification, counted as more than one chart.
+                            For the purpose of this assignment, if it is indeed counted as multiple charts, could you please use the top-left plot in this dashboard and 
+                            the subsequent dashboard for evaluation.
+                        </p>
+                    </div>
+                    <div class="charts-container">
+                        <figure id="Location1" class="chart-figure"></figure>
+                    </div>
+                </section>
+                        <!-- Bitcoin Energy Detrended -->
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>Energy Consumption Trends</h2>
+            </div>
+            <div class="charts-container">
+                <figure id="Location4" class="chart-figure"></figure>
+            </div>
+        </section>
+                <!-- Energy Detrended 2 -->
+                <section class="project-card">
+                    <div class="chart-description">
+                        <h2>Energy Consumption Trends</h2>
+                        <p>C2. Taking a closer look at detrended energy consumption fluctuations we can see that consumption regularly fluctuates year to year. We are currently in a positve fluctuation period and it is the largest deviation from the trend in recorded history.</p>
+                    </div>
+                    <div class="charts-container">
+                        <figure id="Location5" class="chart-figure"></figure>
+                    </div>
+                </section>
+                <!-- Energy Consumption Frequency -->
+                <section class="project-card">
+                    <div class="chart-description">
+                        <h2>Energy Consumption Frequency Analysis</h2>
+                        <p>C3. The distribution of energy consumption has widened over time with no sign of anchoring.</p>
+                    </div>
+                    <div class="charts-container">
+                        <figure id="Location2" class="chart-figure"></figure>
+                    </div>
+                </section>
+        <!-- Price vs Consumption Analysis -->
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>Bitcoin Metrics vs Energy Consumption Dashboard</h2>
+                <p> C4. Energy consumption and price are clearly visually correlated with the lowest energy consumption being when Bitcoins price was lowest. The behavior overtime can be described as a "staircase pattern". With each jump in price energy sonsumption increases before plateauing again.</p>
+            </div>
+            <div class="charts-container">
+                <figure id="Location3" class="chart-figure"></figure>
+            </div>
+        </section>
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>Classifying and Predicting Consumption with market and technical fundamentals</h2>
+                <p>
+                    Despite throwing the kitchen sink at predicting consumption (a full list of variables can be seen in the notes at the bottom of the page) any variables collected seem to add little explanatory power to predicting conumption. The negative R^2 indicates that these predictors actually perform worse than a simple mean trend line. The relationship between mining, network activity, and energy use is more complex than one may initally think from observing simple correlations.
+                </p>
+            </div>
+            <div class="charts-container">
+                <figure id="Location3" class="chart-figure"></figure>
+            </div>
+        </section>
+<section>
+            <!-- Final Conlusions -->
+            <div class="writeup-section">
+                <h3>Final Remarks</h3>
+                <div class="content">
+                    <p>
+                        My final thoughts here...
+                    </p>
+                </div>
+            </div>
+            <!-- Bibliography -->
+            <div class="writeup-section">
+                <h3>Bibliography</h3>
+                <div class="content">
+                    <p>
+                        Sources here...
+                    </p>
+                </div>
+            </div>
+</section>
+            
+
+
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Chart specifications
+        let figure_1_spec = "btc_price_cons_line_log.json"
+        let figure_2_spec = "btc_cons_hist_time.json"
+        let figure_3_spec = "btc_cons_scatter.json"
+        let figure_4_spec = "btc_cons_detrend.json"
+        let figure_5_spec = "btc_cons_detrend_bar.json"
+
+        // Embed charts
+        vegaEmbed('#Location1', figure_1_spec)
+        vegaEmbed('#Location2', figure_2_spec)
+        vegaEmbed('#Location3', figure_3_spec)
+        vegaEmbed('#Location4', figure_4_spec)
+        vegaEmbed('#Location5', figure_5_spec)
+    </script>
+    <script>
+        // Bouncing circles animation
+        class Circle {
+            constructor(container) {
+        const circle = document.createElement('div');
+        circle.className = 'circle';
+        
+        // Create and add the Bitcoin symbol inside each circle
+        const bitcoinSymbol = document.createElement('span');
+        bitcoinSymbol.textContent = '₿';
+        bitcoinSymbol.className = 'bitcoin-symbol';
+        circle.appendChild(bitcoinSymbol);
+        
+        container.appendChild(circle);
+                
+                // Initialize physics properties
+                this.element = circle;
+                this.size = Math.random() * 100 + 100;
+                this.x = Math.random() * (container.clientWidth - this.size);
+                this.y = Math.random() * (container.clientHeight - this.size);
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = (Math.random() - 0.5) * 2;
+                this.container = container;
+                
+                // Set initial size
+                this.element.style.width = this.size + 'px';
+                this.element.style.height = this.size + 'px';
             }
-          },
-          "y": {
-            "field": "annualised consumption GUESS, TWh",
-            "type": "quantitative",
-            "scale": {
-              "domain": [0, 200]
-            },
-            "axis": {
-              "title": "Annualised Consumption (TWh)",
-              "titleColor": "white",
-              "labelColor": "white",
-              "gridColor": "rgba(255, 255, 255, 0.2)",
-              "labelFontSize": 12,
-              "titleFontSize": 14
+            
+            updatePosition() {
+                // Update position based on velocity
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Bounce off walls
+                if (this.x <= 0 || this.x + this.size >= this.container.clientWidth) {
+                    this.vx = -this.vx;
+                    this.x = Math.max(0, Math.min(this.x, this.container.clientWidth - this.size));
+                }
+                
+                // Bounce off floor/ceiling
+                if (this.y <= 0 || this.y + this.size >= this.container.clientHeight) {
+                    this.vy = -this.vy;
+                    this.y = Math.max(0, Math.min(this.y, this.container.clientHeight - this.size));
+                }
+                
+                // Apply position using transform for better performance
+                const rotation = (this.x + this.y) % 360;
+        this.element.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${rotation}deg)`;
             }
-          },
-          "color": {
-            "field": "Year",
-            "type": "ordinal",
-            "scale": {
-              "scheme": "darkmulti"
-            },
-            "legend": {
-              "title": "Year",
-              "labelColor": "white",
-              "titleColor": "white",
-              "labelFontSize": 12,
-              "titleFontSize": 14
-            }
-          },
-          "tooltip": [
-            {
-              "field": "Date and Time",
-              "type": "temporal",
-              "title": "Date"
-            },
-            {
-              "field": "price",
-              "type": "quantitative",
-              "title": "Price (USD)"
-            },
-            {
-              "field": "annualised consumption GUESS, TWh",
-              "type": "quantitative",
-              "title": "Consumption (TWh)"
-            },
-            {
-              "field": "Year",
-              "type": "ordinal",
-              "title": "Year"
-            }
-          ]
         }
-      },
-      {
-        "transform": [
-          {
-            "loess": "annualised consumption GUESS, TWh",
-            "on": "price",
-            "groupby": ["Year"],
-            "as": ["priceLoess", "consumptionLoess"]
-          }
-        ],
-        "mark": {
-          "type": "line",
-          "strokeWidth": 2,
-          "opacity": 0.9
-        },
-        "encoding": {
-          "x": {
-            "field": "priceLoess",
-            "type": "quantitative"
-          },
-          "y": {
-            "field": "consumptionLoess",
-            "type": "quantitative"
-          },
-          "color": {
-            "field": "Year",
-            "type": "ordinal",
-            "scale": {
-              "scheme": "darkmulti"
-            },
-            "legend": null
-          }
+    
+        // Initialize animation
+        const container = document.getElementById('circleContainer');
+        const circles = Array.from({length: 7}, () => new Circle(container));
+        
+        // Animation loop using requestAnimationFrame
+        function animate() {
+            circles.forEach(circle => circle.updatePosition());
+            requestAnimationFrame(animate);
         }
-      }
-    ],
-    "title": {
-      "text": "Bitcoin Annualised Consumption vs BTC-USD Price",
-      "subtitle": "Data source: Cambridge Centre for Alternative Finance Bitcoin Electricity Consumption Index",
-      "subtitleColor": "white",
-      "color": "white",
-      "fontSize": 18,
-      "subtitleFontSize": 13,
-      "anchor": "start"
-    },
-    "config": {
-      "style": {
-        "view": {
-          "stroke": "transparent"
-        }
-      }
-    }
-  }
+        animate();
+    </script>
+</body>
   
