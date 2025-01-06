@@ -36,71 +36,15 @@
                     <span style="font-family: 'Arial', sans-serif; font-size: 1.2em;">₿</span>itcoin Sustainability: Visual Analysis
                   </h1>
                 <p class="title-text">Exploring the sustainability of the world's most valuable digital asset. *Work in progress*</p>
+                <p>
+                    *This project was created for LSE PP434 Autoated Data Visualisation.*
+                </p>
             </div>
             <p class="hero-description">
                 
             </p>
         </div>
     </section>
-
-    <!-- Work Section -->
-    <div class="work-section">
-                <!-- Log Values Analysis -->
-                <section class="project-card">
-                    <div class="chart-description">
-                        <h2>Price vs Consumption Logarithmic Analysis</h2>
-                        <p>Both the price of Bitcoin and TWh energy consumption has steadily increased since the coin's inception.</p>
-                    </div>
-                    <div class="charts-container">
-                        <figure id="Location1" class="chart-figure"></figure>
-                    </div>
-                </section>
-                <!-- Energy Consumption Frequency -->
-                <section class="project-card">
-                    <div class="chart-description">
-                        <h2>Energy Consumption Frequency Analysis</h2>
-                        <p>The distribution of energy consumption has widened over time with no sign of anchoring.</p>
-                    </div>
-                    <div class="charts-container">
-                        <figure id="Location2" class="chart-figure"></figure>
-                    </div>
-                </section>
-        <!-- Price vs Consumption Analysis -->
-        <section class="project-card">
-            <div class="chart-description">
-                <h2>Bitcoin Price vs Energy Consumption</h2>
-                <p>Energy consumption and price are clearly correlated with the lowest energy consumption being when Bitcoins price was lowest. The behavior overtime can be described as a "staircase pattern". With each jump in price energy sonsumption increases before plateauing again.</p>
-            </div>
-            <div class="charts-container">
-                <figure id="Location3" class="chart-figure"></figure>
-            </div>
-        </section>
-        <!-- Bitcoin Energy Detrended -->
-        <section class="project-card">
-            <div class="chart-description">
-                <h2>Energy Consumption Trends</h2>
-                <p>Detrended fluctuation of Bitcoin's energy consumption alongside historical price levels.</p>
-            </div>
-            <div class="charts-container">
-                <figure id="Location4" class="chart-figure"></figure>
-            </div>
-        </section>
-
-        <!-- Energy Detrended 2 -->
-        <section class="project-card">
-            <div class="chart-description">
-                <h2>Energy Consumption Trends</h2>
-                <p>Taking a closer look at energy consumption fluctuations we are in a positve fluctuation period and it is the largest deviation from the trend in recorded history.</p>
-            </div>
-            <div class="charts-container">
-                <figure id="Location5" class="chart-figure"></figure>
-            </div>
-        </section>
-            
-
-
-
-    </div>
 <!-- Project Analysis Write-up -->
 <section class="project-card analysis-writeup">
     <div class="writeup-content">
@@ -109,9 +53,18 @@
         <div class="writeup-section">
             <h3>Project Aims</h3>
             <div class="content">
-                <p>This project investigates the relationship between Bitcoin's market dynamics and its environmental impact through energy consumption patterns. The primary objectives were to:</p>
-                <p>Analyze the correlation between Bitcoin's price movements and its energy consumption trends, examining whether increased market value leads to proportional increases in energy usage. Additionally, we aimed to identify any potential decoupling between price and energy consumption that might suggest improvements in mining efficiency or shifts in mining practices.</p>
-                <p>Furthermore, the project sought to understand the long-term sustainability implications of Bitcoin's growing energy demands and evaluate whether the network's energy consumption shows signs of stabilization or continues to grow unbounded with price appreciation.</p>
+                <p>Consumers are increasingly demanding that the financial services and products they use reflect their values. Many industries have been quick to respond. A glance at any major financial services provider's website reveals extensive information about their environmental, social, and governance (ESG) goals.</p>
+                
+                <p>Traditional finance's newer and more mysterious cousin, decentralised finance (DeFi), has been criticised for being much less responsible in terms of ESG. DeFi's claim to fame is its ability to support a surprisingly robust financial ecosystem without centralised control. However, this decentralisation comes at a cost. The technology enabling DeFi assets, known as blockchain, is computationally intense. Think of it like running a giant, global spreadsheet of every transaction that requires constant upkeep from thousands of computers, it’s no small feat.</p>
+                
+                <p>The most well-known and valuable DeFi asset, Bitcoin, consumes a significant amount of energy. To put it in perspective, the energy used by Bitcoin annually rivals that of some small countries. This naturally raises questions about its long-term sustainability.</p>
+                
+                <p>The goal of this project is to visually explore the dynamics of Bitcoin's sustainability:</p>
+                <ul>
+                    <li>What are the current sustainability trends?</li>
+                    <li>What is the relationship between market fundamentals and sustainability?</li>
+                    <li>What should we expect in the years to come?</li>
+                </ul>
             </div>
         </div>
 
@@ -119,14 +72,131 @@
         <div class="writeup-section">
             <h3>Data Sources & Methodology</h3>
             <div class="content">
-                <p>The analysis combines data from multiple authoritative sources:</p>
-                <p>Bitcoin price and volume data was sourced from the Coin Gecko, providing historical daily price points from 2013 to present. Energy consumption data was collected from the Cambridge Bitcoin Electricity Consumption Index (CBECI), which offers a real-time estimate of Bitcoin's electricity consumption.</p>
+                <p>The analysis combines data from multiple authoritative sources.
+                    Market and technical fundamentals such as Bitcoin price and  block-size were sourced from the Coin Metrics. Energy consumption data was collected from the Cambridge Bitcoin Electricity Consumption Index (CBECI), which offers a real-time estimate of Bitcoin's electricity consumption. Fortuantely both of these data sources provided historically comprehensive set of daily observations. </p>
+                <p> Unfortuantely, the automated aspect of this project is limited. The first limitaton is that CCAF does not offer an API. The CCAF data can be requested from the centre, although there can be lengthy delays in recieving a response. 
+                    In the future I would like to construct a workaround. 
+                    Potentially, a python scraping script could capture the most recent values uploaded to the sites dashboards.
+                    The second limitation is monetary. 
+                    There are APIs that offer comprehensive Bitcoin data and there are free APIs, rarely are these APIs one and the same.
+                    The bright side is that this is a simple fix. I would simply have to edit the vega-lite specification to pull data from the API instead of the csv hosted on my github repository.
+                </p>
             </div>
         </div>
 
         <!-- Continue with Technical Challenges and Key Conclusions sections -->
+        <div class="writeup-section">
+            <h3>Challenges</h3>
+            <div class="content">
+            <p>
+                The primary challenge to analysis was the model selection process for the machine learning component. I went into this section fairly blind. Initally my ML models were being trained on random data samples which was an issue because it was using future data to predict past data which created a seemingly accurate model but was not really a true prediction.
+                I was able to overcome this by making the training data based on temporal windows. 
+                I used past values to predict future values rather than random training samples predicting random test samples.
+            </p>
+            <p>
+                The analysis in the non ML charts came rather easily.
+                The biggest challenge was getting the parameter sliders to work on multiple plots for the dashboard. 
+                I was able to achieve a fix after much trial and error which I believe it was worth it because thsi trellis-like set up offers a much more comprehensive view than a single plot would.
+            </p>
+            </div>
+        </div>
     </div>
 </section>
+    <!-- Work Section -->
+    <div class="work-section">
+                <!-- Log Values Analysis -->
+                <section class="project-card">
+                    <div class="chart-description">
+                        <h2>Bitcoin Metrics & Energy Consumption Dashboard</h2>
+                        <p>C1. Bitcoin's market metrics, including variables such as Closing Price, Market Cap, 30 Day Volatility, and Mean Block Size (in bytes), show steady growth alongside increased transaction activity. 
+                            Meanwhile, mining metrics, including Difficulty, Mean Hash Rate, and Miner Supply (USD), highlight the network's expanding security, and computational power. 
+                            Interestingly Miner Revenue per Hash (USD) has declined over time.</p>
+                        <p>
+                            Note for PP434 grader: I was unsure if this dashboard, although consisting of one vega-lite specification, counted as more than one chart.
+                            For the purpose of this assignment, if it is indeed counted as multiple charts, could you please use the top-left plot in this dashboard and 
+                            the subsequent dashboard for evaluation.
+                        </p>
+                    </div>
+                    <div class="charts-container">
+                        <figure id="Location1" class="chart-figure"></figure>
+                    </div>
+                </section>
+                        <!-- Bitcoin Energy Detrended -->
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>Energy Consumption Trends</h2>
+            </div>
+            <div class="charts-container">
+                <figure id="Location4" class="chart-figure"></figure>
+            </div>
+        </section>
+                <!-- Energy Detrended 2 -->
+                <section class="project-card">
+                    <div class="chart-description">
+                        <h2>Energy Consumption Trends</h2>
+                        <p>C2. Taking a closer look at detrended energy consumption fluctuations we can see that consumption regularly fluctuates year to year. We are currently in a positve fluctuation period and it is the largest deviation from the trend in recorded history.</p>
+                    </div>
+                    <div class="charts-container">
+                        <figure id="Location5" class="chart-figure"></figure>
+                    </div>
+                </section>
+                <!-- Energy Consumption Frequency -->
+                <section class="project-card">
+                    <div class="chart-description">
+                        <h2>Energy Consumption Frequency Analysis</h2>
+                        <p>C3. The distribution of energy consumption has widened over time with no sign of anchoring.</p>
+                    </div>
+                    <div class="charts-container">
+                        <figure id="Location2" class="chart-figure"></figure>
+                    </div>
+                </section>
+        <!-- Price vs Consumption Analysis -->
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>Bitcoin Metrics vs Energy Consumption Dashboard</h2>
+                <p> C4. Energy consumption and price are clearly visually correlated with the lowest energy consumption being when Bitcoins price was lowest. The behavior overtime can be described as a "staircase pattern". With each jump in price energy sonsumption increases before plateauing again.</p>
+            </div>
+            <div class="charts-container">
+                <figure id="Location3" class="chart-figure"></figure>
+            </div>
+        </section>
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>Classifying and Predicting Consumption with market and technical fundamentals</h2>
+                <p>
+                    Despite throwing the kitchen sink at predicting consumption (a full list of variables can be seen in the notes at the bottom of the page) any variables collected seem to add little explanatory power to predicting conumption. The negative R^2 indicates that these predictors actually perform worse than a simple mean trend line. The relationship between mining, network activity, and energy use is more complex than one may initally think from observing simple correlations.
+                </p>
+            </div>
+            <div class="charts-container">
+                <figure id="Location3" class="chart-figure"></figure>
+            </div>
+        </section>
+<section>
+            <!-- Final Conlusions -->
+            <div class="writeup-section">
+                <h3>Final Remarks</h3>
+                <div class="content">
+                    <p>
+                        My final thoughts here...
+                    </p>
+                </div>
+            </div>
+            <!-- Bibliography -->
+            <div class="writeup-section">
+                <h3>Bibliography</h3>
+                <div class="content">
+                    <p>
+                        Sources here...
+                    </p>
+                </div>
+            </div>
+</section>
+            
+
+
+
+    </div>
+
     <!-- Scripts -->
     <script>
         // Chart specifications
