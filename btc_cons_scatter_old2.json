@@ -1,0 +1,132 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 225,
+  "background": "#1a1f36",
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/btc_cons_new.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Date and Time": "date",
+        "annualised consumption GUESS, TWh": "number",
+        "price": "number"
+      }
+    }
+  },
+  "transform": [
+    {"calculate": "year(datum['Date and Time'])", "as": "Year"},
+    {"filter": "datum.Year <= selectedDate"}
+  ],
+  "params": [
+    {
+      "name": "selectedDate",
+      "value": 2024,
+      "bind": {
+        "input": "range",
+        "min": 2010,
+        "max": 2024,
+        "step": 1,
+        "name": "Select year:"
+      }
+    },
+    {
+      "name": "pointOpacity",
+      "value": 0.8,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 1,
+        "step": 0.1,
+        "name": "Point opacity:"
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "circle", "size": 30},
+      "encoding": {
+        "x": {
+          "field": "BTC / USD Denominated Closing Price",
+          "type": "quantitative",
+          "scale": {"domain": [0, 100000]},
+          "axis": {
+            "title": "BTC-USD Price (USD)",
+            "titleColor": "white",
+            "labelColor": "white",
+            "gridColor": "rgba(255, 255, 255, 0.2)",
+            "labelFontSize": 12,
+            "titleFontSize": 14
+          }
+        },
+        "y": {
+          "field": "annualised consumption GUESS, TWh",
+          "type": "quantitative",
+          "scale": {"domain": [0, 200]},
+          "axis": {
+            "title": "Annualised Consumption (TWh)",
+            "titleColor": "white",
+            "labelColor": "white",
+            "gridColor": "rgba(255, 255, 255, 0.2)",
+            "labelFontSize": 12,
+            "titleFontSize": 14
+          }
+        },
+        "opacity": {"value": {"expr": "pointOpacity"}},
+        "color": {
+          "field": "Year",
+          "type": "ordinal",
+          "scale": {"scheme": "darkmulti"},
+          "legend": {
+            "title": "Year",
+            "labelColor": "white",
+            "titleColor": "white",
+            "labelFontSize": 12,
+            "titleFontSize": 14
+          }
+        },
+        "tooltip": [
+          {"field": "Date and Time", "type": "temporal", "title": "Date"},
+          {"field": "price", "type": "quantitative", "title": "Price (USD)"},
+          {
+            "field": "annualised consumption GUESS, TWh",
+            "type": "quantitative",
+            "title": "Consumption (TWh)"
+          },
+          {"field": "Year", "type": "ordinal", "title": "Year"}
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "loess": "annualised consumption GUESS, TWh",
+          "on": "BTC / USD Denominated Closing Price",
+          "groupby": ["Year"],
+          "as": ["priceLoess", "consumptionLoess"]
+        }
+      ],
+      "mark": {"type": "line", "strokeWidth": 4, "opacity": 0.9},
+      "encoding": {
+        "x": {"field": "priceLoess", "type": "quantitative"},
+        "y": {"field": "consumptionLoess", "type": "quantitative"},
+        "color": {
+          "field": "Year",
+          "type": "ordinal",
+          "scale": {"scheme": "darkmulti"},
+          "legend": null
+        }
+      }
+    }
+  ],
+  "title": {
+    "text": "Bitcoin Annualised Consumption vs BTC-USD Price",
+    "subtitle": "Data source: Cambridge Centre for Alternative Finance Bitcoin Electricity Consumption Index",
+    "subtitleColor": "white",
+    "color": "white",
+    "fontSize": 18,
+    "subtitleFontSize": 13,
+    "anchor": "start"
+  },
+  "config": {"style": {"view": {"stroke": "transparent"}}}
+}
