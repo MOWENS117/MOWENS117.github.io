@@ -53,17 +53,18 @@
         <div class="writeup-section">
             <h3>Project Aims</h3>
             <div class="content">
-                <p>Consumers are increasingly demanding that the financial services and products they use reflect their values. Many industries have been quick to respond. A glance at any major financial services provider's website reveals extensive information about their environmental, social, and governance (ESG) goals.</p>
+                <p>Consumers are increasingly demanding that the financial services they use reflect their values. Many industries have been quick to respond. A glance at any major financial services provider's website reveals extensive information about their environmental, social, and governance (ESG) goals [1].</p>
                 
-                <p>Traditional finance's newer and more mysterious cousin, decentralised finance (DeFi), has been criticised for being much less responsible in terms of ESG. DeFi's claim to fame is its ability to support a surprisingly robust financial ecosystem without centralised control. However, this decentralisation comes at a cost. The technology enabling DeFi assets, known as blockchain, is computationally intense. Think of it like running a giant, global spreadsheet of every transaction that requires constant upkeep from thousands of computers, it’s no small feat.</p>
+                <p>Traditional finance's mysterious cousin, decentralised finance (DeFi), has been criticised for being less responsible in terms of ESG. DeFi's claim to fame is its ability to support a robust financial ecosystem without centralised control. However, this decentralisation comes at a cost. The technology enabling DeFi assets, known as blockchain, can be computationally intense. Think of it like running a global spreadsheet of every transaction that requires constant upkeep from thousands of computers, it’s no small feat.</p>
                 
-                <p>The most well-known and valuable DeFi asset, Bitcoin, consumes a significant amount of energy. To put it in perspective, the energy used by Bitcoin annually rivals that of some small countries. This naturally raises questions about its long-term sustainability.</p>
+                <p>The most well-known DeFi asset, Bitcoin, consumes a significant amount of energy. To put it in perspective, the energy used by Bitcoin rivals that of small countries [2]. This raises questions about its long-term sustainability.</p>
                 
-                <p>The goal of this project is to visually explore the dynamics of Bitcoin's sustainability:</p>
+                <p>The goal of this project is to visually explore the dynamics of Bitcoin's sustainability measured by its electricity consumption.</p>
                 <ul>
+                    <li>Key questions:</li>
                     <li>What are the current sustainability trends?</li>
-                    <li>What is the relationship between market fundamentals and sustainability?</li>
-                    <li>What should we expect in the years to come?</li>
+                    <li>What is the relationship between Bitcoin's market fundamentals, technological features, and sustainability?</li>
+                    <li>Are these relationships useful for predicting future electricity consumption?</li>
                 </ul>
             </div>
         </div>
@@ -72,15 +73,17 @@
         <div class="writeup-section">
             <h3>Data Sources & Methodology</h3>
             <div class="content">
-                <p>The analysis combines data from multiple authoritative sources.
-                    Market and technical fundamentals such as Bitcoin price and  block-size were sourced from the Coin Metrics. Energy consumption data was collected from the Cambridge Bitcoin Electricity Consumption Index (CBECI), which offers a real-time estimate of Bitcoin's electricity consumption. Fortuantely both of these data sources provided historically comprehensive set of daily observations. </p>
-                <p> Unfortuantely, the automated aspect of this project is limited. The first limitaton is that CCAF does not offer an API. The CCAF data can be requested from the centre, although there can be lengthy delays in recieving a response. 
-                    In the future I would like to construct a workaround. 
-                    Potentially, a python scraping script could capture the most recent values uploaded to the sites dashboards.
-                    The second limitation is monetary. 
-                    There are APIs that offer comprehensive Bitcoin data and there are free APIs, rarely are these APIs one and the same.
-                    The bright side is that this is a simple fix. I would simply have to edit the vega-lite specification to pull data from the API instead of the csv hosted on my github repository.
+                <p>
+                    The analysis combines data from two sources. Market and technical fundamentals were sourced from Coin Metrics [3]. Energy consumption data was collected from the Cambridge Bitcoin Electricity Consumption Index (CBECI), hosted by the Cambridge Centre for Alternative Finance (CCAF) [4]. The index offers a live estimate of Bitcoin's electricity consumption. This data was downloaded manually and is hosted on my GitHub. Both data sources provided comprehensive sets of daily observations. 
                 </p>
+                <p> 
+                    Unfortunately, the automated aspect of this project is limited. The first limitation is that CCAF does not offer an API. The CCAF data can be requested at any time, although there can be delays in receiving a response. In the future I would like to construct a workaround. Potentially, a python scraping script could capture the most recent values. The second limitation is financial. Most comprehensive Bitcoin APIs are paid, while free ones tend to be limited. Once purchased. Automation simply requires an edit to the Vega-lite specification to pull data from the API instead of the csv hosted on my GitHub repository.
+                </p>
+                <ul>
+                    <li>The Vega-lite specifications can be accessed via the embedded charts.</li>
+                    <li>Click <a href="https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/btc_cons_new.csv">here</a> if you would like to access the data used.</li>
+                    <li> <a href="https://github.com/MOWENS117/MOWENS117.github.io/blob/main/Bitcoin_Terms_Definitions.csv">Definitions</a></li>
+                </ul>
             </div>
         </div>
 
@@ -89,14 +92,10 @@
             <h3>Challenges</h3>
             <div class="content">
             <p>
-                The primary challenge to analysis was the model selection process for the machine learning component. I went into this section fairly blind. Initally my ML models were being trained on random data samples which was an issue because it was using future data to predict past data which created a seemingly accurate model but was not really a true prediction.
-                I was able to overcome this by making the training data based on temporal windows. 
-                I used past values to predict future values rather than random training samples predicting random test samples.
+                The primary challenge to analysis was the model selection process for the machine learning component. The machine learning model initially had a critical flaw: using randomized data samples meant future data was being used to predict past events, creating artificially high accuracy. After some research, I switched to temporal windows, using only historical data to predict future values. This time-based approach produced more realistic predictions compared to the original random sampling method.
             </p>
             <p>
-                The analysis in the non ML charts came rather easily.
-                The biggest challenge was getting the parameter sliders to work on multiple plots for the dashboard. 
-                I was able to achieve a fix after much trial and error which I believe it was worth it because thsi trellis-like set up offers a much more comprehensive view than a single plot would.
+                The analysis in the non-ML charts came rather easily. The biggest challenge was getting the parameter sliders to work on multiple plots for the dashboard. Through iteration and consulting with Claude LLM, I developed a solution. I believe the effort was worth it because this trellis-like set up offers a much more comprehensive view of the data than a single plot would.
             </p>
             </div>
         </div>
@@ -108,9 +107,7 @@
                 <section class="project-card">
                     <div class="chart-description">
                         <h2>Bitcoin Metrics & Energy Consumption Dashboard</h2>
-                        <p>C1. Bitcoin's market metrics, including variables such as Closing Price, Market Cap, 30 Day Volatility, and Mean Block Size (in bytes), show steady growth alongside increased transaction activity. 
-                            Meanwhile, mining metrics, including Difficulty, Mean Hash Rate, and Miner Supply (USD), highlight the network's expanding security, and computational power. 
-                            Interestingly Miner Revenue per Hash (USD) has declined over time.</p>
+                        <p>I plotted various metrics against "anualised consumtion GUESS, Twh", which is CCAF's estimate of Bitcoins electricity usage in terawatt-hours. Bitcoin's market metrics, including variables such as Closing Price, Market Cap, 30 Day Volatility, and Mean Block Size, show a positive correlation to energy consumption. Technical mining metrics, including Difficulty, Mean Hash Rate, and Miner Supply, highlight the Bitcoin network's expanding growth and computational power. Miner Revenue per Hash has declined which reflects the Bitcoin protocol's halving which reduces mining revenue and increases mining difficulty.</p>
 
                     </div>
                     <div class="charts-container">
@@ -130,7 +127,7 @@
                 <section class="project-card">
                     <div class="chart-description">
                         <h2>Energy Consumption Trends</h2>
-                        <p>C2. Taking a closer look at detrended energy consumption fluctuations we can see that consumption regularly fluctuates year to year. We are currently in a positve fluctuation period and it is the largest deviation from the trend in recorded history.</p>
+                        <p>Taking a closer look at detrended energy consumption fluctuations we can see they have increased, with current levels showing the largest historical deviation.</p>
                     </div>
                     <div class="charts-container">
                         <figure id="Location5" class="chart-figure"></figure>
@@ -140,7 +137,7 @@
                 <section class="project-card">
                     <div class="chart-description">
                         <h2>Energy Consumption Frequency Analysis</h2>
-                        <p>C3. The distribution of energy consumption has widened over time with no sign of anchoring.</p>
+                        <p>The distribution of energy consumption has widened over time with no sign of anchoring.</p>
                     </div>
                     <div class="charts-container">
                         <figure id="Location2" class="chart-figure"></figure>
@@ -150,7 +147,7 @@
         <section class="project-card">
             <div class="chart-description">
                 <h2>Bitcoin Metrics vs Energy Consumption Dashboard</h2>
-                <p> C4. Energy consumption and price are clearly visually correlated with the lowest energy consumption being when Bitcoins price was lowest. The behavior overtime can be described as a "staircase pattern". With each jump in price energy sonsumption increases before plateauing again.</p>
+                <p> Mining difficulty and hash rate show the strongest correlation with energy consumption. Price and miner supply follow a positive "stair-step" pattern. Volatility, mining revenue and mean block size don't visually show clear correlations.</p>
             </div>
             <div class="charts-container">
                 <figure id="Location3" class="chart-figure"></figure>
@@ -158,10 +155,14 @@
         </section>
         <section class="project-card">
             <div class="chart-description">
-                <h2>Classifying and Predicting Consumption with market and technical fundamentals</h2>
+                <h2>Predicting Consumption with Market and Technical Fundamentals Using a Random Forrest Regression</h2>
                 <p>
-                    Despite throwing the kitchen sink at predicting consumption (a full list of variables can be seen in the notes at the bottom of the page) any variables collected seem to add little explanatory power to predicting conumption. The negative R^2 indicates that these predictors actually perform worse than a simple mean trend line. The relationship between mining, network activity, and energy use is more complex than one may initally think from observing simple correlations.
+                    Despite throwing everything but the kitchen sink at forecasting consumption, predictors perform worse than a simple mean trend line (negative R^2), suggesting the relationship between energy consumption and these fundamentals is more complicated than anticipated. This leaves the door open to much future analysis.
                 </p>
+                <ul>
+
+                    <li> <a href="https://colab.research.google.com/drive/1zdsJe-YAkrklJj5US2Z2wQkaRz12w1Pn?usp=sharing">Python Code</a></li>
+                </ul>
             </div>
             <div class="charts-container">
                 <figure id="Location6" class="chart-figure"></figure>
@@ -169,22 +170,17 @@
         </section>
                         </section>
 <section>
-            <!-- Final Conlusions -->
-            <div class="writeup-section">
-                <h3>Final Remarks</h3>
-                <div class="content">
-                    <p>
-                        My final thoughts here...
-                    </p>
-                </div>
-            </div>
             <!-- Bibliography -->
             <div class="writeup-section">
-                <h3>Bibliography</h3>
+                <h3>Links</h3>
                 <div class="content">
-                    <p>
-                        Sources here...
-                    </p>
+                    <ul>
+                        <li>[1]https://www.jpmorganchase.com/about/governance/esg</li>
+                        <li>[2]https://ccaf.io/cbnsi/cbeci/comparisons</li>
+                        <li>[3]https://charts.coinmetrics.io/crypto-data/</li>
+                        <li>[4]https://ccaf.io/cbnsi/cbeci</li>
+                        <li>[5] AI Usage: I took full advantage of LLMs in this project for the coding process including Claude and Chat GPT 4o & o1. This included prompts to help enhance charts and prompts to help me understand the proper packages and commands for the machine learning component.</li>
+                    </ul>
                 </div>
             </div>
 </section>
