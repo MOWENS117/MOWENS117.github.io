@@ -1,0 +1,31 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 200,
+    "data": {
+      "url": "https://api.coinlore.net/api/ticker/?id=90",
+      "format": {
+        "type": "json",
+        "property": ".[0]"
+      }
+    },
+    "mark": {
+      "type": "text",
+      "fontSize": 48,
+      "font": "Monaco, monospace",
+      "fontWeight": "bold",
+      "color": "#f7931a",
+      "align": "center",
+      "dx": 200,
+      "dy": 100
+    },
+    "transform": [
+      {
+        "calculate": "'$' + format(datum.price_usd, ',.2f')",
+        "as": "price_display"
+      }
+    ],
+    "encoding": {
+      "text": {"field": "price_display", "type": "nominal"}
+    }
+  }
