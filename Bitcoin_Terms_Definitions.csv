@@ -1,0 +1,13 @@
+Term,Definition
+Market Cap,"The total value of all Bitcoin in circulation, calculated by multiplying current price by circulating supply"
+Closing Price,The final trading price of Bitcoin at the end of a specified period
+30 Day Volatility,A measure of Bitcoin price fluctuation over a 30-day period
+Mean Block Size,The average size of Bitcoin transaction blocks in bytes
+Mining Difficulty,"A measure of how hard it is to mine a Bitcoin block, automatically adjusts to maintain ~10-minute block times"
+Mean Hash Rate,"The average computational power being used to mine Bitcoin, measured in hashes per second"
+Miner Supply,"The total value of new Bitcoin available to miners, measured in USD"
+Miner Revenue per Hash,The average revenue miners earn for each unit of computational power (hash) they contribute
+Block Reward,The amount of new Bitcoin awarded to miners for successfully mining a block
+Halving,A programmed event occurring every ~4 years where the block reward is cut in half
+CCAF,"Cambridge Centre for Alternative Finance, which tracks Bitcoin's energy consumption"
+TWh,"Terawatt-hours, a unit of energy equal to one trillion watt-hours"
