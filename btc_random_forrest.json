@@ -1,0 +1,121 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "BTC Energy Consumption 2024 Predictions Using Random Forest Regression",
+      "fontSize": 18,
+      "subtitle": [
+        "Data Source: Cambridge Centre for Alternative Finance Bitcoin Electricity Consumption Index",
+        "Mean Squared Error: 155.21 | R² Score: -0.14"
+      ],
+      "color": "white",
+      "subtitleColor": "white",
+      "subtitleFontSize": 12
+    },
+    "background": "#1a1f36",
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/results.json",
+      "format": {"type": "json", "property": "Predictions Over Time"}
+    },
+    "vconcat": [
+      {
+        "title": {
+          "text": "Predicted 2024 Energy Consumption (TWh) vs. Actual 2024 Energy Consumption (TWh)",
+          "color": "white"
+        },
+        "height": 300,
+        "width": 600,
+        "layer": [
+          {
+            "mark": {"type": "line", "strokeDash": [6, 4], "color": "darkgoldenrod"},
+            "data": {"values": [{"x": 130, "y": 130}, {"x": 180, "y": 180}]},
+            "encoding": {
+              "x": {
+                "field": "x",
+                "type": "quantitative",
+                "title": "Actual (TWh)",
+                "axis": {"titleColor": "white", "labelColor": "white"}
+              },
+              "y": {
+                "field": "y",
+                "type": "quantitative",
+                "scale": {"domain": [80, 180]},
+                "title": "Predicted (TWh)",
+                "axis": {"titleColor": "white", "labelColor": "white"}
+              }
+            }
+          },
+          {
+            "mark": {"type": "point", "color": "#FFD700"},
+            "encoding": {
+              "x": {
+                "field": "Actual",
+                "type": "quantitative",
+                "axis": {"titleColor": "white", "labelColor": "white"}
+              },
+              "y": {
+                "field": "Predicted",
+                "type": "quantitative",
+                "scale": {"domain": [80, 180]},
+                "axis": {"titleColor": "white", "labelColor": "white"}
+              },
+              "tooltip": [
+                {"field": "Date", "type": "temporal"},
+                {"field": "Actual", "type": "quantitative"},
+                {"field": "Predicted", "type": "quantitative"}
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "title": {
+          "text": "2024 Energy Consumption (TWh)",
+          "color": "white"
+        },
+        "height": 300,
+        "width": 600,
+        "transform": [
+          {"fold": ["Actual", "Predicted"], "as": ["Type", "Consumption"]}
+        ],
+        "mark": "line",
+        "encoding": {
+          "x": {
+            "field": "Date",
+            "type": "temporal",
+            "title": "Date",
+            "axis": {"titleColor": "white", "labelColor": "white"}
+          },
+          "y": {
+            "field": "Consumption",
+            "type": "quantitative",
+            "scale": {"domain": [80, 200]},
+            "title": "Consumption (TWh)",
+            "axis": {"titleColor": "white", "labelColor": "white"}
+          },
+          "color": {
+            "field": "Type",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Actual", "Predicted"],
+              "range": ["#FFD700", "darkgoldenrod"]
+            },
+            "legend": {
+              "title": "Data",
+              "titleColor": "white",
+              "labelColor": "white",
+              "orient": "bottom"
+            }
+          },
+          "tooltip": [
+            {"field": "Date", "type": "temporal"},
+            {"field": "Type", "type": "nominal"},
+            {"field": "Consumption", "type": "quantitative"}
+          ]
+        }
+      }
+    ],
+    "config": {
+      "axis": {"gridOpacity": 0.1, "gridColor": "white"},
+      "view": {"stroke": "white", "strokeOpacity": 0.2}
+    }
+  }
