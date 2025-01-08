@@ -111,11 +111,7 @@
                         <p>C1. Bitcoin's market metrics, including variables such as Closing Price, Market Cap, 30 Day Volatility, and Mean Block Size (in bytes), show steady growth alongside increased transaction activity. 
                             Meanwhile, mining metrics, including Difficulty, Mean Hash Rate, and Miner Supply (USD), highlight the network's expanding security, and computational power. 
                             Interestingly Miner Revenue per Hash (USD) has declined over time.</p>
-                        <p>
-                            Note for PP434 grader: I was unsure if this dashboard, although consisting of one vega-lite specification, counted as more than one chart.
-                            For the purpose of this assignment, if it is indeed counted as multiple charts, could you please use the top-left plot in this dashboard and 
-                            the subsequent dashboard for evaluation.
-                        </p>
+
                     </div>
                     <div class="charts-container">
                         <figure id="Location1" class="chart-figure"></figure>
@@ -168,9 +164,10 @@
                 </p>
             </div>
             <div class="charts-container">
-                <figure id="Location3" class="chart-figure"></figure>
+                <figure id="Location6" class="chart-figure"></figure>
             </div>
         </section>
+                        </section>
 <section>
             <!-- Final Conlusions -->
             <div class="writeup-section">
@@ -205,6 +202,7 @@
         let figure_3_spec = "btc_cons_scatter.json"
         let figure_4_spec = "btc_cons_detrend.json"
         let figure_5_spec = "btc_cons_detrend_bar.json"
+        let figure_6_spec = "btc_random_forrest.json"
 
         // Embed charts
         vegaEmbed('#Location1', figure_1_spec)
@@ -212,6 +210,7 @@
         vegaEmbed('#Location3', figure_3_spec)
         vegaEmbed('#Location4', figure_4_spec)
         vegaEmbed('#Location5', figure_5_spec)
+        vegaEmbed('#Location6', figure_6_spec)
     </script>
     <script>
         // Bouncing circles animation
