@@ -1,5 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Bitcoin Energy Consumption Relationships (Log Values) (2013 - 2024)",
+      "subtitle": "Data source: Cambridge Centre for Alternative Finance Bitcoin Electricity Consumption Index",
+      "color": "white",
+      "subtitleColor": "white",
+      "fontSize": 20
+    },
     "background": "#1a1f36",
     "params": [
       {
@@ -53,6 +60,10 @@
                   "type": "quantitative",
                   "axis": {
                     "orient": "right",
+                    "titleAngle": 0,
+                    "titleAlign": "center",
+                    "titleX": -50,
+                    "titleY": -10,
                     "labelColor": "darkgoldenrod",
                     "titleColor": "darkgoldenrod"
                   },
@@ -69,6 +80,10 @@
                   "type": "quantitative",
                   "axis": {
                     "orient": "left",
+                    "titleAngle": 0,
+                    "titleAlign": "right",
+                    "titleX": 130,
+                    "titleY": -10,
                     "titleColor": "#FFD700",
                     "labelColor": "#FFD700"
                   },
@@ -109,6 +124,10 @@
                   "type": "quantitative",
                   "axis": {
                     "orient": "right",
+                    "titleAngle": 0,
+                    "titleAlign": "center",
+                    "titleX": -50,
+                    "titleY": -10,
                     "labelColor": "darkgoldenrod",
                     "titleColor": "darkgoldenrod"
                   },
@@ -125,6 +144,10 @@
                   "type": "quantitative",
                   "axis": {
                     "orient": "left",
+                    "titleAngle": 0,
+                    "titleAlign": "left",
+                    "titleX": -5,
+                    "titleY": -10,
                     "titleColor": "#FFD700",
                     "labelColor": "#FFD700"
                   },
@@ -137,7 +160,11 @@
       }
     ],
     "config": {
-      "axis": {"gridOpacity": 0.1, "gridColor": "white"},
+      "axis": {
+        "gridOpacity": 0.1,
+        "gridColor": "white"
+      },
       "view": {"stroke": "white", "strokeOpacity": 0.2}
     }
   }
+  
