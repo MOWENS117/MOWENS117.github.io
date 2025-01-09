@@ -77,7 +77,8 @@
                     The analysis combines data from two sources. Market and technical fundamentals were sourced from Coin Metrics [3]. Energy consumption data was collected from the Cambridge Bitcoin Electricity Consumption Index (CBECI), hosted by the Cambridge Centre for Alternative Finance (CCAF) [4]. The index offers a live estimate of Bitcoin's electricity consumption. This data was downloaded manually and is hosted on my GitHub. Both data sources provided comprehensive sets of daily observations. 
                 </p>
                 <p> 
-                    Unfortunately, the automated aspect of this project is limited. The first limitation is that CCAF does not offer an API. The CCAF data can be requested at any time, although there can be delays in receiving a response. In the future I would like to construct a workaround. Potentially, a python scraping script could capture the most recent values. The second limitation is financial. Most comprehensive Bitcoin APIs are paid, while free ones tend to be limited. Once purchased. Automation simply requires an edit to the Vega-lite specification to pull data from the API instead of the csv hosted on my GitHub repository.
+                    Unfortunately, the automated aspect of this project is limited. The first limitation is that CCAF does not offer an API. 
+                    The CCAF data can be requested at any time, although there can be delays in receiving a response. In the future I would like to construct a workaround. Potentially, a python scraping script could capture the most recent values. The second limitation is financial. Most comprehensive Bitcoin APIs are paid, while free ones tend to be limited. Once purchased. Automation simply requires an edit to the Vega-lite specification to pull data from the API instead of the csv hosted on my GitHub repository.
                 </p>
                 <ul>
                     <li>The Vega-lite specifications can be accessed via the embedded charts.</li>
@@ -92,7 +93,10 @@
             <h3>Challenges</h3>
             <div class="content">
             <p>
-                The primary challenge to analysis was the model selection process for the machine learning component. The machine learning model initially had a critical flaw: using randomized data samples meant future data was being used to predict past events, creating artificially high accuracy. After some research, I switched to temporal windows, using only historical data to predict future values. This time-based approach produced more realistic predictions compared to the original random sampling method.
+                The primary challenge to analysis was the model selection process for the machine learning component. The machine learning model initially had a critical flaw: using randomized data samples meant future data was being used to predict past events, creating artificially high accuracy. 
+                After some research, I switched to temporal windows, using only historical data to predict future values. 
+                This time-based approach produced more realistic predictions compared to the original random sampling method.
+                While I spend most of my time working with econometric analysis, which can be quite different, it was refreshing to dive back into machine learning for this project.
             </p>
             <p>
                 The analysis in the non-ML charts came rather easily. The biggest challenge was getting the parameter sliders to work on multiple plots for the dashboard. Through iteration and consulting with Claude LLM, I developed a solution. I believe the effort was worth it because this trellis-like set up offers a much more comprehensive view of the data than a single plot would.
