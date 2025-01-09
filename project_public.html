@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Sustainability Project - Myles Owens</title>
+    <link rel="stylesheet" type="text/css" href="styles_btc.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/5.22.1/vega.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/5.6.0/vega-lite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/6.21.0/vega-embed.min.js"></script>
+</head>
+<body>
+<!-- Hero Section -->
+<section class="hero">
+    <!-- Bouncing Circles Container -->
+    <div id="circleContainer"></div>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav>
+            <div class="nav-links">
+                <a href="https://mylesowens.substack.com/" class="button">Policy Blog</a>
+                <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a>
+                <a href="https://github.com/MOWENS117">GitHub</a>
+                <a href="cv.html">My CV</a>
+                <a href="project.html" class="active">Projects</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="index.html">Home</a>
+            </div>
+        </nav>
+    </div>
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="animated-header">
+                <<h1 class="gradient-text">
+                    <span style="font-family: 'Arial', sans-serif; font-size: 1.2em;">₿</span>itcoin Sustainability: Visual Analysis
+                  </h1>
+                <p class="title-text">Visually exploring the electricity consumption of the world's most valuable digital asset.</p>
+                <p>
+                    This project was created for LSE PP434 Automated Data Visualisation.
+                </p>
+            </div>
+            <p class="hero-description">
+                
+            </p>
+        </div>
+    </section>
+<!-- Project Analysis Write-up -->
+<section class="project-card analysis-writeup">
+    <div class="writeup-content">
+        <h2 class="section-heading">Project Information</h2>
+        
+        <div class="writeup-section">
+            <h3>Project Aims</h3>
+            <div class="content">
+                <p>Consumers are increasingly demanding that the financial services they use reflect their values. Many industries have been quick to respond. A glance at any major financial services provider's website reveals extensive information about their environmental, social, and governance (ESG) goals [1].</p>
+                
+                <p>Traditional finance's mysterious cousin, decentralised finance (DeFi), has been criticised for being less responsible in terms of ESG. DeFi's claim to fame is its ability to support a robust financial ecosystem without centralised control. However, this decentralisation comes at a cost. The technology enabling DeFi assets, known as blockchain, can be computationally intense. Think of it like running a global spreadsheet of every transaction that requires constant upkeep from thousands of computers, it’s no small feat.</p>
+                
+                <p>The most well-known DeFi asset, Bitcoin, consumes a significant amount of energy. To put it in perspective, the energy used by Bitcoin rivals that of small countries [2]. This raises questions about its long-term sustainability.</p>
+                
+                <p>The goal of this project is to visually explore the dynamics of Bitcoin's sustainability measured by its electricity consumption.</p>
+                <ul>
+                    <li>Key questions:</li>
+                    <li>What are the current sustainability trends?</li>
+                    <li>What is the relationship between Bitcoin's market fundamentals, technological features, and sustainability?</li>
+                    <li>Are these relationships useful for predicting future electricity consumption?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Repeat the same structure for other sections -->
+        <div class="writeup-section">
+            <h3>Data Sources & Methodology</h3>
+            <div class="content">
+                <p>
+                    The analysis combines data from two sources. Market and technical fundamentals were sourced from Coin Metrics [3]. Energy consumption data was collected from the Cambridge Bitcoin Electricity Consumption Index (CBECI), hosted by the Cambridge Centre for Alternative Finance (CCAF) [4]. The index offers a live estimate of Bitcoin's electricity consumption. This data was downloaded manually and is hosted on my GitHub. Both data sources provided comprehensive sets of daily observations. 
+                </p>
+                <p> 
+                    Unfortunately, the automated aspect of this project is limited. The first limitation is that CCAF does not offer an API. The CCAF data can be requested at any time, although there can be delays in receiving a response. In the future I would like to construct a workaround. Potentially, a python scraping script could capture the most recent values. The second limitation is financial. Most comprehensive Bitcoin APIs are paid, while free ones tend to be limited. Once purchased. Automation simply requires an edit to the Vega-lite specification to pull data from the API instead of the csv hosted on my GitHub repository.
+                </p>
+                <ul>
+                    <li>The Vega-lite specifications can be accessed via the embedded charts.</li>
+                    <li>Click <a href="https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/btc_cons_new.csv">here</a> if you would like to access the data used.</li>
+                    <li> <a href="https://github.com/MOWENS117/MOWENS117.github.io/blob/main/Bitcoin_Terms_Definitions.csv">Definitions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Continue with Technical Challenges and Key Conclusions sections -->
+        <div class="writeup-section">
+            <h3>Challenges</h3>
+            <div class="content">
+            <p>
+                The primary challenge to analysis was the model selection process for the machine learning component. The machine learning model initially had a critical flaw: using randomized data samples meant future data was being used to predict past events, creating artificially high accuracy. After some research, I switched to temporal windows, using only historical data to predict future values. This time-based approach produced more realistic predictions compared to the original random sampling method.
+            </p>
+            <p>
+                The analysis in the non-ML charts came rather easily. The biggest challenge was getting the parameter sliders to work on multiple plots for the dashboard. Through iteration and consulting with Claude LLM, I developed a solution. I believe the effort was worth it because this trellis-like set up offers a much more comprehensive view of the data than a single plot would.
+            </p>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Work Section -->
+    <div class="work-section">
+                        <!-- Price -->
+                        <section class="project-card">
+                            <div class="chart-description">
+                                <h2>Bitcoin Price, LIVE</h2>
+                                <p></p>
+        
+                            </div>
+                            <div class="charts-container">
+                                <figure id="Location20" class="chart-figure"></figure>
+                            </div>
+                        </section>
+                <!-- Log Values Analysis -->
+                <section class="project-card">
+                    <div class="chart-description">
+                        <h2>Bitcoin Metrics & Energy Consumption Dashboard</h2>
+                        <p>I plotted various metrics against "anualised consumtion GUESS, Twh", which is CCAF's estimate of Bitcoins electricity usage in terawatt-hours. Bitcoin's market metrics, including variables such as Closing Price, Market Cap, 30 Day Volatility, and Mean Block Size, show a positive correlation to energy consumption. Technical mining metrics, including Difficulty, Mean Hash Rate, and Miner Supply, highlight the Bitcoin network's expanding growth and computational power. Miner Revenue per Hash has declined which reflects the Bitcoin protocol's halving which reduces mining revenue and increases mining difficulty.</p>
+
+                    </div>
+                    <div class="charts-container">
+                        <figure id="Location1" class="chart-figure"></figure>
+                    </div>
+                </section>
+                        <!-- Bitcoin Energy Detrended -->
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>Energy Consumption Trends</h2>
+            </div>
+            <div class="charts-container">
+                <figure id="Location4" class="chart-figure"></figure>
+            </div>
+        </section>
+                <!-- Energy Detrended 2 -->
+                <section class="project-card">
+                    <div class="chart-description">
+                        <h2>Energy Consumption Trends</h2>
+                        <p>Taking a closer look at detrended energy consumption fluctuations we can see they have increased, with current levels showing the largest historical deviation.</p>
+                    </div>
+                    <div class="charts-container">
+                        <figure id="Location5" class="chart-figure"></figure>
+                    </div>
+                </section>
+                <!-- Energy Consumption Frequency -->
+                <section class="project-card">
+                    <div class="chart-description">
+                        <h2>Energy Consumption Frequency Analysis</h2>
+                        <p>The distribution of energy consumption has widened over time with no sign of anchoring.</p>
+                    </div>
+                    <div class="charts-container">
+                        <figure id="Location2" class="chart-figure"></figure>
+                    </div>
+                </section>
+        <!-- Price vs Consumption Analysis -->
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>Bitcoin Metrics vs Energy Consumption Dashboard</h2>
+                <p> Mining difficulty and hash rate show the strongest correlation with energy consumption. Price and miner supply follow a positive "stair-step" pattern. Volatility, mining revenue and mean block size don't visually show clear correlations.</p>
+            </div>
+            <div class="charts-container">
+                <figure id="Location3" class="chart-figure"></figure>
+            </div>
+        </section>
+        <section class="project-card">
+            <div class="chart-description">
+                <h2>Predicting Consumption with Market and Technical Fundamentals Using a Random Forrest Regression</h2>
+                <p>
+                    Despite throwing everything but the kitchen sink at forecasting consumption, the market and technical predictors perform worse than a simple mean trend line (negative R^2), suggesting the relationship between energy consumption and these fundamentals is more complicated than anticipated. This leaves the door open to future analysis.
+                </p>
+                <ul>
+
+                    <li>If you'd like to see a list of varaibles used for this forecast:<a href="https://colab.research.google.com/drive/1zdsJe-YAkrklJj5US2Z2wQkaRz12w1Pn?usp=sharing">Python Code</a></li>
+                </ul>
+            </div>
+            <div class="charts-container">
+                <figure id="Location6" class="chart-figure"></figure>
+            </div>
+        </section>
+                        </section>
+<section>
+            <!-- Bibliography -->
+            <div class="writeup-section">
+                <h3>Links</h3>
+                <div class="content">
+                    <ul>
+                        <li>[1]https://www.jpmorganchase.com/about/governance/esg</li>
+                        <li>[2]https://ccaf.io/cbnsi/cbeci/comparisons</li>
+                        <li>[3]https://charts.coinmetrics.io/crypto-data/</li>
+                        <li>[4]https://ccaf.io/cbnsi/cbeci</li>
+                        <li>[5] AI Usage: I took full advantage of LLMs in this project for the coding process including Claude and Chat GPT 4o & o1. This included prompts to help enhance charts and prompts to help me understand the proper packages and commands for the machine learning component.</li>
+                    </ul>
+                </div>
+            </div>
+</section>
+            
+
+
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Chart specifications
+        let figure_1_spec = "btc_price_cons_line_log.json"
+        let figure_2_spec = "btc_cons_hist_time.json"
+        let figure_3_spec = "btc_cons_scatter.json"
+        let figure_4_spec = "btc_cons_detrend.json"
+        let figure_5_spec = "btc_cons_detrend_bar.json"
+        let figure_6_spec = "btc_random_forrest.json"
+        let figure_20_spec = "price.json"
+
+        // Embed charts
+        vegaEmbed('#Location1', figure_1_spec)
+        vegaEmbed('#Location2', figure_2_spec)
+        vegaEmbed('#Location3', figure_3_spec)
+        vegaEmbed('#Location4', figure_4_spec)
+        vegaEmbed('#Location5', figure_5_spec)
+        vegaEmbed('#Location6', figure_6_spec)
+        vegaEmbed('#Location20', figure_20_spec)
+    </script>
+    <script>
+        // Bouncing circles animation
+        class Circle {
+            constructor(container) {
+        const circle = document.createElement('div');
+        circle.className = 'circle';
+        
+        // Create and add the Bitcoin symbol inside each circle
+        const bitcoinSymbol = document.createElement('span');
+        bitcoinSymbol.textContent = '₿';
+        bitcoinSymbol.className = 'bitcoin-symbol';
+        circle.appendChild(bitcoinSymbol);
+        
+        container.appendChild(circle);
+                
+                // Initialize physics properties
+                this.element = circle;
+                this.size = Math.random() * 100 + 100;
+                this.x = Math.random() * (container.clientWidth - this.size);
+                this.y = Math.random() * (container.clientHeight - this.size);
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = (Math.random() - 0.5) * 2;
+                this.container = container;
+                
+                // Set initial size
+                this.element.style.width = this.size + 'px';
+                this.element.style.height = this.size + 'px';
+            }
+            
+            updatePosition() {
+                // Update position based on velocity
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Bounce off walls
+                if (this.x <= 0 || this.x + this.size >= this.container.clientWidth) {
+                    this.vx = -this.vx;
+                    this.x = Math.max(0, Math.min(this.x, this.container.clientWidth - this.size));
+                }
+                
+                // Bounce off floor/ceiling
+                if (this.y <= 0 || this.y + this.size >= this.container.clientHeight) {
+                    this.vy = -this.vy;
+                    this.y = Math.max(0, Math.min(this.y, this.container.clientHeight - this.size));
+                }
+                
+                // Apply position using transform for better performance
+                const rotation = (this.x + this.y) % 360;
+        this.element.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${rotation}deg)`;
+            }
+        }
+    
+        // Initialize animation
+        const container = document.getElementById('circleContainer');
+        const circles = Array.from({length: 7}, () => new Circle(container));
+        
+        // Animation loop using requestAnimationFrame
+        function animate() {
+            circles.forEach(circle => circle.updatePosition());
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
