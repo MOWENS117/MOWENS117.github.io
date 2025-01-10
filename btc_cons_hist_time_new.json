@@ -1,0 +1,125 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 275,
+    "background": "#1a1f36",
+    "title": {
+      "text": "Distribution of Bitcoin Electricity Consumption",
+      "subtitle": [
+        "Data Source: Cambridge Centre for Alternative Finance Bitcoin Electricity Consumption Index",
+        "Density vs Annualised Electricity Consumption (TWh)"
+      ],
+      "color": "white",
+      "subtitleColor": "white",
+      "fontSize": 18,
+      "subtitleFontSize": 13,
+      "anchor": "start"
+    },
+    "params": [
+      {
+        "name": "selectedDate",
+        "value": 2024,
+        "bind": {
+          "input": "range",
+          "min": 2010,
+          "max": 2024,
+          "step": 1,
+          "name": "Select Year: "
+        }
+      }
+    ],
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/btc_cons_new.csv"
+    },
+    "layer": [
+      {
+        "transform": [
+          {"calculate": "year(datum['Date and Time'])", "as": "Year"},
+          {"filter": "datum.Year >= 2010 && datum.Year <= selectedDate"},
+          {
+            "density": "annualised consumption GUESS, TWh",
+            "bandwidth": 2,
+            "extent": [0, 200]
+          }
+        ],
+        "mark": {"type": "area", "color": "darkgoldenrod", "opacity": 0.6},
+        "encoding": {
+          "x": {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Annualised Consumption (TWh)",
+            "axis": {
+              "titleColor": "white",
+              "labelColor": "white",
+              "gridColor": "rgba(255, 255, 255, 0.1)"
+            }
+          },
+          "y": {
+            "field": "density",
+            "type": "quantitative",
+            "title": "Density",
+            "axis": {
+              "titleColor": "white",
+              "labelColor": "white",
+              "gridColor": "rgba(255, 255, 255, 0.1)",
+              "titleOpacity": 0
+            }
+          }
+        }
+      },
+      {
+        "transform": [
+          {"calculate": "year(datum['Date and Time'])", "as": "Year"},
+          {"filter": "datum.Year >= 2010 && datum.Year <= selectedDate"},
+          {
+            "aggregate": [
+              {
+                "op": "median",
+                "field": "annualised consumption GUESS, TWh",
+                "as": "medianConsumption"
+              }
+            ]
+          }
+        ],
+        "mark": {
+          "type": "rule",
+          "stroke": "white",
+          "strokeWidth": 2,
+          "opacity": 0.8
+        },
+        "encoding": {"x": {"field": "medianConsumption", "type": "quantitative"}}
+      },
+      {
+        "transform": [
+          {"calculate": "year(datum['Date and Time'])", "as": "Year"},
+          {"filter": "datum.Year >= 2010 && datum.Year <= selectedDate"},
+          {
+            "aggregate": [
+              {
+                "op": "median",
+                "field": "annualised consumption GUESS, TWh",
+                "as": "medianConsumption"
+              }
+            ]
+          },
+          {
+            "calculate": "'Median: ' + format(datum.medianConsumption, '.2f')",
+            "as": "label"
+  
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "dy": -10,
+          "dx": 55,
+          "color": "crimson",
+          "fontSize": 16,
+          "fontWeight": "bold"
+        },
+        "encoding": {
+          "x": {"field": "medianConsumption", "type": "quantitative"},
+          "text": {"field": "label", "type": "nominal"}
+        }
+      }
+    ]
+  }
