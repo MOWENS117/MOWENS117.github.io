@@ -1,0 +1,55 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "data": {
+   "url": "https://data.nola.gov/resource/2zcj-b6ts.json?$where=timecreate >= '2024-11-01T00:00:00.000' AND timecreate < '2024-12-01T00:00:00.000'&$limit=50000&$select=timecreate&$$app_token=EPLsjEoAHuc4mBOiIpw4ACdNP"
+ },
+ "title": {
+   "text": "November 2024 - 911 Calls by Hour and Day of Week",
+   "anchor": "start",
+   "fontSize": 20,
+   "font": "Arial"
+ },
+"width": 1080,
+"height": 600,
+ "config": {
+   "view": {"stroke": null},
+   "axis": {
+     "labelFontSize": 14,
+     "titleFontSize": 16
+   }
+ },
+ "transform": [
+   {
+     "timeUnit": "yearmonthdatehoursminutes",
+     "field": "timecreate",
+     "as": "time_formatted"
+   }
+ ],
+ "mark": "rect",
+ "encoding": {
+   "x": {
+     "timeUnit": "hours",
+     "field": "timecreate",
+     "type": "temporal",
+     "title": "Hour of Day"
+   },
+   "y": {
+     "timeUnit": "day",
+     "field": "timecreate",
+     "type": "ordinal", 
+     "title": "",
+     "sort": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+   },
+   "color": {
+     "aggregate": "count",
+     "title": "Calls",
+     "scale": {"scheme": "lightmulti"},
+     "legend": {"titleFontSize": 14, "labelFontSize": 12}
+   },
+   "tooltip": [
+     {"timeUnit": "hours", "field": "timecreate", "title": "Hour"},
+     {"timeUnit": "day", "field": "timecreate", "title": "Day"},
+     {"aggregate": "count", "title": "Calls"}
+   ]
+ }
+}
