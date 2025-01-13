@@ -1,0 +1,98 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Phone-Related Crimes in London Boroughs",
+    "subtitle": "Top 10 Boroughs vs Others (Robberies + Thefts)",
+    "anchor": "middle",
+    "dy": -20
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/phone/M1045_MonthlyCrimeDashboard_OtherCrimeData_202501.csv"
+  },
+  "transform": [
+    {
+      "filter": "(datum['Crime Subtype'] === 'Robbery Mobile phone' || datum['Crime Subtype'] === 'Theft Person - Mobile phone') && datum['Measure'] === 'Offences'"
+    },
+    {
+      "aggregate": [{
+        "op": "sum",
+        "field": "Count",
+        "as": "total_crimes"
+      }],
+      "groupby": ["Borough_SNT"]
+    },
+    {
+      "window": [{
+        "op": "rank",
+        "as": "rank"
+      }],
+      "sort": [{"field": "total_crimes", "order": "descending"}]
+    },
+    {
+      "calculate": "datum.rank <= 10 ? datum.Borough_SNT : 'Other Boroughs'",
+      "as": "borough_category"
+    },
+    {
+      "aggregate": [{
+        "op": "sum",
+        "field": "total_crimes",
+        "as": "crimes"
+      }],
+      "groupby": ["borough_category"]
+    },
+    {
+      "calculate": "datum.borough_category === 'Other Boroughs' ? 0 : datum.crimes",
+      "as": "orderField"
+    }
+  ],
+  "encoding": {
+    "theta": {
+      "field": "crimes",
+      "type": "quantitative",
+      "stack": true
+    },
+    "color": {
+      "field": "borough_category",
+      "type": "nominal",
+      "scale": {
+        "scheme": "blues"
+      },
+      "sort": {"field": "orderField", "order": "descending"},
+      "legend": {
+        "title": "Borough",
+        "orient": "right"
+      }
+    },
+    "order": {
+      "field": "orderField",
+      "type": "quantitative",
+      "sort": "descending"
+    },
+    "tooltip": [
+      {"field": "borough_category", "title": "Borough"},
+      {"field": "crimes", "title": "Total Crimes"},
+      {
+        "calculate": "round(datum.crimes/sum_crimes * 100)",
+        "title": "Percentage",
+        "type": "quantitative",
+        "format": ".1f"
+      }
+    ]
+  },
+  "layer": [{
+    "mark": {"type": "arc", "innerRadius": 80, "outerRadius": 120}
+  }],
+  "width": 400,
+  "height": 400,
+  "view": {"stroke": null},
+  "params": [{
+    "name": "sum_crimes",
+    "value": 0,
+    "bind": {
+      "input": "number",
+      "min": 0,
+      "max": 10000,
+      "step": 1
+    }
+  }]
+}
