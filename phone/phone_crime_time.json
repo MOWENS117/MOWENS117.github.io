@@ -1,0 +1,78 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Phone-Related Crimes in London Over Time",
+    "subtitle": "Total Robberies and Thefts Combined"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/phone/M1045_MonthlyCrimeDashboard_OtherCrimeData_202501.csv"
+  },
+  "transform": [
+    {
+      "filter": "(datum['Crime Subtype'] === 'Robbery Mobile phone' || datum['Crime Subtype'] === 'Theft Person - Mobile phone') && datum['Measure'] === 'Offences'"
+    },
+    {
+      "timeUnit": "yearmonth",
+      "field": "Month_Year",
+      "as": "month"
+    },
+    {
+      "aggregate": [{
+        "op": "sum",
+        "field": "Count",
+        "as": "total_crimes"
+      }],
+      "groupby": ["month"]
+    }
+  ],
+  "width": 600,
+  "height": 400,
+  "mark": {
+    "type": "line",
+    "point": true,
+    "strokeWidth": 3
+  },
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "temporal",
+      "title": "Date",
+      "axis": {
+        "format": "%b %Y"
+      }
+    },
+    "y": {
+      "field": "total_crimes",
+      "type": "quantitative",
+      "title": "Total Phone-Related Crimes"
+    },
+    "tooltip": [
+      {
+        "field": "month",
+        "type": "temporal",
+        "title": "Month",
+        "format": "%B %Y"
+      },
+      {
+        "field": "total_crimes",
+        "type": "quantitative",
+        "title": "Total Crimes"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false
+    },
+    "line": {
+      "color": "#2171b5"
+    },
+    "point": {
+      "color": "#08519c",
+      "filled": true
+    }
+  }
+}
