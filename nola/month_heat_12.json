@@ -40,12 +40,15 @@
      "title": "",
      "sort": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
    },
-   "color": {
-     "aggregate": "count",
-     "title": "Calls",
-     "scale": {"scheme": "lightmulti"},
-     "legend": {"titleFontSize": 14, "labelFontSize": 12}
-   },
+"color": {
+  "aggregate": "count",
+  "title": "Calls",
+  "scale": {
+    "scheme": "lightmulti",
+    "domain": [0, 300]
+  },
+  "legend": {"titleFontSize": 14, "labelFontSize": 12}
+},
    "tooltip": [
      {"timeUnit": "hours", "field": "timecreate", "title": "Hour"},
      {"timeUnit": "day", "field": "timecreate", "title": "Day"},
