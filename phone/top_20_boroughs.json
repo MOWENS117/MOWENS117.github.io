@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Top 20 London Boroughs by Mobile Phone Robberies",
+    "subtitle": "January 2021 - December 2024"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/phone/M1045_MonthlyCrimeDashboard_OtherCrimeData_202501.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum['Crime Subtype'] === 'Robbery Mobile phone' && datum['Measure'] === 'Offences'"
+    },
+    {
+      "aggregate": [{
+        "op": "sum",
+        "field": "Count",
+        "as": "total_robberies"
+      }],
+      "groupby": ["Borough_SNT"]
+    },
+    {
+      "window": [{
+        "op": "rank",
+        "as": "rank"
+      }],
+      "sort": [{"field": "total_robberies", "order": "descending"}]
+    },
+    {
+      "filter": "datum.rank <= 20"
+    }
+  ],
+  "width": 500,
+  "height": 400,
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "Borough_SNT",
+      "type": "nominal",
+      "sort": "-x",
+      "title": "Borough"
+    },
+    "x": {
+      "field": "total_robberies",
+      "type": "quantitative",
+      "title": "Number of Robberies"
+    },
+    "color": {
+      "field": "total_robberies",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "blues"
+      },
+      "legend": {
+        "title": "Number of\nRobberies"
+      }
+    },
+    "tooltip": [
+      {"field": "Borough_SNT", "title": "Borough"},
+      {"field": "total_robberies", "title": "Robberies"},
+      {"field": "rank", "title": "Rank"}
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false
+    }
+  }
+}
