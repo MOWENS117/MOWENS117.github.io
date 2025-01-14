@@ -1,4 +1,4 @@
-{
+ {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Phone-Related Crimes in London Over Time",
