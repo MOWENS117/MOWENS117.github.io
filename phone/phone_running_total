@@ -1,0 +1,63 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Running Total of Phone Thefts in London",
+    "subtitle": "Source: Metropolitan Police"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/phone/M1045_MonthlyCrimeDashboard_OtherCrimeData_202501.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum['Crime Subtype'] === 'Theft Person - Mobile phone' && datum['Measure'] === 'Offences' && datum['Area Type'] === 'Borough'"
+    },
+    {
+      "aggregate": [{
+        "op": "sum",
+        "field": "Count",
+        "as": "total"
+      }],
+      "groupby": ["Month_Year"]
+    },
+    {
+      "sort": [{"field": "Month_Year"}],
+      "window": [{
+        "op": "sum",
+        "field": "total",
+        "as": "running_total"
+      }],
+      "frame": [null, 0]
+    },
+    {
+      "timeUnit": "yearmonth",
+      "field": "Month_Year",
+      "as": "month"
+    }
+  ],
+  "mark": {"type": "line", "strokeWidth": 3, "color": "red"},
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "temporal",
+      "title": "",
+      "axis": {
+        "format": "%b %Y"
+      }
+    },
+    "y": {
+      "field": "running_total",
+      "type": "quantitative",
+      "title": ""
+    }
+  },
+  "width": 600,
+  "height": 400,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true
+    }
+  }
+}
