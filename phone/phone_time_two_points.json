@@ -1,0 +1,93 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Phone-Related Crimes in London Over Time",
+    "subtitle": "Total Robberies and Thefts Combined"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/phone/M1045_MonthlyCrimeDashboard_OtherCrimeData_202501.csv"
+  },
+  "transform": [
+    {
+      "filter": "(datum['Crime Subtype'] === 'Robbery Mobile phone' || datum['Crime Subtype'] === 'Theft Person - Mobile phone') && datum['Measure'] === 'Offences'"
+    },
+    {
+      "timeUnit": "yearmonth",
+      "field": "Month_Year",
+      "as": "month"
+    },
+    {
+      "aggregate": [{
+        "op": "sum",
+        "field": "Count",
+        "as": "total_crimes"
+      }],
+      "groupby": ["month"]
+    },
+    {
+      "window": [{"op": "row_number", "as": "row_number"}],
+      "sort": [{"field": "month"}]
+    },
+    {
+      "window": [{"op": "last_value", "field": "row_number", "as": "last_row"}],
+      "frame": [null, null]
+    },
+    {
+      "calculate": "datum.row_number === 1 || datum.row_number === datum.last_row ? datum.total_crimes : null",
+      "as": "label"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "line", "strokeWidth": 3, "color": "black"},
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "temporal",
+          "title": "Date",
+          "axis": {
+            "format": "%b %Y"
+          }
+        },
+        "y": {
+          "field": "total_crimes",
+          "type": "quantitative",
+          "title": "Total Phone-Related Crimes"
+        }
+      }
+    },
+    {
+      "mark": {"type": "point", "size": 100, "color": "red", "filled": true},
+      "encoding": {
+        "x": {"field": "month", "type": "temporal"},
+        "y": {"field": "total_crimes", "type": "quantitative"},
+        "opacity": {
+          "condition": {"test": "datum.label != null", "value": 1},
+          "value": 0
+        }
+      }
+    },
+    {
+      "mark": {"type": "text", "dy": 30, "dx":25, "fontSize": 20, "color": "red"},
+      "encoding": {
+        "x": {"field": "month", "type": "temporal"},
+        "y": {"field": "total_crimes", "type": "quantitative"},
+        "text": {"field": "label", "type": "quantitative"},
+        "opacity": {
+          "condition": {"test": "datum.label != null", "value": 1},
+          "value": 0
+        }
+      }
+    }
+  ],
+  "width": 600,
+  "height": 400,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true
+    }
+  }
+}
