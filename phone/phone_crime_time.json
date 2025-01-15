@@ -65,13 +65,13 @@
       "stroke": null
     },
     "axis": {
-      "grid": false
+      "grid": true
     },
     "line": {
-      "color": "#2171b5"
+      "color": "red"
     },
     "point": {
-      "color": "#08519c",
+      "color": "red",
       "filled": true
     }
   }
