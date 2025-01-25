@@ -1,0 +1,111 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Monthly Phone Theft Trends - Top 10 Boroughs",
+    "subtitle": "Personal Thefts (Source: Metropolitan Police)"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/phone/M1045_MonthlyCrimeDashboard_OtherCrimeData_202501.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum['Crime Subtype'] === 'Theft Person - Mobile phone' && datum['Measure'] === 'Offences' && datum['Area Type'] === 'Borough'"
+    },
+    {
+      "aggregate": [{
+        "op": "sum",
+        "field": "Count",
+        "as": "total_thefts"
+      }],
+      "groupby": ["Borough_SNT"]
+    },
+    {
+      "window": [{
+        "op": "rank",
+        "as": "rank"
+      }],
+      "sort": [{"field": "total_thefts", "order": "descending"}]
+    },
+    {
+      "filter": "datum.rank <= 10"
+    },
+    {
+      "window": [{
+        "op": "distinct",
+        "field": "Borough_SNT",
+        "as": "top_boroughs"
+      }]
+    }
+  ],
+  "layer": [{
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/phone/M1045_MonthlyCrimeDashboard_OtherCrimeData_202501.csv"
+    },
+    "transform": [
+      {
+        "filter": "datum['Crime Subtype'] === 'Theft Person - Mobile phone' && datum['Measure'] === 'Offences' && datum['Area Type'] === 'Borough'"
+      },
+      {
+        "timeUnit": "yearmonth",
+        "field": "Month_Year",
+        "as": "month"
+      },
+      {
+        "lookup": "Borough_SNT",
+        "from": {
+          "data": {
+            "values": []
+          },
+          "key": "Borough_SNT",
+          "fields": ["rank"]
+        }
+      },
+      {
+        "filter": "datum.rank <= 10"
+      }
+    ],
+    "mark": {
+      "type": "line",
+      "point": true
+    },
+    "encoding": {
+      "x": {
+        "field": "month",
+        "type": "temporal",
+        "title": "Date",
+        "axis": {
+          "format": "%b %Y",
+          "labelAngle": 45
+        }
+      },
+      "y": {
+        "field": "Count",
+        "type": "quantitative",
+        "title": "Number of Phone Thefts"
+      },
+      "color": {
+        "field": "Borough_SNT",
+        "type": "nominal",
+        "title": "Borough",
+        "legend": {
+          "orient": "right"
+        }
+      },
+      "tooltip": [
+        {"field": "Borough_SNT", "type": "nominal", "title": "Borough"},
+        {"field": "month", "type": "temporal", "title": "Date", "format": "%B %Y"},
+        {"field": "Count", "type": "quantitative", "title": "Thefts"}
+      ]
+    }
+  }],
+  "width": 800,
+  "height": 500,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true
+    }
+  }
+}
