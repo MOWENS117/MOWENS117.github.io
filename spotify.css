@@ -1,0 +1,271 @@
+/* Spotify-Themed CSS */
+
+/* ================================
+   1. CSS Variables and Root Styles
+=============================== */
+:root {
+    --primary-color: #1DB954; /* Spotify Green */
+    --secondary-color: #1ED760; /* Lighter Spotify Green */
+    --accent-color: #1DB954; 
+    --background-color: #191414; /* Spotify Black */
+    --text-color: #FFFFFF; /* White for contrast */
+    --light-text: #B3B3B3; /* Light grey for secondary text */
+    --card-bg: #282828; /* Dark grey for cards */
+    --gradient-primary: linear-gradient(135deg, #1DB954 0%, #1ED760 100%);
+    --gradient-hover: linear-gradient(135deg, #1ED760 0%, #1DB954 100%);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* ================================
+   2. Global Reset and Base Styles
+=============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* ================================
+   3. Typography
+=============================== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-emphasis-color: transparent;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+/* ================================
+   4. Hero Section
+=============================== */
+.hero {
+    min-height: 100vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9));
+}
+
+.sliding-text {
+    position: absolute;
+    width: 100%;
+    white-space: nowrap;
+    opacity: 0.1;
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    pointer-events: none;
+    letter-spacing: 2px;
+}
+
+/* Positioning and animation adjustments */
+.sliding-text-1 {
+    top: 20%;
+    animation: slideLeft 40s linear infinite;
+}
+
+.sliding-text-2 {
+    top: 40%;
+    animation: slideRight 35s linear infinite;
+}
+
+.sliding-text-3 {
+    top: 65%;
+    animation: slideLeft 45s linear infinite;
+}
+
+.sliding-text-4 {
+    top: 80%;
+    animation: slideRight 30s linear infinite;
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 2rem 2rem;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+}
+
+.animated-header h1 {
+    font-size: 5.5rem;
+    color: var(#FFFFFF);
+    margin-bottom: 0.25rem;
+}
+
+.title-text {
+    font-size: 1.5rem;
+    color: var(--light-text);
+    margin-bottom: 1rem;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    color: var(--light-text);
+}
+
+/* Replace Bitcoin-specific symbols with Spotify-relevant visuals */
+/* Bouncing Circles Styles */
+#circleContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    transition: transform 0.016s linear;
+    will-change: transform;
+    display: flex;                /* This enables flexbox layout */
+    align-items: center;         /* This centers vertically */
+    justify-content: center;     /* This centers horizontally */
+}
+
+.circle span {
+    font-size: 1.5rem;
+    color: var(--background-color);
+}
+
+/* ================================
+   5. Work Section
+=============================== */
+.work-section {
+    padding: 6rem 2rem;
+    background-color: var(--background-color);
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+/*.project-card:hover {
+    transform: translateY(-5px);
+    background: var(--gradient-hover);
+}*/
+
+.project-card h3 {
+    color: var(--card-bg);
+    font-size: 1.5rem;
+}
+
+.project-card p {
+    color: var(--background-color);
+    font-size: 1.1rem;
+}
+
+.chart-figure {
+    width: 100%;
+    min-height: 400px;
+    background: var(--card-bg);
+    border-radius: var(--background-color);
+    overflow: hidden;
+    position: relative;
+}
+/* ================================
+   6. Navigation Styles
+=============================== */
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: var(--border-radius);
+}
+
+.nav-links a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+/* ================================
+   7. Footer
+=============================== */
+footer {
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--background-color);
+    border-top: 1px solid var(--primary-color);
+}
+
+footer p {
+    color: var(--light-text);
+    font-size: 0.9rem;
+}
