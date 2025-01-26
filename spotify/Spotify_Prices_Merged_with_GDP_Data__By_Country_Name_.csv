@@ -132,40 +132,40 @@
 130,Turkey,TR,Europe,59.99,0,TRY,1.6812021478135124,Turkiye,TUR,13105.65857
 131,Ukraine,UA,Europe,4.99,1,USD,4.99,Ukraine,UKR,5069.703125
 132,United Kingdom,GB,Europe,11.99,0,GBP,14.927788844621514,United Kingdom,GBR,49463.85546
-133,Antigua and Barbuda,AG,North America,5.99,1,USD,5.99,Antigua and Barbuda,ATG,21787.10173
-134,Bahamas,BS,North America,5.99,1,USD,5.99,"Bahamas, The",BHS,35896.50511
-135,Barbados,BB,North America,5.99,1,USD,5.99,Barbados,BRB,23804.02499
-136,Belize,BZ,North America,5.99,1,USD,5.99,Belize,BLZ,7459.998151
-137,Canada,CA,North America,12.69,0,CAD,8.852459016393443,Canada,CAN,53431.18571
-138,Costa Rica,CR,North America,6.49,1,USD,6.49,Costa Rica,CRI,16942.02681
-139,Dominica,DM,North America,5.99,1,USD,5.99,Dominica,DMA,9832.996431
-140,Dominican Republic,DO,North America,5.99,1,USD,5.99,Dominican Republic,DOM,10717.62767
-141,El Salvador,SV,North America,5.99,1,USD,5.99,El Salvador,SLV,5391.069262
-142,Grenada,GD,North America,5.99,1,USD,5.99,Grenada,GRD,11246.34512
-143,Guatemala,GT,North America,6.49,1,USD,6.49,Guatemala,GTM,5762.821746
-144,Haiti,HT,North America,2.99,1,USD,2.99,Haiti,HTI,1705.779055
-145,Honduras,HN,North America,5.99,1,USD,5.99,Honduras,HND,3231.657245
-146,Jamaica,JM,North America,5.99,1,USD,5.99,Jamaica,JAM,6839.725039
-147,Mexico,MX,North America,129,0,MXN,6.360382214596338,Mexico,MEX,13790.02434
-148,Nicaragua,NI,North America,5.99,1,USD,5.99,Nicaragua,NIC,2612.870662
-149,Panama,PA,North America,6.99,1,USD,6.99,Panama,PAN,18686.4051
-150,Saint Kitts and Nevis,KN,North America,5.99,1,USD,5.99,St. Kitts and Nevis,KNA,22573.67248
-151,Saint Lucia,LC,North America,5.99,1,USD,5.99,St. Lucia,LCA,13554.66519
-152,Saint Vincent and the Grenadines,VC,North America,5.99,1,USD,5.99,,,
-153,Trinidad and Tobago,TT,North America,5.99,1,USD,5.99,Trinidad and Tobago,TTO,20016.1503
-154,United States,US,North America,11.99,1,USD,11.99,United States,USA,82769.41221
-155,Argentina,AR,North America,2499,0,ARS,2.380952380952381,Argentina,ARG,14187.48273
-156,Bolivia,BO,North America,5.99,1,USD,5.99,Bolivia,BOL,3686.279965
-157,Brazil,BR,North America,21.9,0,BRL,3.698574613,Brazil,BRA,10294.86668
-158,Chile,CL,North America,4500,0,CLP,4.554633742670076,Chile,CHL,17067.81362
-159,Colombia,CO,North America,16900,0,COP,3.940294512533692,Colombia,COL,6947.359287
-160,Ecuador,EC,North America,6.49,1,USD,6.49,Ecuador,ECU,6609.804082
-161,Guyana,GY,North America,5.99,1,USD,5.99,Guyana,GUY,20765.35036
-162,Paraguay,PY,North America,5.99,1,USD,5.99,Paraguay,PRY,6276.351139
-163,Peru,PE,North America,20.9,0,PEN,5.610587635231269,Peru,PER,7906.585029
-164,Suriname,SR,North America,5.99,1,USD,5.99,Suriname,SUR,5494.074094
-165,Uruguay,UY,North America,7.99,1,USD,7.99,Uruguay,URY,22797.81117
-166,Venezuela,VE,North America,5.99,1,USD,5.99,"Venezuela, RB",VEN,
+133,Antigua and Barbuda,AG,Americas,5.99,1,USD,5.99,Antigua and Barbuda,ATG,21787.10173
+134,Bahamas,BS,Americas,5.99,1,USD,5.99,"Bahamas, The",BHS,35896.50511
+135,Barbados,BB,Americas,5.99,1,USD,5.99,Barbados,BRB,23804.02499
+136,Belize,BZ,Americas,5.99,1,USD,5.99,Belize,BLZ,7459.998151
+137,Canada,CA,Americas,12.69,0,CAD,8.852459016393443,Canada,CAN,53431.18571
+138,Costa Rica,CR,Americas,6.49,1,USD,6.49,Costa Rica,CRI,16942.02681
+139,Dominica,DM,Americas,5.99,1,USD,5.99,Dominica,DMA,9832.996431
+140,Dominican Republic,DO,Americas,5.99,1,USD,5.99,Dominican Republic,DOM,10717.62767
+141,El Salvador,SV,Americas,5.99,1,USD,5.99,El Salvador,SLV,5391.069262
+142,Grenada,GD,Americas,5.99,1,USD,5.99,Grenada,GRD,11246.34512
+143,Guatemala,GT,Americas,6.49,1,USD,6.49,Guatemala,GTM,5762.821746
+144,Haiti,HT,Americas,2.99,1,USD,2.99,Haiti,HTI,1705.779055
+145,Honduras,HN,Americas,5.99,1,USD,5.99,Honduras,HND,3231.657245
+146,Jamaica,JM,Americas,5.99,1,USD,5.99,Jamaica,JAM,6839.725039
+147,Mexico,MX,Americas,129,0,MXN,6.360382214596338,Mexico,MEX,13790.02434
+148,Nicaragua,NI,Americas,5.99,1,USD,5.99,Nicaragua,NIC,2612.870662
+149,Panama,PA,Americas,6.99,1,USD,6.99,Panama,PAN,18686.4051
+150,Saint Kitts and Nevis,KN,Americas,5.99,1,USD,5.99,St. Kitts and Nevis,KNA,22573.67248
+151,Saint Lucia,LC,Americas,5.99,1,USD,5.99,St. Lucia,LCA,13554.66519
+152,Saint Vincent and the Grenadines,VC,Americas,5.99,1,USD,5.99,,,
+153,Trinidad and Tobago,TT,Americas,5.99,1,USD,5.99,Trinidad and Tobago,TTO,20016.1503
+154,United States,US,Americas,11.99,1,USD,11.99,United States,USA,82769.41221
+155,Argentina,AR,Americas,2499,0,ARS,2.380952380952381,Argentina,ARG,14187.48273
+156,Bolivia,BO,Americas,5.99,1,USD,5.99,Bolivia,BOL,3686.279965
+157,Brazil,BR,Americas,21.9,0,BRL,3.698574613,Brazil,BRA,10294.86668
+158,Chile,CL,Americas,4500,0,CLP,4.554633742670076,Chile,CHL,17067.81362
+159,Colombia,CO,Americas,16900,0,COP,3.940294512533692,Colombia,COL,6947.359287
+160,Ecuador,EC,Americas,6.49,1,USD,6.49,Ecuador,ECU,6609.804082
+161,Guyana,GY,Americas,5.99,1,USD,5.99,Guyana,GUY,20765.35036
+162,Paraguay,PY,Americas,5.99,1,USD,5.99,Paraguay,PRY,6276.351139
+163,Peru,PE,Americas,20.9,0,PEN,5.610587635231269,Peru,PER,7906.585029
+164,Suriname,SR,Americas,5.99,1,USD,5.99,Suriname,SUR,5494.074094
+165,Uruguay,UY,Americas,7.99,1,USD,7.99,Uruguay,URY,22797.81117
+166,Venezuela,VE,Americas,5.99,1,USD,5.99,"Venezuela, RB",VEN,
 167,Australia,AU,Oceania,13.99,0,AUD,8.832070707070708,Australia,AUS,64820.91179
 168,Fiji,FJ,Oceania,4.99,1,USD,4.99,Fiji,FJI,5888.736686
 169,Kiribati,KI,Oceania,11.99,0,AUD,7.569444444444445,Kiribati,KIR,2106.760004
