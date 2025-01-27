@@ -1,0 +1,75 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 400,
+    "background": "#f5f2e9",
+    "title": {
+      "text": "Spotify Premium Prices by Country (USD)",
+      "subtitle": "Spotify pricing via webscrape (mowens117.github.io/spotify_project)",
+      "fontSize": 18,
+      "anchor": "start",
+      "color": "black"
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/data/custom.geo.json",
+      "format": {
+        "type": "json",
+        "property": "features"
+      }
+    },
+    "transform": [
+      {
+        "lookup": "properties.adm0_a3",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/spotify/spotify_geo_match.csv",
+            "format": {"type": "csv"}
+          },
+          "key": "ISO Code_y",
+          "fields": ["Price_USD", "Country Name"]
+        }
+      },
+      {
+        "calculate": "datum.Price_USD == 0 ? 'No Spotify' : 'Has Spotify'",
+        "as": "spotify_status"
+      }
+    ],
+    "projection": {"type": "equalEarth"},
+    "mark": {
+      "type": "geoshape",
+      "stroke": "#404040",
+      "strokeWidth": 0.7
+    },
+    "encoding": {
+      "color": {
+        "condition": {
+          "test": "datum.spotify_status == 'No Spotify'",
+          "value": "#d3d3d3"
+        },
+        "field": "Price_USD",
+        "type": "quantitative",
+        "scale": {
+          "scheme": "yellowgreen",
+          "domain": [0.85, 15]
+        },
+        "legend": {
+          "title": "Price (USD)",
+          "titleColor": "black",
+          "labelColor": "black"
+        }
+      },
+      "tooltip": [
+        {
+          "field": "properties.name",
+          "type": "nominal",
+          "title": "Country"
+        },
+        {
+          "field": "Price_USD",
+          "type": "quantitative",
+          "title": "Spotify Premium Price",
+          "format": "$.2f"
+        }
+      ]
+    }
+  }
