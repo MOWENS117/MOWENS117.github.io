@@ -51,7 +51,16 @@
 <!-- Log Values Analysis -->
 <section class="project-card">
     <div class="chart-description">
-        <h2>Spotify Price USD</h2>
+        <h2>Spotify Price (USD) Globally</h2>
+        <p></p>
+    </div>
+    <div>
+        <figure id="Location3" class="chart-figure"></figure>
+    </div>
+</section>
+<section class="project-card">
+    <div class="chart-description">
+        <h2>Spotify Price (USD)</h2>
         <p></p>
     </div>
     <div>
@@ -8599,11 +8608,13 @@ download("download_a053e971-4756-40e5-87b5-4e11d81cd9e8", "spotify_scraper (1).h
     // Chart specifications
     let figure_1_spec = "charts/spotify_bar.json";
     let figure_2_spec = "charts/spotify_scatter.json";
+    let figure_3_spec = "charts/spotify_map.json";
 
 
     // Embed charts
     vegaEmbed('#Location1', figure_1_spec)
     vegaEmbed('#Location2', figure_2_spec)
+    vegaEmbed('#Location3', figure_3_spec)
 </script>
 <script>
     // Bouncing circles animation
