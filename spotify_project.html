@@ -36,6 +36,9 @@
                     <span style="font-family: 'Arial', sans-serif; font-size: 1.2em;">Spotify Global Price Analysis
                   </h1>
                 <p class="title-text">Visually exploring the divergence in the price of digital products.</p>
+                <p class="title-text">
+                    This project was created for LSE PP418 Globalization and Economic Policy.
+                </p>
             </div>
             <p class="hero-description">
                 
@@ -7608,28 +7611,30 @@ a.anchor-link {
 <li>Effect size: For every \$1 increase in GDP per capita, the Spotify price increased by \$0.00007406 USD.</li>
 </ul>
 <p>When region-specific dummy variables were added to the model, similar results were observed. Full regression results are presented below.</p>
-<pre><code>       ────────────────────────────────────────────────────────────────────────
-                                               (1)                 (2)         
-                                      ─────────────────────────────────────────
-         (Intercept)                       4.20535365 ***      2.84531539 ***  
-                                          (0.20173760)        (0.25403258)     
-         GDP.per.capita..current.US..      0.00007306 ***      0.00005244 ***  
-                                          (0.00000567)        (0.00000525)     
-         RegionAsia                                            0.83064515 *    
-                                                              (0.39600317)     
-         RegionEurope                                          3.61811880 ***  
-                                                              (0.42780488)     
-         RegionNorth America                                   2.33908443 ***  
-                                                              (0.40921839)     
-         RegionOceania                                         3.52897059 ***  
-                                                              (0.55675430)     
-                                      ─────────────────────────────────────────
-         N                               174                 174               
-         R2                                0.49108668          0.68223298      
-         logLik                         -384.66117456       -343.68772216      
-         AIC                             775.32234912        701.37544431      
-       ────────────────────────────────────────────────────────────────────────
-         *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05.                    </code></pre>
+<pre><code>
+                          ────────────────────────────────────────────────────────────────────────
+                                                                  (1)                 (2)         
+                                                         ─────────────────────────────────────────
+                            (Intercept)                       4.23759370 ***      2.84854979 ***  
+                                                             (0.19895952)        (0.24292333)     
+                            GDP.per.capita..current.US..      0.00007315 ***      0.00005132 ***  
+                                                             (0.00000559)        (0.00000502)     
+                            RegionAmericas                                        2.35366651 ***  
+                                                                                 (0.39132262)     
+                            RegionAsia                                            0.84890086 *    
+                                                                                 (0.37868532)     
+                            RegionEurope                                          3.80082692 ***  
+                                                                                 (0.40909629)     
+                            RegionOceania                                         3.54120627 ***  
+                                                                                 (0.53240655)     
+                                                         ─────────────────────────────────────────
+                            N                               174                 174               
+                            R2                                0.49861273          0.70566480      
+                            logLik                         -382.24840726       -335.90702626      
+                            AIC                             770.49681452        685.81405253      
+                          ────────────────────────────────────────────────────────────────────────
+                            *** p < 0.001; ** p < 0.01; * p < 0.05.                                                  
+</code></pre>
 <p><strong>Theories</strong>
 While these findings do not necessarily disprove the law of one price, several factors may explain the observed price differences:</p>
 <ul>
