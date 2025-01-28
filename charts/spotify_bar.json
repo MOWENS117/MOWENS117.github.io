@@ -1,42 +1,40 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 2000,
-    "title": "Spotify Premium Prices by Country (USD)",
-    "data": {
-      "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/spotify/Spotify_Prices_Merged_with_GDP_Data__By_Country_Name_.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 2000,
+  "title": "Spotify Premium Prices by Country (USD)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/spotify/Spotify_Prices_Merged_with_GDP_Data__By_Country_Name_.csv"
+  },
+  "transform": [{"filter": "datum.Price_USD != null && datum.Country != null"}],
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "Country",
+      "type": "nominal",
+      "sort": {"field": "Price_USD", "order": "ascending"},
+      "axis": {"title": "Country"}
     },
-    "transform": [
-      {"filter": "datum.Price_USD != null && datum.Country != null"}
-    ],
-    "mark": "bar",
-    "encoding": {
-      "y": {
-        "field": "Country",
-        "type": "nominal",
-        "sort": {"field": "Price_USD", "order": "ascending"},
-        "axis": {"title": "Country"}
-      },
-      "x": {
-        "field": "Price_USD",
-        "type": "quantitative",
-        "axis": {"title": "Price (USD)"}
-      },
-      "color": {
-        "value": "#1DB954"
-      },
-      "tooltip": [
-        {"field": "Country", "type": "nominal"},
-        {"field": "Price_USD", "type": "quantitative", "format": ".2f"}
-      ]
+    "x": {
+      "field": "Price_USD",
+      "type": "quantitative",
+      "axis": {"title": "Price (USD)"}
     },
-    "config": {
-      "view": {"stroke": null},
-      "axisX": {
-        "grid": true,
-        "gridColor": "#b2b2b2"
-      },
-      "background": "#ffffff"
-    }
+    "color": {
+      "field": "Region",
+      "type": "nominal",
+      "scale": {"scheme": "category10"},
+      "legend": {"title": "Region"}
+    },
+    "tooltip": [
+      {"field": "Country", "type": "nominal"},
+      {"field": "Price_USD", "type": "quantitative", "format": ".2f"},
+      {"field": "Region", "type": "nominal"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": null},
+    "axisX": {"grid": true, "gridColor": "#b2b2b2"},
+    "background": "#ffffff"
   }
-  
+}
