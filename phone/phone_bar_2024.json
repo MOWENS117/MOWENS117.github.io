@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "London: Boroughs by Mobile Phone Theft (2024)",
+    "subtitle": "Source: Metropolitan Police ",
+    "subtitleFontSize": 12,
+    "anchor": "start",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/phone/clean2_phone_data_2024.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.name !== 'Aviation Security (SO18) (Legacy Only)'"
+    }
+  ],
+  "width": 500,
+  "height": 400,
+  "mark": {"type": "bar", "color": "#1D70B8"},
+  "encoding": {
+    "y": {
+      "field": "name",
+      "type": "nominal",
+      "sort": "-x",
+      "title": ""
+    },
+    "x": {
+      "field": "total_thefts",
+      "type": "quantitative",
+      "title": "Number of Robberies"
+    },
+    "tooltip": [
+      {"field": "name", "title": "Borough"},
+      {"field": "total_thefts", "title": "Robberies"}
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axisY": {
+      "grid": false
+    }
+  }
+}
