@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "London: Phone Thefts (2024)",
+    "subtitle": "Top 10 Boroughs vs Others, (Source: Metropolitan Police)",
+    "fontSize": 18,
+    "anchor": "start",
+    "color": "black"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/phone/clean2_phone_data_2024.csv"
+  },
+  "transform": [
+    {
+      "window": [{
+        "op": "rank",
+        "as": "rank"
+      }],
+      "sort": [{"field": "total_thefts", "order": "ascending"}]
+    },
+    {
+      "calculate": "datum.rank <= 10 ? datum.name : 'Others'",
+      "as": "groupedName"
+    },
+    {
+      "aggregate": [{
+        "op": "sum",
+        "field": "total_thefts",
+        "as": "total_crimes"
+      }],
+      "groupby": ["groupedName"]
+    }
+  ],
+  "width": 400,
+  "height": 400,
+  "layer": [{
+    "mark": {
+      "type": "arc",
+      "innerRadius": 80,
+      "outerRadius": 120,
+      "tooltip": true
+    },
+    "encoding": {
+      "theta": {
+        "field": "total_crimes",
+        "type": "quantitative",
+        "stack": true
+      },
+      "color": {
+        "field": "groupedName",
+        "type": "nominal",
+        "scale": {
+          "scheme": "lightmulti"
+        },
+        "legend": {
+          "title": "Borough",
+          "orient": "right"
+        }
+      },
+      "tooltip": [
+        {"field": "groupedName", "title": "Borough"},
+        {"field": "total_crimes", "title": "Total Thefts"}
+      ]
+    }
+  }]
+}
