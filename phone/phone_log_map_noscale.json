@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 400,
+  "background": "#f5f2e9",
+  "title": {
+    "text": "Mobile Phone Theft by London Borough",
+    "subtitle": "Log-transformed Total Thefts (2024)",
+    "fontSize": 18,
+    "anchor": "start",
+    "color": "black"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/yalinyener/LondonBoroughSpatialData/refs/heads/main/LondonBoroughs.geojson",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
+  "transform": [
+    {
+      "lookup": "properties.neighbourhood",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/phone/clean2_phone_data_2024.csv",
+          "format": { "type": "csv" }
+        },
+        "key": "name",
+        "fields": ["total_thefts"]
+      }
+    }
+  ],
+  "projection": {
+    "type": "mercator",
+    "center": [-0.1, 51.5],
+    "scale": 33000
+  },
+  "mark": {
+    "type": "geoshape",
+    "stroke": "#404040",
+    "strokeWidth": 0.7
+  },
+  "encoding": {
+    "color": {
+      "field": "total_thefts",
+      "type": "quantitative",
+      "scale": {
+        "type": "log",
+        "scheme": "greens",
+        "domain": [1000, 60000]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      { "field": "properties.neighbourhood", "type": "nominal", "title": "Borough" },
+      { "field": "total_thefts", "type": "quantitative", "title": "Total Thefts" }
+    ]
+  }
+}
