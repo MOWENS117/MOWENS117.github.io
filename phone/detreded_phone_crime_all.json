@@ -1,8 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Detrended Phone-Related Crimes in London",
-    "subtitle": "Showing cyclical patterns with trend removed"
+    "text": "London: Phone Thefts (Monthly) (Detrended)",
+    "subtitle": "Showing cyclical patterns with trend removed (Source: Metropolitan Police)",
+    "fontSize": 18,
+    "anchor": "start",
+    "color": "black"
   },
   "data": {
     "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/phone/M1045_MonthlyCrimeDashboard_OtherCrimeData_202501.csv"
@@ -17,26 +20,24 @@
       "as": "month"
     },
     {
-      "aggregate": [{
-        "op": "sum",
-        "field": "Count",
-        "as": "total_crimes"
-      }],
+      "aggregate": [
+        {"op": "sum", "field": "Count", "as": "total_crimes"}
+      ],
       "groupby": ["month"]
     },
     {
       "window": [
-        {
-          "op": "mean",
-          "field": "total_crimes",
-          "as": "mean_crimes"
-        }
+        {"op": "mean", "field": "total_crimes", "as": "mean_crimes"}
       ],
       "frame": [-5, 5]
     },
     {
       "calculate": "datum.total_crimes - datum.mean_crimes",
       "as": "detrended_value"
+    },
+    {
+      "calculate": "timeFormat(datum.month, '%m') === '11'",
+      "as": "isNovember"
     }
   ],
   "layer": [
@@ -52,8 +53,22 @@
     },
     {
       "mark": {
+        "type": "area",
+        "color": "#00a6ff",
+        "opacity": 0.3
+      },
+      "encoding": {
+        "x": {"field": "month", "type": "temporal"},
+        "y": {
+          "field": "detrended_value",
+          "type": "quantitative"
+        },
+        "y2": {"datum": 0}
+      }
+    },
+    {
+      "mark": {
         "type": "line",
-        "point": true,
         "strokeWidth": 2
       },
       "encoding": {
@@ -61,55 +76,65 @@
           "field": "month",
           "type": "temporal",
           "title": "Date",
-          "axis": {
-            "format": "%b %Y"
-          }
+          "axis": {"format": "%b %Y"}
         },
         "y": {
           "field": "detrended_value",
           "type": "quantitative",
           "title": "Deviation from Moving Average",
-          "axis": {
-            "titlePadding": 10
-          }
+          "axis": {"titlePadding": 10}
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true
+      },
+      "encoding": {
+        "x": {"field": "month", "type": "temporal"},
+        "y": {"field": "detrended_value", "type": "quantitative"},
+        "color": {
+          "field": "isNovember",
+          "type": "nominal",
+          "scale": {
+            "domain": [false, true],
+            "range": ["#08519c", "#e31a1c"]
+          },
+          "legend": null
         },
         "tooltip": [
-          {
-            "field": "month",
-            "type": "temporal",
-            "title": "Month",
-            "format": "%B %Y"
-          },
-          {
-            "field": "total_crimes",
-            "type": "quantitative",
-            "title": "Original Value"
-          },
-          {
-            "field": "detrended_value",
-            "type": "quantitative",
-            "title": "Deviation",
-            "format": ".1f"
-          }
+          {"field": "month", "type": "temporal", "title": "Month", "format": "%B %Y"},
+          {"field": "total_crimes", "type": "quantitative", "title": "Original Value"},
+          {"field": "detrended_value", "type": "quantitative", "title": "Deviation", "format": ".1f"}
         ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -10,
+        "fontSize": 10
+      },
+      "transform": [
+        {"filter": "datum.isNovember"}
+      ],
+      "encoding": {
+        "x": {"field": "month", "type": "temporal"},
+        "y": {"field": "detrended_value", "type": "quantitative"},
+        "text": {
+          "field": "detrended_value",
+          "format": ".0f"
+        }
       }
     }
   ],
   "width": 600,
   "height": 400,
   "config": {
-    "view": {
-      "stroke": null
-    },
-    "axis": {
-      "grid": false
-    },
-    "line": {
-      "color": "#2171b5"
-    },
-    "point": {
-      "color": "#08519c",
-      "filled": true
-    }
+    "view": {"stroke": null},
+    "axis": {"grid": false},
+    "line": {"color": "#2171b5"}
   }
 }
+
