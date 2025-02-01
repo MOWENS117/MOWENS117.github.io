@@ -1,9 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "London: Phone Thefts (Monthly Total)",
-    "subtitle": "Source: London Metropolitan Police",
-        "subtitleFontSize": 12,
+    "text": "London: Phone Thefts (End of Month Total)",
+    "subtitle": "This chart displays the total phone thefts for each respective month, Source: London Metropolitan Police",
+    "subtitleFontSize": 12,
     "anchor": "start",
     "fontSize": 16,
     "fontWeight": "bold"
@@ -43,7 +43,12 @@
   ],
   "layer": [
     {
-      "mark": {"type": "line", "strokeWidth": 3, "color": "black"},
+      "mark": {
+        "type": "line", 
+        "strokeWidth": 3, 
+        "color": "black", 
+        "point": {"color": "black"}
+      },
       "encoding": {
         "x": {
           "field": "month",
@@ -90,8 +95,8 @@
     "view": {
       "stroke": null
     },
-    "axis": {
-      "grid": true
+    "axisY": {
+      "grid": false
     }
   }
 }
