@@ -1,9 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Running Total of Phone Thefts in London",
-    "subtitle": "Source: Metropolitan Police"
-  },
+"title": {
+  "text": "Cumulative Phone Thefts in London Since January 2021",
+  "subtitle": "Monthly data collection at borough level began January 2021. (Source: Metropolitan Police)",
+  "fontSize": 18,
+  "anchor": "start",
+  "color": "black"
+},
   "data": {
     "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/phone/M1045_MonthlyCrimeDashboard_OtherCrimeData_202501.csv"
   },
