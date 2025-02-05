@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Myles Owens</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">
+    <style>
+        .cv-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 80vh;
+            border: none;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .button-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .cv-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cv-button:hover {
+            background: var(--gradient-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cv-button.outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .cv-button.outline:hover {
+            background: var(--gradient-primary);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Background Sliding Text -->
+        <div class="sliding-text sliding-text-1">Experience • Education • Skills</div>
+        <div class="sliding-text sliding-text-2">Economic Policy • Data Analysis • Visualization</div>
+        <div class="sliding-text sliding-text-3">LSE MPA • Projects • Achievements</div>
+        <div class="sliding-text sliding-text-4">Professional Journey • Expertise</div>
+
+        <!-- Navigation -->
+        <div class="nav-container">
+            <nav>
+                <div class="nav-links">
+                    <a href="https://mylesowens.substack.com/" class="button">Policy Blog</a>
+                    <a href="https://www.linkedin.com/in/myles-owens/">LinkedIn</a>
+                    <a href="https://github.com/MOWENS117">GitHub</a>
+                    <a href="cv.html" class="active">My CV</a>
+                    <a href="project.html">Projects</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="index.html">Home</a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="animated-header">
+                <h1 class="gradient-text">Are all Short-Term Rentals Equal? The Impact of The
+Non Owner Occupied STR Ban in New Orleans.</h1>
+                <p class="title-text">Myles Owens | Economic Policy Analyst</p>
+            </div>
+            <p class="hero-description">
+                This paper utlizes a difference in differences causal inference design to capture the economic impact of a partial short-term rental ban in New Orleans.
+            </p>
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <div class="cv-container">
+        <iframe src="Technical Writing.pdf" class="pdf-viewer" title="Myles Owens CV"></iframe>
+        
+        <div class="button-container">
+            <a href="Technical Writing.pdf" class="cv-button" target="_blank">
+                Download Paper (PDF)
+            </a>
+            <a href="index.html" class="cv-button outline">
+                Back to Homepage
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Myles Owens. All rights reserved.</p>
+    </footer>
+</body>
+</html>
