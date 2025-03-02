@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "2012 Uninsurance Rate vs 2010 Election Margin Alabama Lower House",
+    "subtitle": "American Community Survey S2701 Selected Characteristics of Health Insurance Coverage in the United States"
+  },
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/policy_paper/Cleaned_Data_without_Percentage.csv",
+    "format": {"type": "csv"}
+  },
+  "layer": [
+    {
+      "mark": {"type": "circle", "size": 100, "filled": true},
+      "encoding": {
+        "x": {"field": "Margin", "type": "quantitative", "title": "Margin (%)", "scale": {"domain": [-100, 100]}},
+        "y": {"field": "Percent_Uninsured", "type": "quantitative", "title": "Percent Uninsured (%)"},
+        "color": {
+          "field": "Party",
+          "type": "nominal",
+          "scale": {"domain": ["D", "R"], "range": ["#0015BC", "#FF0000"]}
+        },
+        "tooltip": [
+          {"field": "District", "type": "nominal"},
+          {"field": "Margin", "type": "quantitative"},
+          {"field": "Percent_Uninsured", "type": "quantitative"},
+          {"field": "Party", "type": "nominal"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "rule", "color": "black"},
+      "encoding": {"x": {"datum": 0, "type": "quantitative"}}
+    },
+    {
+      "mark": {"type": "rule", "color": "black"},
+      "encoding": {"y": {"datum": 15.4, "type": "quantitative"}}
+    }
+  ]
+}
