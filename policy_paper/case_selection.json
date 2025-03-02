@@ -7,14 +7,32 @@
   "width": 600,
   "height": 400,
   "data": {
-    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/policy_paper/Cleaned_Data_without_Percentage.csv",
+    "url": "https://raw.githubusercontent.com/MOWENS117/MOWENS117.github.io/refs/heads/main/policy_paper/updated_tidy_uninsured.csv",
     "format": {"type": "csv"}
   },
   "layer": [
     {
+      "mark": {"type": "rect", "color": "grey", "opacity": 0.009},
+      "encoding": {
+        "x": {"datum": -1},
+        "x2": {"datum": 1},
+        "y": {"datum": 6.30},
+        "y2": {"datum": 21.60}
+      }
+    },
+    {
+      "mark": {"type": "rect", "color": "yellow", "opacity": 0.009},
+      "encoding": {
+        "x": {"datum": -0.7603},
+        "x2": {"datum": 0.7397},
+        "y": {"datum": 10.12},
+        "y2": {"datum": 17.78}
+      }
+    },
+    {
       "mark": {"type": "circle", "size": 100, "filled": true},
       "encoding": {
-        "x": {"field": "Margin", "type": "quantitative", "title": "Margin (%)", "scale": {"domain": [-100, 100]}},
+        "x": {"field": "Margin", "type": "quantitative", "title": "Margin of Victory", "scale": {"domain": [-1, 1]}},
         "y": {"field": "Percent_Uninsured", "type": "quantitative", "title": "Percent Uninsured (%)"},
         "color": {
           "field": "Party",
@@ -25,35 +43,35 @@
           {"field": "District", "type": "nominal"},
           {"field": "Margin", "type": "quantitative"},
           {"field": "Percent_Uninsured", "type": "quantitative"},
-          {"field": "Party", "type": "nominal"}
-        ]
+          {"field": "Party", "type": "nominal"},
+          {"field": "Name", "type": "nominal"}
+        ],
+        "text": {"field": "District", "type": "nominal"}
       }
     },
     {
       "mark": {"type": "rule", "color": "black"},
-      "encoding": {"x": {"datum": 0, "type": "quantitative"}}
+      "encoding": {"x": {"datum": -0.0103, "type": "quantitative"}}
     },
     {
       "mark": {"type": "rule", "color": "black"},
-      "encoding": {"y": {"datum": 15.4, "type": "quantitative"}}
+      "encoding": {"y": {"datum": 13.95, "type": "quantitative"}}
     },
     {
-      "mark": {"type": "rect", "color": "yellow", "opacity": 0.006},
-      "encoding": {
-        "x": {"datum": -76.03},
-        "x2": {"datum": 73.97},
-        "y": {"datum": 10.12},
-        "y2": {"datum": 17.78}
-      }
+      "mark": {"type": "rule", "color": "yellow", "strokeDash": [5, 5]},
+      "encoding": {"y": {"datum": 10.12, "type": "quantitative"}}
     },
     {
-      "mark": {"type": "rect", "color": "grey", "opacity": 0.006},
-      "encoding": {
-        "x": {"datum": -100},
-        "x2": {"datum": 100},
-        "y": {"datum": 6.30},
-        "y2": {"datum": 21.60}
-      }
+      "mark": {"type": "rule", "color": "yellow", "strokeDash": [5, 5]},
+      "encoding": {"y": {"datum": 17.78, "type": "quantitative"}}
+    },
+    {
+      "mark": {"type": "rule", "color": "grey", "strokeDash": [5, 5]},
+      "encoding": {"x": {"datum": -0.7603, "type": "quantitative"}}
+    },
+    {
+      "mark": {"type": "rule", "color": "grey", "strokeDash": [5, 5]},
+      "encoding": {"x": {"datum": 0.7397, "type": "quantitative"}}
     }
   ]
 }
